@@ -39,9 +39,75 @@ public class PapierniaSeoApiController : BasePluginController
         {
             ok = true,
             plugin = "Papiernia SEO API",
-            version = "0.1",
+            version = "0.2",
             nopCommerce = "4.50",
             utc = DateTime.UtcNow
+        });
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> Resolve([FromQuery] string url)
+    {
+        var auth = await AuthorizeApiAsync();
+        if (auth != null) return auth;
+
+        if (string.IsNullOrWhiteSpace(url))
+            return BadRequest(new { error = "url_required" });
+
+        var slug = ExtractSlug(url);
+        if (string.IsNullOrWhiteSpace(slug))
+            return BadRequest(new { error = "slug_not_found", url });
+
+        var record = await _urlRecordService.GetBySlugAsync(slug);
+        if (record == null || !record.IsActive)
+            return NotFound(new { error = "url_record_not_found", url, slug });
+
+        if (record.EntityName.Equals("Product", StringComparison.OrdinalIgnoreCase))
+        {
+            var product = await _productService.GetProductByIdAsync(record.EntityId);
+            if (product == null)
+                return NotFound(new { error = "product_not_found", record.EntityId });
+
+            return Json(new
+            {
+                ok = true,
+                url,
+                slug,
+                entity = "Product",
+                id = product.Id,
+                product.Name,
+                product.Published,
+                product.Deleted
+            });
+        }
+
+        if (record.EntityName.Equals("Category", StringComparison.OrdinalIgnoreCase))
+        {
+            var category = await _categoryService.GetCategoryByIdAsync(record.EntityId);
+            if (category == null)
+                return NotFound(new { error = "category_not_found", record.EntityId });
+
+            return Json(new
+            {
+                ok = true,
+                url,
+                slug,
+                entity = "Category",
+                id = category.Id,
+                category.Name,
+                category.Published,
+                category.Deleted
+            });
+        }
+
+        return Json(new
+        {
+            ok = true,
+            url,
+            slug,
+            entity = record.EntityName,
+            id = record.EntityId,
+            supportedForWrite = false
         });
     }
 
@@ -223,6 +289,20 @@ public class PapierniaSeoApiController : BasePluginController
             return Unauthorized(new { error = "invalid_api_key" });
 
         return null;
+    }
+
+    private static string ExtractSlug(string url)
+    {
+        var candidate = url.Trim();
+
+        if (Uri.TryCreate(candidate, UriKind.Absolute, out var absolute))
+            candidate = absolute.AbsolutePath;
+
+        candidate = candidate.Split('?', '#')[0].Trim('/');
+        if (candidate.Contains('/'))
+            candidate = candidate.Split('/', StringSplitOptions.RemoveEmptyEntries).LastOrDefault() ?? string.Empty;
+
+        return Uri.UnescapeDataString(candidate).Trim();
     }
 
     private static bool FixedTimeEquals(string left, string right)
