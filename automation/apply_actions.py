@@ -79,9 +79,16 @@ def main():
             current = api_get(f"{entity}/{entity_id}")
             record["entity"] = entity
             record["id"] = entity_id
+            current_title = current.get("metaTitle")
+            if current_title is None:
+                current_title = current.get("MetaTitle")
+            current_desc = current.get("metaDescription")
+            if current_desc is None:
+                current_desc = current.get("MetaDescription")
+
             record["before"] = {
-                "metaTitle": current.get("metaTitle"),
-                "metaDescription": current.get("metaDescription"),
+                "metaTitle": current_title,
+                "metaDescription": current_desc,
             }
 
             payload = {
