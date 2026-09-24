@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-24",
+  "mode": "safe-meta-only",
+  "actions": [
+    {
+      "url": "https://papiernia.net.pl/czekoladki-slubne-dla-gosci",
+      "metaTitle": "Czekoladki dla gości weselnych – podziękowania na wesele",
+      "metaDescription": "Personalizowane czekoladki dla gości weselnych z etykietą „Dziękujemy za przybycie”. Biała lub mleczna czekolada, min. 30 szt., realizacja 2–3 dni.",
+      "reason": "GSC: fraza „czekoladki dla gości weselnych” ma wysoką widoczność przy bardzo niskim CTR; dopasowanie meta do realnej intencji."
+    },
+    {
+      "url": "https://papiernia.net.pl/podziekowania-za-przybycie-na-urodziny",
+      "metaTitle": "Podziękowania za przybycie na urodziny – z czekoladką",
+      "metaDescription": "Personalizowane podziękowania dla gości na urodziny: kartka A6 z mleczną czekoladką i własnym tekstem. Minimum 30 szt., realizacja 2–3 dni.",
+      "reason": "GSC: fraza „podziękowania za przybycie na urodziny” ma wysokie wyświetlenia i pozycję około 4 przy zerowym CTR."
+    },
+    {
+      "url": "https://papiernia.net.pl/magnesy-dla-gosci-na-wesele",
+      "metaTitle": "Magnesy dla gości na wesele – podziękowania ślubne",
+      "metaDescription": "Personalizowane magnesy 7×7 cm jako podziękowania dla gości weselnych. Wzory z humorem, własny krótki tekst, minimum 30 szt., realizacja 2–3 dni.",
+      "reason": "GSC: strona jest widoczna m.in. na „magnesy na weselu cena”, ale ma dużo wyświetleń bez kliknięć; meta wzmacnia intencję produktu."
+    }
+  ]
+}
