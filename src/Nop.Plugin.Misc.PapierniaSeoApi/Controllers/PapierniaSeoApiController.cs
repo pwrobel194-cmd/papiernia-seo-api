@@ -6,6 +6,7 @@ using Nop.Plugin.Misc.PapierniaSeoApi.Models;
 using Nop.Services.Catalog;
 using Nop.Services.Configuration;
 using Nop.Services.Seo;
+using Nop.Services.Media;
 using Nop.Web.Framework.Controllers;
 
 namespace Nop.Plugin.Misc.PapierniaSeoApi.Controllers;
@@ -16,17 +17,20 @@ public class PapierniaSeoApiController : BasePluginController
     private readonly ICategoryService _categoryService;
     private readonly ISettingService _settingService;
     private readonly IUrlRecordService _urlRecordService;
+    private readonly IPictureService _pictureService;
 
     public PapierniaSeoApiController(
         IProductService productService,
         ICategoryService categoryService,
         ISettingService settingService,
-        IUrlRecordService urlRecordService)
+        IUrlRecordService urlRecordService,
+        IPictureService pictureService)
     {
         _productService = productService;
         _categoryService = categoryService;
         _settingService = settingService;
         _urlRecordService = urlRecordService;
+        _pictureService = pictureService;
     }
 
     [HttpGet]
@@ -39,7 +43,7 @@ public class PapierniaSeoApiController : BasePluginController
         {
             ok = true,
             plugin = "Papiernia SEO API",
-            version = "0.2",
+            version = "0.3",
             nopCommerce = "4.50",
             utc = DateTime.UtcNow
         });
@@ -193,6 +197,125 @@ public class PapierniaSeoApiController : BasePluginController
         await WriteAuditAsync("Product", id, product.Name, request.RequestId, request.Reason, before, after);
 
         return Json(new { ok = true, dryRun = false, entity = "Product", id, request.RequestId });
+    }
+
+
+    [HttpGet]
+    public async Task<IActionResult> ProductPictures(int id)
+    {
+        var auth = await AuthorizeApiAsync();
+        if (auth != null) return auth;
+
+        var product = await _productService.GetProductByIdAsync(id);
+        if (product == null)
+            return NotFound(new { error = "product_not_found", id });
+
+        var pictures = await _pictureService.GetPicturesByProductIdAsync(id);
+        var result = new List<object>();
+
+        foreach (var picture in pictures)
+        {
+            result.Add(new
+            {
+                picture.Id,
+                picture.AltAttribute,
+                picture.TitleAttribute,
+                picture.SeoFilename,
+                picture.MimeType,
+                Url = await _pictureService.GetPictureUrlAsync(picture.Id)
+            });
+        }
+
+        return Json(new
+        {
+            ok = true,
+            productId = id,
+            product.Name,
+            pictureCount = result.Count,
+            pictures = result
+        });
+    }
+
+    [HttpPut]
+    public async Task<IActionResult> UpdatePictureAlt(int id, [FromBody] PictureAltUpdateRequest request, [FromQuery] bool dryRun = false)
+    {
+        var auth = await AuthorizeApiAsync(requireWrite: true);
+        if (auth != null) return auth;
+
+        var product = await _productService.GetProductByIdAsync(id);
+        if (product == null)
+            return NotFound(new { error = "product_not_found", id });
+
+        if (request.PictureId <= 0)
+            return BadRequest(new { error = "picture_id_required" });
+
+        var pictures = await _pictureService.GetPicturesByProductIdAsync(id);
+        var picture = pictures.FirstOrDefault(x => x.Id == request.PictureId);
+        if (picture == null)
+            return NotFound(new { error = "picture_not_found_for_product", productId = id, request.PictureId });
+
+        var alt = (request.AltAttribute ?? string.Empty).Trim();
+        if (alt.Length > 250)
+            return BadRequest(new { error = "alt_too_long", max = 250 });
+
+        request.RequestId ??= Guid.NewGuid().ToString("N");
+
+        var before = new
+        {
+            picture.Id,
+            picture.AltAttribute,
+            picture.TitleAttribute,
+            picture.SeoFilename,
+            picture.MimeType
+        };
+
+        var after = new
+        {
+            picture.Id,
+            AltAttribute = alt,
+            picture.TitleAttribute,
+            picture.SeoFilename,
+            picture.MimeType
+        };
+
+        if (dryRun)
+        {
+            return Json(new
+            {
+                ok = true,
+                dryRun = true,
+                entity = "ProductPictureAlt",
+                productId = id,
+                product.Name,
+                pictureId = picture.Id,
+                request.RequestId,
+                request.Reason,
+                before,
+                after
+            });
+        }
+
+        picture.AltAttribute = alt;
+        await _pictureService.UpdatePictureAsync(picture);
+
+        await WriteAuditAsync(
+            "ProductPictureAlt",
+            picture.Id,
+            $"{product.Name} / picture {picture.Id}",
+            request.RequestId,
+            request.Reason,
+            before,
+            after);
+
+        return Json(new
+        {
+            ok = true,
+            dryRun = false,
+            entity = "ProductPictureAlt",
+            productId = id,
+            pictureId = picture.Id,
+            request.RequestId
+        });
     }
 
     [HttpGet]
