@@ -4,16 +4,15 @@
     <Copyright>Papiernia.net.pl</Copyright>
     <Company>Papiernia.net.pl</Company>
     <Authors>Papiernia.net.pl</Authors>
-    <OutputPath>$(SolutionDir)\Presentation\Nop.Web\Plugins\Misc.PapierniaSeoApi</OutputPath>
+    <OutputPath>..\..\Presentation\Nop.Web\Plugins\Misc.PapierniaSeoApi</OutputPath>
     <OutDir>$(OutputPath)</OutDir>
-    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="$(SolutionDir)\Presentation\Nop.Web.Framework\Nop.Web.Framework.csproj" />
-    <ClearPluginAssemblies Include="$(SolutionDir)\Build\ClearPluginAssemblies.proj" />
+    <None Remove="plugin.json" />
   </ItemGroup>
 
   <ItemGroup>
@@ -22,7 +21,12 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\Presentation\Nop.Web.Framework\Nop.Web.Framework.csproj" />
+    <ClearPluginAssemblies Include="$(MSBuildProjectDirectory)\..\..\Build\ClearPluginAssemblies.proj" />
+  </ItemGroup>
+
   <Target Name="NopTarget" AfterTargets="Build">
-    <MSBuild Projects="@(ClearPluginAssemblies)" Properties="PluginPath=$(OutDir)" Targets="NopClear" />
+    <MSBuild Projects="@(ClearPluginAssemblies)" Properties="PluginPath=$(MSBuildProjectDirectory)\$(OutDir)" Targets="NopClear" />
   </Target>
 </Project>
