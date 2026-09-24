@@ -1,0 +1,11 @@
+{
+  "Group": "Misc",
+  "FriendlyName": "Papiernia SEO API",
+  "SystemName": "Misc.PapierniaSeoApi",
+  "Version": "4.50.1",
+  "SupportedVersions": [ "4.50" ],
+  "Author": "Papiernia.net.pl",
+  "DisplayOrder": 1,
+  "FileName": "Nop.Plugin.Misc.PapierniaSeoApi.dll",
+  "Description": "Ograniczone API do bezpiecznej automatyzacji SEO: odczyt i zmiana metadanych oraz opisów produktów i kategorii, dry-run oraz audyt zmian."
+}
