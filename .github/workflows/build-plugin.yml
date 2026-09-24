@@ -1,0 +1,61 @@
+name: Build nopCommerce plugin
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "src/**"
+      - ".github/workflows/build-plugin.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout plugin repository
+        uses: actions/checkout@v4
+
+      - name: Checkout nopCommerce 4.50.3
+        uses: actions/checkout@v4
+        with:
+          repository: nopSolutions/nopCommerce
+          ref: release-4.50.3
+          path: nopcommerce
+          fetch-depth: 1
+
+      - name: Setup .NET 6
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "6.0.x"
+
+      - name: Copy plugin into nopCommerce source
+        run: |
+          rm -rf nopcommerce/src/Plugins/Nop.Plugin.Misc.PapierniaSeoApi
+          cp -R src/Nop.Plugin.Misc.PapierniaSeoApi nopcommerce/src/Plugins/Nop.Plugin.Misc.PapierniaSeoApi
+
+      - name: Build plugin
+        run: |
+          dotnet build nopcommerce/src/Plugins/Nop.Plugin.Misc.PapierniaSeoApi/Nop.Plugin.Misc.PapierniaSeoApi.csproj \
+            -c Release \
+            /p:SolutionDir="${{ github.workspace }}/nopcommerce/src/"
+
+      - name: Show plugin output
+        run: |
+          find nopcommerce/src/Presentation/Nop.Web/Plugins/Misc.PapierniaSeoApi -maxdepth 2 -type f -print
+
+      - name: Package plugin
+        run: |
+          mkdir -p dist
+          cd nopcommerce/src/Presentation/Nop.Web/Plugins
+          zip -r "${{ github.workspace }}/dist/PapierniaSeoApi-nopCommerce-4.50.3.zip" Misc.PapierniaSeoApi
+
+      - name: Upload installable ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: PapierniaSeoApi-nopCommerce-4.50.3
+          path: dist/PapierniaSeoApi-nopCommerce-4.50.3.zip
+          if-no-files-found: error
+          retention-days: 14
