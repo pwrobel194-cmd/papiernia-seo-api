@@ -20,3 +20,11 @@ public class CategorySeoUpdateRequest
     public string? RequestId { get; set; }
     public string? Reason { get; set; }
 }
+
+public class PictureAltUpdateRequest
+{
+    public int PictureId { get; set; }
+    public string? AltAttribute { get; set; }
+    public string? RequestId { get; set; }
+    public string? Reason { get; set; }
+}
