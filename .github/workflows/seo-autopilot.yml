@@ -4,6 +4,11 @@ on:
   workflow_dispatch:
   schedule:
     - cron: "17 4 * * 2"
+  push:
+    branches: [ "main" ]
+    paths:
+      - "automation/**"
+      - ".github/workflows/seo-autopilot.yml"
 
 jobs:
   seo:
