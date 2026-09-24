@@ -38,24 +38,25 @@ jobs:
 
       - name: Build plugin
         run: |
-          dotnet build nopcommerce/src/Plugins/Nop.Plugin.Misc.PapierniaSeoApi/Nop.Plugin.Misc.PapierniaSeoApi.csproj \
-            -c Release \
-            /p:SolutionDir="${{ github.workspace }}/nopcommerce/src/"
+          dotnet build nopcommerce/src/Plugins/Nop.Plugin.Misc.PapierniaSeoApi/Nop.Plugin.Misc.PapierniaSeoApi.csproj -c Release
 
-      - name: Show plugin output
+      - name: Validate package contents
         run: |
-          find nopcommerce/src/Presentation/Nop.Web/Plugins/Misc.PapierniaSeoApi -maxdepth 2 -type f -print
+          PLUGIN="nopcommerce/src/Presentation/Nop.Web/Plugins/Misc.PapierniaSeoApi"
+          test -f "$PLUGIN/Nop.Plugin.Misc.PapierniaSeoApi.dll"
+          test -f "$PLUGIN/plugin.json"
+          find "$PLUGIN" -maxdepth 2 -type f -print
 
       - name: Package plugin
         run: |
           mkdir -p dist
           cd nopcommerce/src/Presentation/Nop.Web/Plugins
-          zip -r "${{ github.workspace }}/dist/PapierniaSeoApi-nopCommerce-4.50.3.zip" Misc.PapierniaSeoApi
+          zip -r "${{ github.workspace }}/dist/PapierniaSeoApi-nopCommerce-4.50.3-v0.2.zip" Misc.PapierniaSeoApi
 
       - name: Upload installable ZIP
         uses: actions/upload-artifact@v4
         with:
-          name: PapierniaSeoApi-nopCommerce-4.50.3
-          path: dist/PapierniaSeoApi-nopCommerce-4.50.3.zip
+          name: PapierniaSeoApi-nopCommerce-4.50.3-v0.2
+          path: dist/PapierniaSeoApi-nopCommerce-4.50.3-v0.2.zip
           if-no-files-found: error
           retention-days: 14
