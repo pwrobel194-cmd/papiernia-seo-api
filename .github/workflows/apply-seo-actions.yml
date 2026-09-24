@@ -18,7 +18,7 @@ jobs:
 
     env:
       PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
-      AUTO_APPLY_SAFE: "true"
+      AUTO_APPLY_SAFE: "false"
 
     steps:
       - name: Checkout
