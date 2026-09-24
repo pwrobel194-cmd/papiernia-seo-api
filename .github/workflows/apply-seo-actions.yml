@@ -1,0 +1,45 @@
+name: Apply safe SEO actions
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "automation/actions.json"
+      - "automation/apply_actions.py"
+      - ".github/workflows/apply-seo-actions.yml"
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+
+    env:
+      PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+      AUTO_APPLY_SAFE: "false"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependency
+        run: pip install requests==2.32.5
+
+      - name: Validate and execute safe SEO actions
+        run: python automation/apply_actions.py
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: safe-seo-actions-report
+          path: reports/
+          if-no-files-found: warn
+          retention-days: 30
