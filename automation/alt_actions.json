@@ -1,0 +1,9 @@
+{
+  "productId": 4937,
+  "actions": [
+    {"pictureId": 5870, "altAttribute": "Personalizowane cukierki na urodziny z bilecikiem", "reason": "Stary ALT błędnie opisywał magnesy przy produkcie z cukierkami."},
+    {"pictureId": 5871, "altAttribute": "Cukierki na urodziny jako podziękowanie dla gości", "reason": "Stary ALT był ogólny i niespójny z produktem."},
+    {"pictureId": 5872, "altAttribute": "Personalizowane cukierki na 30 urodziny dla gości", "reason": "Stary ALT błędnie opisywał magnes na 30 urodziny."},
+    {"pictureId": 5873, "altAttribute": "Personalizowane cukierki na 40 urodziny dla gości", "reason": "Stary ALT błędnie opisywał magnes na 40 urodziny."}
+  ]
+}
