@@ -1,25 +1,25 @@
 {
   "version": 1,
-  "generatedAt": "2026-09-24",
+  "generatedAt": "2026-09-29",
   "mode": "safe-meta-only",
   "actions": [
     {
-      "url": "https://papiernia.net.pl/swieczki-dla-gosci-weselnych-podziekowanie-na-slub",
-      "metaTitle": "Świeczki dla gości weselnych – podziękowania na ślub",
-      "metaDescription": "Personalizowane świeczki-serduszka w białym pudełeczku jako podziękowania dla gości weselnych. Minimum 30 szt., realizacja 2–3 dni.",
-      "reason": "GSC: fraza świeczki dla gości weselnych ma 56 wyświetleń, pozycję około 5,9 i 0 kliknięć."
+      "url": "https://papiernia.net.pl/swieczki-podziekowania-na-komunie",
+      "metaTitle": "Świeczki na Komunię – podziękowania dla gości",
+      "metaDescription": "Personalizowane świeczki na Komunię w białym pudełeczku z etykietą. Podziękowanie dla gości komunijnych, minimum 30 szt., realizacja 2–3 dni.",
+      "reason": "GSC 28 dni: 1103 wyświetlenia, CTR 0,63%, średnia pozycja 5,57; główna fraza „podziękowania na komunię” 464 wyświetlenia przy pozycji 2,10 i CTR 0,43%."
     },
     {
-      "url": "https://papiernia.net.pl/personalizowane-cukierki-na-urodziny",
-      "metaTitle": "Cukierki na urodziny – personalizowane podziękowania",
-      "metaDescription": "Personalizowane cukierki na urodziny: 3 karmelki Roksy z bilecikiem i własnym tekstem. Minimum 30 szt., realizacja 2–3 dni.",
-      "reason": "GSC: cukierki na urodziny ma 210 wyświetleń przy pozycji około 7,0; cukierki urodzinowe ma 108 wyświetleń przy pozycji około 3,9 i 0 kliknięć."
+      "url": "https://papiernia.net.pl/upominki-i-podziekowania-dla-gosci-weselnych",
+      "metaTitle": "Podziękowania dla gości weselnych – upominki na wesele",
+      "metaDescription": "Personalizowane podziękowania i upominki dla gości weselnych: świeczki, czekoladki, magnesy, ciasteczka i inne drobiazgi na wesele.",
+      "reason": "GSC 28 dni: 1600 wyświetleń, CTR 0,44%, średnia pozycja 20,26; wiele wariantów fraz „podziękowania/upominki dla gości weselnych” ma 0 kliknięć."
     },
     {
-      "url": "https://papiernia.net.pl/ciasteczka-z-wrozba-na-podziekowania",
-      "metaTitle": "Ciasteczka z wróżbą na wesele – podziękowania dla gości",
-      "metaDescription": "Ciasteczka z wróżbą w białym pudełeczku z personalizowaną etykietą. Upominek dla gości weselnych, minimum 30 szt., realizacja 2–3 dni.",
-      "reason": "GSC: strona ma 170 wyświetleń na frazę ciasteczka z wróżbą na wesele przy pozycji około 8,0 i CTR poniżej 1%."
+      "url": "https://papiernia.net.pl/cukierki-dla-gosci-weselnych",
+      "metaTitle": "Cukierki dla gości weselnych – podziękowania na ślub",
+      "metaDescription": "Personalizowane cukierki dla gości weselnych: 3 karmelki z serduszkiem, bilecik z własnym tekstem. Minimum 30 szt., realizacja 2–3 dni.",
+      "reason": "GSC: fraza „cukierki dla gości weselnych” ma 56 wyświetleń przy pozycji 8,63 i 0 kliknięć; strona ma też 5 GA4 key events w ostatnich 28 dniach."
     }
   ]
 }
