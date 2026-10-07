@@ -1,26 +1,13 @@
 {
   "version": 2,
   "generatedAt": "2026-10-07",
-  "mode": "safe-seo-content",
+  "mode": "audit-only",
   "apply": false,
   "actions": [
-    {
-      "url": "https://papiernia.net.pl/slodkie-upominki-dla-klientow-na-swieta",
-      "metaTitle": "Słodkie upominki dla klientów z logo na Święta | Papiernia",
-      "metaDescription": "Słodkie upominki świąteczne dla klientów z logo firmy: 3 karmelki ICE w personalizowanym opakowaniu. Od 30 szt., realizacja 2–3 dni.",
-      "reason": "Batch 3 zakończony. ShortDescription bez zmian."
-    },
-    {
-      "url": "https://papiernia.net.pl/slodkie-upominki-dla-pracownikow-na-swieta",
-      "metaTitle": "Słodkie upominki dla pracowników z logo | Święta | Papiernia",
-      "metaDescription": "Słodkie upominki świąteczne dla pracowników z logo: 3 karmelki w personalizowanym opakowaniu. Od 30 szt., realizacja 2–3 dni.",
-      "reason": "Batch 3 zakończony. Rok zaktualizowany do 2026. ShortDescription bez zmian."
-    },
-    {
-      "url": "https://papiernia.net.pl/notesy-swiateczne-upominki-swiateczne",
-      "metaTitle": "Notesy świąteczne z logo dla firm | Papiernia",
-      "metaDescription": "Mini notesy świąteczne z logo firmy, ołówkiem i personalizowanym bilecikiem. Drobny upominek dla klientów lub pracowników od 30 szt., realizacja 2–3 dni.",
-      "reason": "Batch 3 zakończony. Rok zaktualizowany do 2026. ShortDescription bez zmian."
-    }
+    {"url":"https://papiernia.net.pl/zyczenia-dla-klientow-prezenciki-upominek-swieta-bozego-narodzenia","auditOnly":true},
+    {"url":"https://papiernia.net.pl/prezenciki-dla-klientow-na-swieta-bozego-narodzenia","auditOnly":true},
+    {"url":"https://papiernia.net.pl/upominek-swiateczny-dla-klientow","auditOnly":true},
+    {"url":"https://papiernia.net.pl/oryginalny-prezent-dla-klientow-upominek-swiateczny","auditOnly":true},
+    {"url":"https://papiernia.net.pl/kartki-swiateczne-z-logo-z-zyczeniami-dla-klientow","auditOnly":true}
   ]
 }
