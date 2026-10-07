@@ -116,11 +116,16 @@ def main():
     if not 1 <= len(actions) <= 5:
         raise RuntimeError("Safe run requires 1-5 actions")
 
+    batch_apply = source.get("apply", False) is True
+    apply_now = AUTO_APPLY and batch_apply
+
     health = api_get("Health")
     report = {
         "generatedAtUtc": datetime.now(timezone.utc).isoformat(),
         "pluginHealth": health,
-        "mode": "APPLY" if AUTO_APPLY else "DRY_RUN",
+        "autoApplyEnabled": AUTO_APPLY,
+        "batchApplyRequested": batch_apply,
+        "mode": "APPLY" if apply_now else "DRY_RUN",
         "results": [],
     }
 
@@ -152,8 +157,8 @@ def main():
                 report["results"].append(record)
                 continue
 
-            result = api_put(f"Update{entity}/{entity_id}", payload, dry_run=not AUTO_APPLY)
-            record["status"] = "APPLIED" if AUTO_APPLY else "DRY_RUN"
+            result = api_put(f"Update{entity}/{entity_id}", payload, dry_run=not apply_now)
+            record["status"] = "APPLIED" if apply_now else "DRY_RUN"
             record["apiResult"] = result
 
         except Exception as exc:
