@@ -1,1 +1,13 @@
-{"version":2,"generatedAt":"2026-10-07","mode":"audit-only","apply":false,"actions":[{"url":"https://papiernia.net.pl/zlote-pudeleczko-swiateczne-z-personalizowana-etykieta","auditOnly":true},{"url":"https://papiernia.net.pl/magnes-drobiazg-na-swieta-dla-klientow","auditOnly":true}]}
+{
+  "version": 2,
+  "generatedAt": "2026-10-07",
+  "mode": "audit-only",
+  "apply": false,
+  "actions": [
+    {"url":"https://papiernia.net.pl/zyczenia-dla-klientow-prezenciki-upominek-swieta-bozego-narodzenia","auditOnly":true},
+    {"url":"https://papiernia.net.pl/prezenciki-dla-klientow-na-swieta-bozego-narodzenia","auditOnly":true},
+    {"url":"https://papiernia.net.pl/upominek-swiateczny-dla-klientow","auditOnly":true},
+    {"url":"https://papiernia.net.pl/oryginalny-prezent-dla-klientow-upominek-swiateczny","auditOnly":true},
+    {"url":"https://papiernia.net.pl/kartki-swiateczne-z-logo-z-zyczeniami-dla-klientow","auditOnly":true}
+  ]
+}
