@@ -5,22 +5,30 @@
   "apply": false,
   "actions": [
     {
-      "url": "https://papiernia.net.pl/ciasteczka-z-wrozba-na-swieta-bozego-narodzenia",
-      "metaTitle": "Ciasteczka z wróżbą dla firm na Święta z logo | Papiernia",
-      "metaDescription": "Ciasteczka z wróżbą na Święta dla firm z logo i życzeniami. Pudełko białe lub eko, personalizacja od 30 szt. Realizacja 3–5 dni.",
-      "reason": "Batch 1 zakończony. ShortDescription bez zmian."
+      "url": "https://papiernia.net.pl/tani-upominek-dla-klientow-na-swieta",
+      "metaTitle": "Tani upominek świąteczny dla klientów do 5 zł | Papiernia",
+      "metaDescription": "Tani upominek świąteczny dla klientów: ciasteczko z wróżbą z personalizowaną etykietą i logo firmy. Od 30 szt., cena 2,50 zł za sztukę.",
+      "reason": "Christmas SEO batch 2: przypisanie produktu do intencji 'tani upominek świąteczny dla klientów do 5 zł'. ShortDescription bez zmian."
     },
     {
-      "url": "https://papiernia.net.pl/upominki-firmowe-na-boze-narodzenie-herbata-z-logo",
-      "metaTitle": "Herbata świąteczna z logo firmy | Upominek dla klientów",
-      "metaDescription": "Świąteczna herbata z logo firmy i personalizowanym bilecikiem. Drobny upominek dla klientów i kontrahentów od 30 szt. Realizacja 2–3 dni.",
-      "reason": "Batch 1 zakończony. ShortDescription bez zmian."
+      "url": "https://papiernia.net.pl/lizaki-swiateczne",
+      "metaTitle": "Lizaki świąteczne z logo dla firm | Papiernia",
+      "metaDescription": "Lizaki świąteczne z logo firmy i personalizowaną etykietą. Drobny prezent dla klientów i kontrahentów od 30 szt. Realizacja 2–3 dni.",
+      "targetedReplacements": [
+        {
+          "field": "fullDescription",
+          "from": "2025",
+          "to": "2026",
+          "maxCount": 2
+        }
+      ],
+      "reason": "Christmas SEO batch 2: główny URL dla intencji 'lizaki świąteczne z logo dla firm' oraz punktowa aktualizacja 2025→2026. ShortDescription bez zmian."
     },
     {
-      "url": "https://papiernia.net.pl/czekoladki-z-logo",
-      "metaTitle": "Czekoladki z logo na Święta dla firm | Papiernia",
-      "metaDescription": "Czekoladki z logo firmy na Święta z personalizowaną etykietą i życzeniami. Drobny prezent dla klientów i kontrahentów od 30 szt.",
-      "reason": "Batch 1 zakończony. ShortDescription bez zmian."
+      "url": "https://papiernia.net.pl/magnesy-swiateczne",
+      "metaTitle": "Magnesy świąteczne z logo dla firm | Papiernia",
+      "metaDescription": "Magnesy świąteczne z logo firmy i życzeniami na złotym kartonie. Drobny upominek dla klientów od 30 szt., z woreczkiem do zapakowania.",
+      "reason": "Christmas SEO batch 2: główny URL dla intencji 'magnesy świąteczne z logo dla firm'. ShortDescription bez zmian."
     }
   ]
 }
