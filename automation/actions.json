@@ -14,12 +14,11 @@
       "url": "https://papiernia.net.pl/lizaki-swiateczne",
       "metaTitle": "Lizaki świąteczne z logo dla firm | Papiernia",
       "metaDescription": "Lizaki świąteczne z logo firmy i personalizowaną etykietą. Drobny prezent dla klientów i kontrahentów od 30 szt. Realizacja 2–3 dni.",
-      "targetedReplacements": [
+      "replaceInFullDescription": [
         {
-          "field": "fullDescription",
           "from": "2025",
           "to": "2026",
-          "maxCount": 2
+          "expectedCount": 1
         }
       ],
       "reason": "Christmas SEO batch 2: główny URL dla intencji 'lizaki świąteczne z logo dla firm' oraz punktowa aktualizacja 2025→2026. ShortDescription bez zmian."
