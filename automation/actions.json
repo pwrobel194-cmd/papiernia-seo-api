@@ -1,18 +1,13 @@
 {
   "version": 2,
   "generatedAt": "2026-10-07",
-  "mode": "safe-seo-content",
+  "mode": "final-christmas-seo-audit",
   "apply": false,
   "actions": [
-    {
-      "url":"https://papiernia.net.pl/zlote-pudeleczko-swiateczne-z-personalizowana-etykieta",
-      "shortDescription":"<center><div style=\"line-height:1.6;\"><p><strong>Złote pudełeczko świąteczne z personalizowaną etykietą</strong> – eleganckie opakowanie na własny drobny prezent dla klientów, pracowników lub partnerów biznesowych.</p><br><p>Pudełeczko ma ok. 6 × 6 × 5,5 cm, a okrągła etykieta 40 mm może zawierać logo, nazwę firmy i krótkie życzenia.</p><br><p><strong>Produkt sprzedawany bez zawartości.</strong> Personalizacja od 30 sztuk jednego modelu; pudełeczka wysyłamy rozłożone, a etykiety na arkuszach.</p></div></center>",
-      "reason":"Batch D zakończony. Bramka APPLY wyłączona."
-    },
-    {
-      "url":"https://papiernia.net.pl/magnes-drobiazg-na-swieta-dla-klientow",
-      "shortDescription":"<center><div style=\"line-height:1.6;\"><p><strong>Magnes świąteczny dla klientek salonu z logo</strong> – złoty, błyszczący drobiazg z życzeniami i personalizowaną etykietą.</p><br><p>Upominek ma ok. 7 × 7 cm, etykieta ok. 6,3 × 6,3 cm i funkcję magnesu. Wykonany jest na złotym kartonie typu „lustro” 300 g, a celofanowy woreczek jest dołączony do zestawu.</p><br><p><strong>Personalizacja od 30 sztuk jednego modelu.</strong> Wariant przeznaczony szczególnie dla salonów kosmetycznych, fryzjerskich i gabinetów.</p></div></center>",
-      "reason":"Batch D zakończony. Poprawiony wymiar 7 × 7 cm. Bramka APPLY wyłączona."
-    }
+    {"url":"https://papiernia.net.pl/upominki-swiateczne","auditOnly":true},
+    {"url":"https://papiernia.net.pl/ciasteczka-z-wrozba-na-swieta-bozego-narodzenia","auditOnly":true},
+    {"url":"https://papiernia.net.pl/upominki-firmowe-na-boze-narodzenie-herbata-z-logo","auditOnly":true},
+    {"url":"https://papiernia.net.pl/czekoladki-z-logo","auditOnly":true},
+    {"url":"https://papiernia.net.pl/tani-upominek-dla-klientow-na-swieta","auditOnly":true}
   ]
 }
