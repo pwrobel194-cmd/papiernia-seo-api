@@ -1,10 +1,33 @@
 {
   "version": 2,
   "generatedAt": "2026-10-07",
-  "mode": "audit-only",
+  "mode": "safe-seo-content",
   "apply": false,
   "actions": [
-    {"url":"https://papiernia.net.pl/zlote-pudeleczko-swiateczne-z-personalizowana-etykieta","auditOnly":true},
-    {"url":"https://papiernia.net.pl/magnes-drobiazg-na-swieta-dla-klientow","auditOnly":true}
+    {
+      "url":"https://papiernia.net.pl/zyczenia-dla-klientow-prezenciki-upominek-swieta-bozego-narodzenia",
+      "shortDescription":"<center><div style=\"line-height:1.6;\"><p><strong>Białe pudełeczko serce ze świeczką i życzeniami dla klientów</strong> – elegancki, drobny upominek świąteczny z możliwością dodania logo firmy.</p><br><p>Zestaw zawiera białe tłoczone pudełeczko 10 × 9 × 3 cm, białą świeczkę w kształcie serca ok. 4 × 2 cm, białą wstążkę oraz okrągłą etykietę 4 cm z wybranym wzorem i krótkimi życzeniami.</p><br><p><strong>Personalizacja od 30 sztuk jednego modelu.</strong> Pudełeczka wysyłamy rozłożone, a etykiety na arkuszach do samodzielnego naklejenia.</p></div></center>",
+      "reason":"Christmas SEO rebuild: unikalny krótki opis dla wariantu białe pudełeczko + biała świeczka; poprawa czytelności i usunięcie starego powtarzalnego schematu."
+    },
+    {
+      "url":"https://papiernia.net.pl/prezenciki-dla-klientow-na-swieta-bozego-narodzenia",
+      "shortDescription":"<center><div style=\"line-height:1.6;\"><p><strong>Prezencik dla klientów z ciasteczkiem z wróżbą</strong> – białe pudełeczko serce z personalizowaną etykietą, logo firmy i świątecznymi życzeniami.</p><br><p>W środku znajduje się ciasteczko z losową wróżbą. Pudełeczko ma ok. 10 × 9 × 3 cm, etykieta 4 cm, a biała wstążka jest dołączona do zestawu.</p><br><p><strong>Personalizacja od 30 sztuk jednego modelu.</strong> Pudełeczka wysyłamy rozłożone, a etykiety na arkuszach do samodzielnego naklejenia.</p></div></center>",
+      "reason":"Christmas SEO rebuild: unikalny krótki opis dla wariantu białe pudełeczko + ciasteczko z wróżbą."
+    },
+    {
+      "url":"https://papiernia.net.pl/upominek-swiateczny-dla-klientow",
+      "shortDescription":"<center><div style=\"line-height:1.6;\"><p><strong>Upominek świąteczny dla klientów z czerwoną świeczką</strong> – białe pudełeczko serce z logo firmy, życzeniami i klasycznym bożonarodzeniowym akcentem.</p><br><p>Zestaw obejmuje pudełeczko 10 × 9 × 3 cm, czerwoną świeczkę serce ok. 4 × 2 cm, białą wstążkę oraz personalizowaną etykietę 4 cm.</p><br><p><strong>Personalizacja od 30 sztuk jednego modelu.</strong> Pudełeczka wysyłamy rozłożone, a etykiety na arkuszach do samodzielnego naklejenia.</p></div></center>",
+      "reason":"Christmas SEO rebuild: unikalny krótki opis dla wariantu białe pudełeczko + czerwona świeczka."
+    },
+    {
+      "url":"https://papiernia.net.pl/oryginalny-prezent-dla-klientow-upominek-swiateczny",
+      "shortDescription":"<center><div style=\"line-height:1.6;\"><p><strong>Oryginalny prezent dla klientów w różowym pudełeczku</strong> – dekoracyjny mini upominek ze świeczką serce, logo firmy i personalizowaną etykietą.</p><br><p>Różowe pudełeczko w złote kropki ma ok. 6 × 3,5 × 5,5 cm, czerwona świeczka ok. 2 × 4 cm, a etykieta ok. 4,5 × 4,5 cm.</p><br><p><strong>Personalizacja od 30 sztuk jednego modelu.</strong> Pudełeczka wysyłamy rozłożone do samodzielnego złożenia.</p></div></center>",
+      "reason":"Christmas SEO rebuild: unikalny krótki opis dekoracyjnego różowego pudełeczka ze świeczką."
+    },
+    {
+      "url":"https://papiernia.net.pl/kartki-swiateczne-z-logo-z-zyczeniami-dla-klientow",
+      "shortDescription":"<center><div style=\"line-height:1.6;\"><p><strong>Kartki świąteczne ze zdrapką dla klientów</strong> – personalizowana forma życzeń z logo firmy, złotą zdrapką i czerwoną kopertą.</p><br><p>Format A6 (ok. 105 × 148 mm), biały papier ozdobny, złota zdrapka oraz koperta w zestawie. Kartkę można wręczyć samodzielnie albo dołączyć do paczki świątecznej.</p><br><p><strong>Personalizacja od 30 sztuk jednego modelu.</strong> Możemy dodać logo, nazwę firmy i treść życzeń.</p></div></center>",
+      "reason":"Christmas SEO rebuild: unikalny krótki opis kartki ze zdrapką kierowanej do klientów."
+    }
   ]
 }
