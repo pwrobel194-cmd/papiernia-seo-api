@@ -8,22 +8,28 @@
       "url": "https://papiernia.net.pl/ciasteczka-z-wrozba-na-swieta-bozego-narodzenia",
       "metaTitle": "Ciasteczka z wróżbą dla firm na Święta z logo | Papiernia",
       "metaDescription": "Ciasteczka z wróżbą na Święta dla firm z logo i życzeniami. Pudełko białe lub eko, personalizacja od 30 szt. Realizacja 3–5 dni.",
-      "shortDescription": "<div style=\"line-height:1.55;\"><strong>Ciasteczka z wróżbą dla firm na Święta</strong> – drobny upominek w białym lub eko pudełeczku z personalizowaną etykietą. Możemy dodać logo firmy, krótkie życzenia i podpis. Personalizacja od 30 sztuk jednego modelu, realizacja 3–5 dni.</div>",
-      "reason": "Christmas SEO batch 1: zawężenie produktu do intencji 'ciasteczka z wróżbą dla firm na Święta z logo'; bez zmiany nazwy produktu, URL, ceny, zdjęć i pełnego opisu."
+      "replaceInFullDescription": [
+        {"from": "2025", "to": "2026", "expectedCount": 1}
+      ],
+      "reason": "Christmas SEO batch 1: meta pod intencję 'ciasteczka z wróżbą dla firm na Święta z logo' oraz punktowa aktualizacja roku 2025→2026 w pełnym opisie. ShortDescription pozostaje bez zmian."
     },
     {
       "url": "https://papiernia.net.pl/upominki-firmowe-na-boze-narodzenie-herbata-z-logo",
       "metaTitle": "Herbata świąteczna z logo firmy | Upominek dla klientów",
       "metaDescription": "Świąteczna herbata z logo firmy i personalizowanym bilecikiem. Drobny upominek dla klientów i kontrahentów od 30 szt. Realizacja 2–3 dni.",
-      "shortDescription": "<div style=\"line-height:1.55;\"><strong>Herbata świąteczna z logo firmy</strong> – aromatyczna mieszanka w czerwonej torebce z personalizowanym bilecikiem. Dodamy logo, krótkie życzenia i podpis. Drobny prezent dla klientów i kontrahentów od 30 sztuk, realizacja 2–3 dni.</div>",
-      "reason": "Christmas SEO batch 1: przypisanie frazy produktowej 'herbata świąteczna z logo firmy'; bez zmiany nazwy produktu, URL, ceny, zdjęć i pełnego opisu."
+      "replaceInFullDescription": [
+        {"from": "2025", "to": "2026", "expectedCount": 1}
+      ],
+      "reason": "Christmas SEO batch 1: meta pod intencję 'herbata świąteczna z logo firmy' oraz punktowa aktualizacja roku 2025→2026 w pełnym opisie. ShortDescription pozostaje bez zmian."
     },
     {
       "url": "https://papiernia.net.pl/czekoladki-z-logo",
       "metaTitle": "Czekoladki z logo na Święta dla firm | Papiernia",
       "metaDescription": "Czekoladki z logo firmy na Święta z personalizowaną etykietą i życzeniami. Drobny prezent dla klientów i kontrahentów od 30 szt.",
-      "shortDescription": "<div style=\"line-height:1.55;\"><strong>Czekoladki z logo na Święta dla firm</strong> – słodki upominek z personalizowaną etykietą, życzeniami i logo. Do wyboru czekoladka mleczna lub biała oraz biały albo eko papier. Personalizacja od 30 sztuk jednego modelu.</div>",
-      "reason": "Christmas SEO batch 1: zawężenie produktu do intencji 'czekoladki z logo na Święta dla firm'; bez zmiany nazwy produktu, URL, ceny, zdjęć i pełnego opisu."
+      "replaceInFullDescription": [
+        {"from": "2025", "to": "2026", "expectedCount": 1}
+      ],
+      "reason": "Christmas SEO batch 1: meta pod intencję 'czekoladki z logo na Święta dla firm' oraz punktowa aktualizacja roku 2025→2026 w pełnym opisie. ShortDescription pozostaje bez zmian."
     }
   ]
 }
