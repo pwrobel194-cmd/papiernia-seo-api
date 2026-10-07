@@ -4,10 +4,10 @@
   "mode": "audit-only",
   "apply": false,
   "actions": [
-    {"url":"https://papiernia.net.pl/zyczenia-dla-klientow-prezenciki-upominek-swieta-bozego-narodzenia","auditOnly":true},
-    {"url":"https://papiernia.net.pl/prezenciki-dla-klientow-na-swieta-bozego-narodzenia","auditOnly":true},
-    {"url":"https://papiernia.net.pl/upominek-swiateczny-dla-klientow","auditOnly":true},
-    {"url":"https://papiernia.net.pl/oryginalny-prezent-dla-klientow-upominek-swiateczny","auditOnly":true},
-    {"url":"https://papiernia.net.pl/kartki-swiateczne-z-logo-z-zyczeniami-dla-klientow","auditOnly":true}
+    {"url":"https://papiernia.net.pl/upominki-firmowe-dla-klientow","auditOnly":true},
+    {"url":"https://papiernia.net.pl/upominki-firmowe-na-swieta","auditOnly":true},
+    {"url":"https://papiernia.net.pl/upominki-firmowe-dla-pracownikow","auditOnly":true},
+    {"url":"https://papiernia.net.pl/kartki-swiateczne-dla-firm","auditOnly":true},
+    {"url":"https://papiernia.net.pl/ciasteczko-z-wrozba-w-zlotym-pudeleczku-na-boze-narodzenie","auditOnly":true}
   ]
 }
