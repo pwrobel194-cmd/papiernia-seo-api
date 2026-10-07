@@ -2,32 +2,17 @@
   "version": 2,
   "generatedAt": "2026-10-07",
   "mode": "safe-seo-content",
-  "apply": true,
+  "apply": false,
   "actions": [
     {
-      "url":"https://papiernia.net.pl/mini-prezenciki-dla-klientek-herbatki-na-boze-narodzenie",
-      "shortDescription":"<center><div style=\"line-height:1.6;\"><p><strong>Herbatka świąteczna dla klientek salonu</strong> – drobny prezent w czerwonym opakowaniu z logo, życzeniami i personalizowaną etykietą.</p><br><p>Porcja zawiera zieloną herbatę z hibiskusem, maliną, jabłkiem, aronią i dekoracyjnymi dodatkami. Wymiar upominku ok. 7 × 14 cm, etykieta ok. 6,3 × 6,3 cm.</p><br><p><strong>Personalizacja od 30 sztuk jednego modelu.</strong> Dobry wybór dla salonów kosmetycznych, fryzjerskich, gabinetów i butików.</p></div></center>",
-      "reason":"Christmas SEO rebuild: krótki opis zawężony do intencji klientek salonów i gabinetów."
+      "url":"https://papiernia.net.pl/zlote-pudeleczko-swiateczne-z-personalizowana-etykieta",
+      "shortDescription":"<center><div style=\"line-height:1.6;\"><p><strong>Złote pudełeczko świąteczne z personalizowaną etykietą</strong> – eleganckie opakowanie na własny drobny prezent dla klientów, pracowników lub partnerów biznesowych.</p><br><p>Pudełeczko ma ok. 6 × 6 × 5,5 cm, a okrągła etykieta 40 mm może zawierać logo, nazwę firmy i krótkie życzenia.</p><br><p><strong>Produkt sprzedawany bez zawartości.</strong> Personalizacja od 30 sztuk jednego modelu; pudełeczka wysyłamy rozłożone, a etykiety na arkuszach.</p></div></center>",
+      "reason":"Christmas SEO rebuild: jasne rozróżnienie samego złotego opakowania od produktu z ciasteczkiem."
     },
     {
-      "url":"https://papiernia.net.pl/lizaki-reklamowe-z-nadrukiem-logo-upominek-na-swieta",
-      "shortDescription":"<center><div style=\"line-height:1.6;\"><p><strong>Lizak świąteczny dla klientek salonu z logo</strong> – biało-czerwony lizak z personalizowanym bilecikiem i krótkimi życzeniami.</p><br><p>Cały upominek ma ok. 7 × 22 cm, lizak ok. 3,5 × 12 cm, a etykieta ok. 6,3 × 6,3 cm. Logo i tekst umieszczamy na wybranym motywie świątecznym.</p><br><p><strong>Personalizacja od 30 sztuk jednego modelu.</strong> Wariant przeznaczony szczególnie dla salonów, gabinetów i punktów usługowych.</p></div></center>",
-      "reason":"Christmas SEO rebuild: utrzymanie osobnej intencji salon/gabinet względem ogólnego produktu lizaki świąteczne."
-    },
-    {
-      "url":"https://papiernia.net.pl/swieczki-dla-pracownikow-upominek-swiateczny-dla-firm",
-      "shortDescription":"<center><div style=\"line-height:1.6;\"><p><strong>Świeczka świąteczna dla pracowników z logo</strong> – biała świeczka serce w brązowym opakowaniu EKO z personalizowaną etykietą i życzeniami.</p><br><p>Upominek ma ok. 7 × 14 cm, świeczka ok. 4 × 2 cm, a etykieta ok. 6,3 × 6,3 cm. Możemy dodać logo firmy i krótkie podziękowanie dla zespołu.</p><br><p><strong>Personalizacja od 30 sztuk jednego modelu.</strong> Sprawdzi się na firmową Wigilię lub jako drobny prezent dla pracowników.</p></div></center>",
-      "reason":"Christmas SEO rebuild: czytelny krótki opis wariantu EKO kierowanego do pracowników."
-    },
-    {
-      "url":"https://papiernia.net.pl/swiateczne-ciasteczka-z-wrozba",
-      "shortDescription":"<center><div style=\"line-height:1.6;\"><p><strong>Świąteczne ciasteczko z wróżbą ze złotym bilecikiem</strong> – prosty słodki upominek bez pudełeczka, z logo firmy i życzeniami.</p><br><p>Całość ma ok. 7 × 14 cm, złoty bilecik ok. 7 × 7 cm, a etykieta ok. 6,3 × 6,3 cm. W ciasteczku znajduje się losowa wróżba.</p><br><p><strong>Personalizacja od 30 sztuk jednego modelu.</strong> Lekki wariant do rozdawania klientom, pracownikom lub gościom firmowego spotkania.</p></div></center>",
-      "reason":"Christmas SEO rebuild: wyraźne odróżnienie prostego ciasteczka bez pudełka od wariantów pudełkowych."
-    },
-    {
-      "url":"https://papiernia.net.pl/torebka-papierowa-z-logo-firmy",
-      "shortDescription":"<center><div style=\"line-height:1.6;\"><p><strong>Torebka papierowa z logo na drobny prezent świąteczny</strong> – białe lub EKO opakowanie z personalizowaną etykietą.</p><br><p>Torebka ma ok. 8 × 6 × 19 cm, a etykieta ok. 6,3 × 6,3 cm. Możemy umieścić na niej logo, nazwę firmy i krótki tekst świąteczny.</p><br><p><strong>Produkt sprzedawany bez zawartości.</strong> Personalizacja od 30 sztuk jednego modelu – do środka wkładasz własny drobny prezent.</p></div></center>",
-      "reason":"Christmas SEO rebuild: jednoznaczne wskazanie, że produkt jest opakowaniem bez zawartości."
+      "url":"https://papiernia.net.pl/magnes-drobiazg-na-swieta-dla-klientow",
+      "shortDescription":"<center><div style=\"line-height:1.6;\"><p><strong>Magnes świąteczny dla klientek salonu z logo</strong> – złoty, błyszczący drobiazg z życzeniami i personalizowaną etykietą.</p><br><p>Upominek ma ok. 7 × 7 cm, etykieta ok. 6,3 × 6,3 cm i funkcję magnesu. Wykonany jest na złotym kartonie typu „lustro” 300 g, a celofanowy woreczek jest dołączony do zestawu.</p><br><p><strong>Personalizacja od 30 sztuk jednego modelu.</strong> Wariant przeznaczony szczególnie dla salonów kosmetycznych, fryzjerskich i gabinetów.</p></div></center>",
+      "reason":"Christmas SEO rebuild: korekta błędnego wymiaru 7 cm × 7 m na 7 × 7 cm oraz utrzymanie osobnej intencji salonowej."
     }
   ]
 }
