@@ -8,28 +8,19 @@
       "url": "https://papiernia.net.pl/ciasteczka-z-wrozba-na-swieta-bozego-narodzenia",
       "metaTitle": "Ciasteczka z wróżbą dla firm na Święta z logo | Papiernia",
       "metaDescription": "Ciasteczka z wróżbą na Święta dla firm z logo i życzeniami. Pudełko białe lub eko, personalizacja od 30 szt. Realizacja 3–5 dni.",
-      "replaceInFullDescription": [
-        {"from": "2025", "to": "2026", "expectedCount": 1}
-      ],
-      "reason": "Christmas SEO batch 1: meta pod intencję 'ciasteczka z wróżbą dla firm na Święta z logo' oraz punktowa aktualizacja roku 2025→2026 w pełnym opisie. ShortDescription pozostaje bez zmian."
+      "reason": "Batch 1 zakończony. ShortDescription bez zmian."
     },
     {
       "url": "https://papiernia.net.pl/upominki-firmowe-na-boze-narodzenie-herbata-z-logo",
       "metaTitle": "Herbata świąteczna z logo firmy | Upominek dla klientów",
       "metaDescription": "Świąteczna herbata z logo firmy i personalizowanym bilecikiem. Drobny upominek dla klientów i kontrahentów od 30 szt. Realizacja 2–3 dni.",
-      "replaceInFullDescription": [
-        {"from": "2025", "to": "2026", "expectedCount": 1}
-      ],
-      "reason": "Christmas SEO batch 1: meta pod intencję 'herbata świąteczna z logo firmy' oraz punktowa aktualizacja roku 2025→2026 w pełnym opisie. ShortDescription pozostaje bez zmian."
+      "reason": "Batch 1 zakończony. ShortDescription bez zmian."
     },
     {
       "url": "https://papiernia.net.pl/czekoladki-z-logo",
       "metaTitle": "Czekoladki z logo na Święta dla firm | Papiernia",
       "metaDescription": "Czekoladki z logo firmy na Święta z personalizowaną etykietą i życzeniami. Drobny prezent dla klientów i kontrahentów od 30 szt.",
-      "replaceInFullDescription": [
-        {"from": "2025", "to": "2026", "expectedCount": 1}
-      ],
-      "reason": "Christmas SEO batch 1: meta pod intencję 'czekoladki z logo na Święta dla firm' oraz punktowa aktualizacja roku 2025→2026 w pełnym opisie. ShortDescription pozostaje bez zmian."
+      "reason": "Batch 1 zakończony. ShortDescription bez zmian."
     }
   ]
 }
