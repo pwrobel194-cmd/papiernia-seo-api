@@ -5,22 +5,36 @@
   "apply": false,
   "actions": [
     {
-      "url": "https://papiernia.net.pl/tani-upominek-dla-klientow-na-swieta",
-      "metaTitle": "Tani upominek świąteczny dla klientów do 5 zł | Papiernia",
-      "metaDescription": "Tani upominek świąteczny dla klientów: ciasteczko z wróżbą z personalizowaną etykietą i logo firmy. Od 30 szt., cena 2,50 zł za sztukę.",
-      "reason": "Batch 2 zakończony. ShortDescription bez zmian."
+      "url": "https://papiernia.net.pl/slodkie-upominki-dla-klientow-na-swieta",
+      "metaTitle": "Słodkie upominki dla klientów z logo na Święta | Papiernia",
+      "metaDescription": "Słodkie upominki świąteczne dla klientów z logo firmy: 3 karmelki ICE w personalizowanym opakowaniu. Od 30 szt., realizacja 2–3 dni.",
+      "reason": "Christmas SEO batch 3: produktowy klaster 'słodkie upominki dla klientów z logo'. ShortDescription bez zmian."
     },
     {
-      "url": "https://papiernia.net.pl/lizaki-swiateczne",
-      "metaTitle": "Lizaki świąteczne z logo dla firm | Papiernia",
-      "metaDescription": "Lizaki świąteczne z logo firmy i personalizowaną etykietą. Drobny prezent dla klientów i kontrahentów od 30 szt. Realizacja 2–3 dni.",
-      "reason": "Batch 2 zakończony. Rok zaktualizowany do 2026. ShortDescription bez zmian."
+      "url": "https://papiernia.net.pl/slodkie-upominki-dla-pracownikow-na-swieta",
+      "metaTitle": "Słodkie upominki dla pracowników z logo | Święta | Papiernia",
+      "metaDescription": "Słodkie upominki świąteczne dla pracowników z logo: 3 karmelki w personalizowanym opakowaniu. Od 30 szt., realizacja 2–3 dni.",
+      "replaceInFullDescription": [
+        {
+          "from": "2025",
+          "to": "2026",
+          "expectedCount": 1
+        }
+      ],
+      "reason": "Christmas SEO batch 3: klaster 'słodkie upominki dla pracowników' oraz punktowa aktualizacja 2025→2026. ShortDescription bez zmian."
     },
     {
-      "url": "https://papiernia.net.pl/magnesy-swiateczne",
-      "metaTitle": "Magnesy świąteczne z logo dla firm | Papiernia",
-      "metaDescription": "Magnesy świąteczne z logo firmy i życzeniami na złotym kartonie. Drobny upominek dla klientów od 30 szt., z woreczkiem do zapakowania.",
-      "reason": "Batch 2 zakończony. ShortDescription bez zmian."
+      "url": "https://papiernia.net.pl/notesy-swiateczne-upominki-swiateczne",
+      "metaTitle": "Notesy świąteczne z logo dla firm | Papiernia",
+      "metaDescription": "Mini notesy świąteczne z logo firmy, ołówkiem i personalizowanym bilecikiem. Drobny upominek dla klientów lub pracowników od 30 szt., realizacja 2–3 dni.",
+      "replaceInFullDescription": [
+        {
+          "from": "2025",
+          "to": "2026",
+          "expectedCount": 1
+        }
+      ],
+      "reason": "Christmas SEO batch 3: klaster 'notesy świąteczne z logo dla firm' oraz punktowa aktualizacja 2025→2026. ShortDescription bez zmian."
     }
   ]
 }
