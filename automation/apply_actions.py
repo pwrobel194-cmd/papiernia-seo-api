@@ -16,7 +16,7 @@ if not SEO_KEY:
 
 HEADERS = {"X-Papiernia-SEO-Key": SEO_KEY}
 
-COMMON_FIELDS = {"url", "metaTitle", "metaDescription", "metaKeywords", "reason"}
+COMMON_FIELDS = {"url", "metaTitle", "metaDescription", "metaKeywords", "reason", "auditOnly"}
 CATEGORY_FIELDS = COMMON_FIELDS | {"description"}
 PRODUCT_FIELDS = COMMON_FIELDS | {"shortDescription", "fullDescription", "replaceInFullDescription"}
 
@@ -65,6 +65,9 @@ def validate_common(action):
     if not action.get("url", "").startswith(BASE_URL + "/"):
         raise ValueError("URL outside papiernia.net.pl")
 
+    if action.get("auditOnly") not in (None, True, False):
+        raise ValueError("auditOnly must be boolean")
+
     if "metaTitle" in action:
         title = (action.get("metaTitle") or "").strip()
         if not 25 <= len(title) <= 70:
@@ -88,7 +91,7 @@ def validate_common(action):
         "metaTitle", "metaDescription", "metaKeywords", "description",
         "shortDescription", "fullDescription", "replaceInFullDescription"
     }
-    if not any(field in action for field in editable):
+    if not action.get("auditOnly") and not any(field in action for field in editable):
         raise ValueError("Action contains no editable SEO fields")
 
 
@@ -110,6 +113,7 @@ def read_current(entity, current):
         return value
 
     data = {
+        "name": get("name"),
         "metaTitle": get("metaTitle"),
         "metaDescription": get("metaDescription"),
         "metaKeywords": get("metaKeywords"),
@@ -205,6 +209,12 @@ def main():
             record["id"] = entity_id
 
             before_all = read_current(entity, current)
+            if action.get("auditOnly"):
+                record["status"] = "AUDIT_ONLY"
+                record["current"] = before_all
+                report["results"].append(record)
+                continue
+
             payload, replacement_audit = build_payload(action, entity, entity_id, before_all)
             edit_fields = [k for k in payload if k not in ("requestId", "reason")]
             before = {field: before_all.get(field) for field in edit_fields}
