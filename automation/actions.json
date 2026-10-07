@@ -4,10 +4,10 @@
   "mode": "final-christmas-seo-audit",
   "apply": false,
   "actions": [
-    {"url":"https://papiernia.net.pl/upominki-swiateczne","auditOnly":true},
-    {"url":"https://papiernia.net.pl/ciasteczka-z-wrozba-na-swieta-bozego-narodzenia","auditOnly":true},
-    {"url":"https://papiernia.net.pl/upominki-firmowe-na-boze-narodzenie-herbata-z-logo","auditOnly":true},
-    {"url":"https://papiernia.net.pl/czekoladki-z-logo","auditOnly":true},
-    {"url":"https://papiernia.net.pl/tani-upominek-dla-klientow-na-swieta","auditOnly":true}
+    {"url":"https://papiernia.net.pl/notesy-swiateczne-upominki-swiateczne","auditOnly":true},
+    {"url":"https://papiernia.net.pl/upominki-firmowe-dla-klientow","auditOnly":true},
+    {"url":"https://papiernia.net.pl/slodkie-upominki-dla-pracownikow-na-swieta","auditOnly":true},
+    {"url":"https://papiernia.net.pl/slodkie-upominki-dla-klientow-na-swieta","auditOnly":true},
+    {"url":"https://papiernia.net.pl/magnesy-swiateczne","auditOnly":true}
   ]
 }
