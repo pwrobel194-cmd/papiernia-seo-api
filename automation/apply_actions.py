@@ -18,7 +18,7 @@ HEADERS = {"X-Papiernia-SEO-Key": SEO_KEY}
 
 COMMON_FIELDS = {"url", "metaTitle", "metaDescription", "metaKeywords", "reason"}
 CATEGORY_FIELDS = COMMON_FIELDS | {"description"}
-PRODUCT_FIELDS = COMMON_FIELDS | {"shortDescription", "fullDescription"}
+PRODUCT_FIELDS = COMMON_FIELDS | {"shortDescription", "fullDescription", "replaceInFullDescription"}
 
 
 def api_get(path, params=None):
@@ -39,6 +39,28 @@ def api_put(path, payload, dry_run=True):
     return r.json()
 
 
+def validate_replacements(action):
+    replacements = action.get("replaceInFullDescription")
+    if replacements is None:
+        return
+    if not isinstance(replacements, list) or not replacements:
+        raise ValueError("replaceInFullDescription must be a non-empty list")
+    if len(replacements) > 10:
+        raise ValueError("Too many full-description replacements in one action")
+    for item in replacements:
+        if not isinstance(item, dict):
+            raise ValueError("Each full-description replacement must be an object")
+        old = item.get("from")
+        new = item.get("to")
+        if not isinstance(old, str) or not old:
+            raise ValueError("Replacement 'from' must be a non-empty string")
+        if not isinstance(new, str):
+            raise ValueError("Replacement 'to' must be a string")
+        expected = item.get("expectedCount")
+        if expected is not None and (not isinstance(expected, int) or expected < 1):
+            raise ValueError("expectedCount must be an integer >= 1")
+
+
 def validate_common(action):
     if not action.get("url", "").startswith(BASE_URL + "/"):
         raise ValueError("URL outside papiernia.net.pl")
@@ -57,10 +79,15 @@ def validate_common(action):
         raise ValueError("Meta keywords too long")
 
     for field in ("description", "shortDescription", "fullDescription"):
-        if field in action and len(action.get(field) or "") > 30000:
+        if field in action and len(action.get(field) or "") > 100000:
             raise ValueError(f"{field} too long")
 
-    editable = {"metaTitle", "metaDescription", "metaKeywords", "description", "shortDescription", "fullDescription"}
+    validate_replacements(action)
+
+    editable = {
+        "metaTitle", "metaDescription", "metaKeywords", "description",
+        "shortDescription", "fullDescription", "replaceInFullDescription"
+    }
     if not any(field in action for field in editable):
         raise ValueError("Action contains no editable SEO fields")
 
@@ -71,6 +98,8 @@ def validate_for_entity(action, entity):
     unknown = set(action) - allowed
     if unknown:
         raise ValueError(f"Unsupported fields for {entity}: {sorted(unknown)}")
+    if entity != "Product" and "replaceInFullDescription" in action:
+        raise ValueError("replaceInFullDescription is supported only for Product")
 
 
 def read_current(entity, current):
@@ -93,7 +122,26 @@ def read_current(entity, current):
     return data
 
 
-def build_payload(action, entity, entity_id):
+def apply_full_description_replacements(action, current_full_description):
+    result = current_full_description or ""
+    audit = []
+    for item in action.get("replaceInFullDescription", []):
+        old = item["from"]
+        new = item["to"]
+        count = result.count(old)
+        expected = item.get("expectedCount")
+        if count == 0:
+            raise ValueError(f"Replacement text not found in fullDescription: {old!r}")
+        if expected is not None and count != expected:
+            raise ValueError(
+                f"Replacement count mismatch for {old!r}: found {count}, expected {expected}"
+            )
+        result = result.replace(old, new)
+        audit.append({"from": old, "to": new, "count": count})
+    return result, audit
+
+
+def build_payload(action, entity, entity_id, before_all):
     editable = ["metaTitle", "metaDescription", "metaKeywords"]
     editable += ["description"] if entity == "Category" else ["shortDescription", "fullDescription"]
 
@@ -102,12 +150,24 @@ def build_payload(action, entity, entity_id):
         for field in editable
         if field in action
     }
+
+    replacement_audit = []
+    if entity == "Product" and "replaceInFullDescription" in action:
+        if "fullDescription" in action:
+            raise ValueError("Do not combine fullDescription with replaceInFullDescription")
+        replaced, replacement_audit = apply_full_description_replacements(
+            action, before_all.get("fullDescription")
+        )
+        if len(replaced) > 100000:
+            raise ValueError("Generated fullDescription too long")
+        payload["fullDescription"] = replaced
+
     payload["requestId"] = (
         f"chatgpt-seo-{datetime.now(timezone.utc).strftime('%Y%m%d%H%M%S')}"
         f"-{entity.lower()}-{entity_id}"
     )
     payload["reason"] = action.get("reason", "ChatGPT SEO automation")
-    return payload
+    return payload, replacement_audit
 
 
 def main():
@@ -145,12 +205,14 @@ def main():
             record["id"] = entity_id
 
             before_all = read_current(entity, current)
-            payload = build_payload(action, entity, entity_id)
+            payload, replacement_audit = build_payload(action, entity, entity_id, before_all)
             edit_fields = [k for k in payload if k not in ("requestId", "reason")]
             before = {field: before_all.get(field) for field in edit_fields}
             after = {field: payload[field] for field in edit_fields}
             record["before"] = before
             record["after"] = after
+            if replacement_audit:
+                record["targetedReplacements"] = replacement_audit
 
             if before == after:
                 record["status"] = "NO_CHANGE"
