@@ -7,6 +7,7 @@ on:
     paths:
       - "automation/actions.json"
       - "automation/apply_actions.py"
+      - "automation/add_assembly_notes.py"
       - ".github/workflows/apply-seo-actions.yml"
 
 jobs:
@@ -34,6 +35,9 @@ jobs:
 
       - name: Validate and execute safe SEO actions
         run: python automation/apply_actions.py
+
+      - name: Add missing assembly notices to recent Christmas products
+        run: python automation/add_assembly_notes.py
 
       - name: Upload report
         if: always()
