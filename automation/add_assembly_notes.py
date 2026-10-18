@@ -23,7 +23,7 @@ def get(id):
         r=requests.get(f"{BASE}/Product/{id}",headers=HEAD,timeout=12)
         if r.status_code==404:return None
         r.raise_for_status()
-        return r.json()
+        return {k[0].lower()+k[1:]: v for k,v in r.json().items()}
     except Exception as e:
         return {"_error": str(e), "id": id}
 def has_note(s):
