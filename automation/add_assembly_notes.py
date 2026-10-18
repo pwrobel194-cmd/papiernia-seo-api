@@ -9,7 +9,7 @@ HEAD = {"X-Papiernia-SEO-Key": KEY}
 NOTE = '<p><strong>Ważne – samodzielne złożenie:</strong> Produkt dostarczany jest do samodzielnego złożenia. Elementy zestawu należy przygotować i połączyć we własnym zakresie, a personalizowaną etykietę samodzielnie nakleić.</p>'
 TARGETS = {
     "lizaki": ("lizak", "swiatecz"),
-    "oplatki": ("oplat", "swiatecz"),
+    "oplatki": ("oplat",),
     "swieczka_serce": ("swiecz", "serc", "swiatecz"),
     "serwetki": ("serwet", "swiatecz"),
     "swiece_pienkowe": ("swiec", "pienkow", "swiatecz"),
@@ -47,7 +47,7 @@ def run():
     products=[v for v in found if v and not v.get("deleted") and v.get("published")]
     selected={}
     for kind, tokens in TARGETS.items():
-        matches=[p for p in products if all(t in norm(p.get("name","")) for t in tokens)]
+        matches=[p for p in products if all(t in norm(p.get("name","")) for t in tokens) and any(t in norm(p.get("name","")) for t in ("swiatecz","swieta","swieta","boze narodzenie","wigil"))]
         REPORT["candidates"][kind]=[{"id":p.get("id"),"name":p.get("name")} for p in matches]
         if len(matches)!=1:
             REPORT["results"].append({"target":kind,"status":"SKIPPED_AMBIGUOUS_OR_MISSING","count":len(matches)})
