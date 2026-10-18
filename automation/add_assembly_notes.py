@@ -48,6 +48,10 @@ def run():
     selected={}
     for kind, tokens in TARGETS.items():
         matches=[p for p in products if all(t in norm(p.get("name","")) for t in tokens) and any(t in norm(p.get("name","")) for t in ("swiatecz","swieta","swieta","boze narodzenie","wigil"))]
+        if kind == "lizaki":
+            matches=[p for p in products if p.get("id")==4963 and "lizak" in norm(p.get("name",""))]
+        if kind == "oplatki":
+            matches=[p for p in products if p.get("id")==4964 and "oplat" in norm(p.get("name",""))]
         REPORT["candidates"][kind]=[{"id":p.get("id"),"name":p.get("name")} for p in matches]
         if len(matches)!=1:
             REPORT["results"].append({"target":kind,"status":"SKIPPED_AMBIGUOUS_OR_MISSING","count":len(matches)})
