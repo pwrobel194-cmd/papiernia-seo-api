@@ -28,7 +28,7 @@ def get(id):
         return {"_error": str(e), "id": id}
 def has_note(s):
     x=norm(re.sub(r"<[^>]+>", " ",s or ""))
-    return bool(re.search(r"samodzieln.{0,90}(zlozen|zlozyc|skladan|naklejen)|do samodzielnego zlozenia",x))
+    return bool(re.search(r"samodzieln.{0,90}(zlozen|zlozyc|skladan)|do samodzielnego zlozenia",x))
 def append_note(s):
     s=s or ""
     return s.rstrip()+"\n"+NOTE
