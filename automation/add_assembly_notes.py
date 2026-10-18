@@ -16,7 +16,7 @@ TARGETS = {
 }
 REPORT = {"generatedAt": datetime.now(timezone.utc).isoformat(), "results": [], "candidates": {}}
 def norm(s):
-    s = unicodedata.normalize("NFKD", s or "")
+    s = unicodedata.normalize("NFKD", (s or "").replace("ł","l").replace("Ł","L"))
     return "".join(c for c in s if not unicodedata.combining(c)).lower()
 def get(id):
     try:
@@ -67,10 +67,15 @@ def run():
         fields=[]
         for field in ("shortDescription","fullDescription"):
             text=current.get(field) or ""
-            if not has_note(text):
-                if not text.strip():
+            cleaned=text
+            if text.count(NOTE)>1:
+                cleaned=text.replace(NOTE,"",text.count(NOTE)-1)
+            if not has_note(cleaned):
+                if not cleaned.strip():
                     continue
-                payload[field]=append_note(text)
+                cleaned=append_note(cleaned)
+            if cleaned != text:
+                payload[field]=cleaned
                 fields.append(field)
         if not fields:
             REPORT["results"].append({"target":kind,"id":id,"status":"NO_CHANGE"})
