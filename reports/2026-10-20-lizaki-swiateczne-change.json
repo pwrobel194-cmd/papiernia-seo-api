@@ -1,0 +1,45 @@
+{
+  "deploymentDate": "2026-10-20",
+  "productId": 4919,
+  "url": "https://papiernia.net.pl/lizaki-swiateczne",
+  "productName": "Lizaki świąteczne",
+  "category": "Święta",
+  "changedSection": "FullDescription",
+  "status": "APPLIED_AND_PUBLICLY_VERIFIED",
+  "onlyFullDescriptionChanged": true,
+  "preserved": {
+    "name": true,
+    "slug": true,
+    "shortDescription": true,
+    "price": true,
+    "minOrder": true,
+    "galleryPictures": true,
+    "galleryOrder": true,
+    "galleryAltTitle": true,
+    "fullDescriptionImageTags": true,
+    "fullDescriptionImageCount": 5
+  },
+  "seoChanges": [
+    "Nowy wstęp o lizakach jako upominku świątecznym",
+    "Sekcja personalizacji etykiety i logo",
+    "Zastosowania: klienci, kontrahenci, pracownicy",
+    "Życzenia Boże Narodzenie 2026 / Nowy Rok 2027",
+    "Aktualny sposób zamawiania, min. 30 szt.",
+    "Naturalny link wewnętrzny do /upominki-swiateczne",
+    "Usunięta wzmianka o roku 2025 i poprawione błędy językowe"
+  ],
+  "publicVerification": {
+    "httpStatus": 200,
+    "newHeading": true,
+    "internalLink": true,
+    "year2026": true,
+    "year2027": true,
+    "old2025Absent": true,
+    "allFiveImageReferencesPresent": true
+  },
+  "gscBaseline": {
+    "status": "UNAVAILABLE",
+    "reason": "GSC Wizard subscription_required on 2026-10-20; fill after access is restored"
+  },
+  "backup": "backups/2026-10-20-lizaki-swiateczne-before.html"
+}
