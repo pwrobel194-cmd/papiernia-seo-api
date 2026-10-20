@@ -1,0 +1,67 @@
+name: Upload product media via Papiernia API
+on:
+  push:
+    branches: [feature/product-creator-v04]
+    paths:
+      - "media-inbox/*.zip"
+  workflow_dispatch:
+    inputs:
+      product_id:
+        description: "Unpublished nopCommerce product ID"
+        required: true
+        type: string
+      zip_path:
+        description: "ZIP path relative to repository root, e.g. media-inbox/4968.zip"
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: media-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate upload request and run API client
+        shell: bash
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PROVIDED_PRODUCT_ID: ${{ inputs.product_id }}
+          PROVIDED_ZIP_PATH: ${{ inputs.zip_path }}
+          CHANGED_FILES: ${{ toJSON(github.event.commits.*.added) }}
+        run: |
+          python - <<'PY'
+          import os, pathlib, re, subprocess, sys
+          if not os.environ.get("PAPIERNIA_SEO_API_KEY"):
+              raise SystemExit("Missing PAPIERNIA_SEO_API_KEY secret")
+          if os.environ["EVENT_NAME"] == "workflow_dispatch":
+              product_id = os.environ.get("PROVIDED_PRODUCT_ID", "")
+              path = os.environ.get("PROVIDED_ZIP_PATH", "")
+          else:
+              # For push events always require exactly one ZIP in commit diff.
+              import json
+              items=json.loads(os.environ.get("CHANGED_FILES") or "[]")
+              paths=[p for commit in items for p in (commit if isinstance(commit,list) else []) if re.fullmatch(r"media-inbox/[0-9]+\.zip",p)]
+              if len(paths) != 1:
+                  raise SystemExit("Expected exactly one new media-inbox/<product_id>.zip")
+              path=paths[0]
+              product_id=pathlib.Path(path).stem
+          if not re.fullmatch(r"[1-9][0-9]{0,8}",product_id):
+              raise SystemExit("Invalid product ID")
+          if not re.fullmatch(r"media-inbox/[0-9]+\.zip",path):
+              raise SystemExit("Invalid ZIP path; only media-inbox/<product_id>.zip is allowed")
+          if pathlib.Path(path).stem != product_id:
+              raise SystemExit("ZIP filename does not match product ID")
+          root=pathlib.Path.cwd()
+          archive=root/path
+          if not archive.is_file():
+              raise SystemExit(f"Archive not present in repository: {path}")
+          if archive.stat().st_size>25_000_000:
+              raise SystemExit("Archive exceeds 25 MB")
+          subprocess.run([sys.executable,"automation/product_media_client.py",str(archive),"--product-id",product_id],check=True)
+          PY
