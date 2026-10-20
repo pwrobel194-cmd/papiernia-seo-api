@@ -40,7 +40,7 @@ jobs:
             'metaKeywords':'świeca pieńkowa z etykietą, świeca pieńkowa na Święta'
           }
           preview=req('CreateDraft?dryRun=true','POST',payload)
-          if not (preview.get('ok') and preview.get('dryRun') is True and preview.get('categoryId')==325):
+          if not (preview.get('ok') and preview.get('dryRun') is True and preview.get('CategoryId')==325):
               raise RuntimeError('Dry-run rejected')
           result=req('CreateDraft?dryRun=false','POST',payload)
           print('CREATE_RESPONSE',json.dumps({k:result.get(k) for k in ('ok','created','alreadyExists','published','productId','slug')},ensure_ascii=False))
