@@ -15,8 +15,13 @@ public class RouteProvider : IRouteProvider
 
         endpointRouteBuilder.MapControllerRoute(
             name: "Plugin.Misc.PapierniaSeoApi.Media",
-            pattern: "papiernia-seo-api/v1/{action}/{id?}",
-            defaults: new { controller = "PapierniaProductMedia" });
+            pattern: "papiernia-seo-api/v1/DraftPictures/{id}",
+            defaults: new { controller = "PapierniaProductMedia", action = "DraftPictures" });
+
+        endpointRouteBuilder.MapControllerRoute(
+            name: "Plugin.Misc.PapierniaSeoApi.UploadDraftWebp",
+            pattern: "papiernia-seo-api/v1/UploadDraftWebp/{id}",
+            defaults: new { controller = "PapierniaProductMedia", action = "UploadDraftWebp" });
 
         endpointRouteBuilder.MapControllerRoute(
             name: "Plugin.Misc.PapierniaSeoApi.CreateDraft",
