@@ -16,6 +16,7 @@ namespace Nop.Plugin.Misc.PapierniaSeoApi.Controllers;
 /// </summary>
 public class PapierniaProductDraftController : BasePluginController
 {
+    private static readonly SemaphoreSlim DraftCreationLock = new(1, 1);
     private readonly IProductService _products;
     private readonly ICategoryService _categories;
     private readonly ISettingService _settings;
@@ -51,17 +52,31 @@ public class PapierniaProductDraftController : BasePluginController
         if (category == null || category.Deleted)
             return BadRequest(new { error = "category_not_found" });
 
-        var requestId = request.RequestId ?? Guid.NewGuid().ToString("N");
+        if (string.IsNullOrWhiteSpace(request.RequestId) || request.RequestId.Length > 128)
+            return BadRequest(new { error = "stable_request_id_required", maxLength = 128 });
+        var requestId = request.RequestId.Trim();
+        var sku = "PN-DRAFT-" + Convert.ToHexString(SHA256.HashData(Encoding.UTF8.GetBytes(requestId))).Substring(0, 32);
         // Dry-run is the default. Client must opt in to create a draft.
         if (dryRun)
             return Json(new { ok = true, dryRun = true, wouldCreate = "unpublished_product",
                 requestId, request.Name, request.Price, request.CategoryId,
                 request.MinimumQuantity, request.SeoSlug });
 
+        // Stable SKU detects duplicates after a lost response or process restart.
+        // In-process lock protects concurrent calls to this application instance.
+        await DraftCreationLock.WaitAsync();
+        try
+        {
+        var existing = await _products.GetProductBySkuAsync(sku);
+        if (existing != null)
+            return Json(new { ok = true, dryRun = false, created = false, alreadyExists = true,
+                published = existing.Published, productId = existing.Id, requestId, sku });
+
         var now = DateTime.UtcNow;
         var product = new Product
         {
             Name = request.Name.Trim(),
+            Sku = sku,
             ProductType = ProductType.SimpleProduct,
             VisibleIndividually = true,
             Published = false,
@@ -89,7 +104,12 @@ public class PapierniaProductDraftController : BasePluginController
         await _urlRecords.SaveSlugAsync(product, slug, 0);
 
         return Json(new { ok = true, dryRun = false, created = true,
-            published = false, productId = product.Id, requestId, slug });
+            published = false, productId = product.Id, requestId, slug, sku });
+        }
+        finally
+        {
+            DraftCreationLock.Release();
+        }
     }
 
     private async Task<IActionResult?> AuthorizeWriteAsync()
