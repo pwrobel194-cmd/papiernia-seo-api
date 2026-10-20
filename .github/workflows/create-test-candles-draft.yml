@@ -1,0 +1,54 @@
+name: Create TEST candles unpublished draft
+on:
+  push:
+    branches: [ "feature/product-creator-v04" ]
+    paths: [ ".github/workflows/create-test-candles-draft.yml" ]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    env:
+      PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+    steps:
+      - name: Create and verify unpublished TEST draft once
+        shell: bash
+        run: |
+          python - <<'PY'
+          import os,json,urllib.request,urllib.error
+          base='https://papiernia.net.pl/papiernia-seo-api/v1'
+          key=os.environ.get('PAPIERNIA_SEO_API_KEY','')
+          assert key, 'Missing secret'
+          def req(path,method='GET',payload=None):
+              data=json.dumps(payload,ensure_ascii=False).encode() if payload is not None else None
+              headers={'X-Papiernia-SEO-Key':key}
+              if data is not None: headers['Content-Type']='application/json; charset=utf-8'
+              request=urllib.request.Request(base+'/'+path,data=data,headers=headers,method=method)
+              with urllib.request.urlopen(request,timeout=35) as r:
+                  return json.loads(r.read())
+          payload={
+            'name':'TEST – Świeca pieńkowa z personalizowaną etykietą na Święta',
+            'price':4.5,'categoryId':325,'minimumQuantity':30,
+            'requestId':'papiernia-test-swiece-pienkowe-2026-10-20',
+            'reason':'Weryfikacja nowego API: produkt wyłącznie jako szkic, bez publikacji.',
+            'seoSlug':'test-swieca-pienkowa-z-etykieta-swieta',
+            'shortDescription':'<p><strong>Świeca pieńkowa z personalizowaną etykietą</strong> – elegancki upominek na Święta dla klientów, kontrahentów i pracowników. Zapakowana w woreczek celofanowy ze wstążką. <strong>Produkt do samodzielnego złożenia.</strong></p>',
+            'fullDescription':'<h2>Świeca pieńkowa z personalizowaną etykietą na Święta</h2><p>Drobny, elegancki prezent świąteczny dla klientów, kontrahentów i pracowników jako podziękowanie za współpracę w mijającym roku. Świeca pieńkowa z personalizowaną etykietą sprawdzi się podczas firmowych spotkań wigilijnych i jako symboliczny upominek do zamówień.</p><h3>Personalizacja na Święta</h3><p>Etykieta z życzeniami i nazwą firmy pozwala dopasować prezent do okazji. Produkt zapakowany jest w woreczek celofanowy oraz ozdobiony wstążką.</p><p><strong>Ważne: produkt jest do samodzielnego złożenia.</strong> Poszczególne elementy należy połączyć i zapakować we własnym zakresie.</p><p>Sprawdź także <a href="/upominki-swiateczne">inne upominki świąteczne dla firm</a>.</p>',
+            'metaTitle':'Świeca pieńkowa z etykietą na Święta dla firm | Papiernia',
+            'metaDescription':'Świeca pieńkowa z personalizowaną etykietą – drobny prezent dla klientów i pracowników na Święta. Woreczek celofanowy, wstążka. Do samodzielnego złożenia.',
+            'metaKeywords':'świeca pieńkowa z etykietą, świeca pieńkowa na Święta'
+          }
+          preview=req('CreateDraft?dryRun=true','POST',payload)
+          if not (preview.get('ok') and preview.get('dryRun') is True and preview.get('categoryId')==325):
+              raise RuntimeError('Dry-run rejected')
+          result=req('CreateDraft?dryRun=false','POST',payload)
+          print('CREATE_RESPONSE',json.dumps({k:result.get(k) for k in ('ok','created','alreadyExists','published','productId','slug')},ensure_ascii=False))
+          if result.get('ok') is not True or result.get('published') is not False or not result.get('productId'):
+              raise RuntimeError('Unexpected draft response; verify manually')
+          product=req('Product/'+str(result['productId']))
+          verified=product.get('Published') is False and product.get('Name')==payload['name']
+          print('VERIFY',json.dumps({'id':result['productId'],'unpublished':product.get('Published') is False,'nameMatches':product.get('Name')==payload['name'],'priceNotReturnedByOldReadEndpoint':True},ensure_ascii=False))
+          if not verified: raise RuntimeError('Product readback did not verify')
+          print('SUCCESS: TEST DRAFT CREATED AND CONFIRMED UNPUBLISHED')
+          PY
