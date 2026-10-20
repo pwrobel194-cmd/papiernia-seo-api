@@ -44,3 +44,14 @@ jobs:
           cp -R src/Nop.Plugin.Misc.PapierniaSeoApi nopcommerce/src/Plugins/Nop.Plugin.Misc.PapierniaSeoApi
       - name: Compile against nopCommerce 4.50.3
         run: dotnet build nopcommerce/src/Plugins/Nop.Plugin.Misc.PapierniaSeoApi/Nop.Plugin.Misc.PapierniaSeoApi.csproj -c Release --nologo
+      - name: Package plugin for manual staging review
+        run: |
+          mkdir -p dist
+          cd nopcommerce/src/Presentation/Nop.Web/Plugins
+          zip -r "${{ github.workspace }}/dist/PapierniaSeoApi-v0.4-DEV.zip" Misc.PapierniaSeoApi
+      - name: Upload development ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: PapierniaSeoApi-v0.4-DEV
+          path: dist/PapierniaSeoApi-v0.4-DEV.zip
+          retention-days: 14
