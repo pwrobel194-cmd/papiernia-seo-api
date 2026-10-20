@@ -5,8 +5,8 @@ on:
     branches: [ "feature/product-creator-v04" ]
     paths:
       - "src/**"
-      - "automation/upload_reconcile.py"
-      - "automation/test_upload_reconcile.py"
+      - "automation/**"
+      - ".github/workflows/upload-product-media.yml"
       - ".github/workflows/validate-product-creator.yml"
   workflow_dispatch:
 
@@ -22,7 +22,7 @@ jobs:
         with:
           python-version: "3.12"
       - name: Test ambiguous WebP upload handling
-        run: python -m unittest discover -s automation -p 'test_upload_reconcile.py' -v
+        run: python -m unittest discover -s automation -p 'test_*.py' -v
 
   build:
     runs-on: ubuntu-latest
