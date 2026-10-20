@@ -21,7 +21,7 @@ def run(zip_path, product_id, key):
         state = api("DraftPictures/" + str(product_id), key)
         if state.get("published") is not False:
             raise RuntimeError("Product is published or gallery endpoint unavailable")
-        for entry in manifest["images"]:
+        for entry in (manifest if isinstance(manifest, list) else manifest["images"]):
             name = entry["file"]
             binary = archive.read(name)
             checksum = hashlib.sha256(binary).hexdigest()
@@ -30,7 +30,7 @@ def run(zip_path, product_id, key):
                 "sha256": checksum,
                 "alt": entry.get("alt", ""),
                 "title": entry.get("title", ""),
-                "displayOrder": entry.get("displayOrder", 0)
+                "displayOrder": entry.get("order", entry.get("displayOrder", 0))
             }
             dry = api(f"UploadDraftWebp/{product_id}?dryRun=true", key, request)
             if not dry.get("ok"):
