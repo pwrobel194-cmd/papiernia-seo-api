@@ -1,0 +1,27 @@
+name: Deploy lizaki swiateczne full description
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - "automation/deploy_lizaki_swiateczne_full_description.py"
+      - ".github/workflows/deploy-lizaki-swiateczne.yml"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    env:
+      PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests==2.32.5
+      - run: python automation/deploy_lizaki_swiateczne_full_description.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: lizaki-swiateczne-deploy-2026-10-20
+          path: reports/lizaki-swiateczne-*
+          retention-days: 30
