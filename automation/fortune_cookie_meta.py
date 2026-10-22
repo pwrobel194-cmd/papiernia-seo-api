@@ -4,7 +4,9 @@ from pathlib import Path
 import requests
 
 BASE = "https://papiernia.net.pl/papiernia-seo-api/v1"
-KEY = os.environ["PAPIERNIA_SEO_API_KEY"]
+KEY = os.getenv("PAPIERNIA_SEO_API_KEY", "").strip()
+if not KEY:
+    raise RuntimeError("Missing GitHub Actions secret PAPIERNIA_SEO_API_KEY. Set it under repository Settings > Secrets and variables > Actions.")
 S = requests.Session()
 S.headers.update({"X-Papiernia-SEO-Key": KEY})
 TARGETS = [
@@ -20,13 +22,23 @@ TARGETS = [
 ]
 def call(method, path, **kwargs):
     r = S.request(method, BASE+"/"+path, timeout=40, **kwargs)
-    r.raise_for_status()
-    return r.json()
+    if not r.ok:
+        raise RuntimeError(f"API {method} {path}: HTTP {r.status_code}; response: {r.text[:350]}")
+    try:
+        return r.json()
+    except ValueError as exc:
+        raise RuntimeError(f"API {method} {path}: expected JSON, got {r.text[:200]}") from exc
 def getfield(d, k):
     return d.get(k, d.get(k[0].upper()+k[1:], ""))
 def main():
+    Path("reports").mkdir(exist_ok=True)
+    print("Starting targeted SEO update; checking API health", flush=True)
+    health = call("GET", "Health")
+    if not health.get("ok"):
+        raise RuntimeError(f"API Health returned unhealthy response: {str(health)[:200]}")
     backups = []
     for url, title, description in TARGETS:
+        print("Resolving:", url, flush=True)
         resolved = call("GET", "Resolve", params={"url":url})
         if resolved.get("entity") != "Product" or not resolved.get("id"):
             raise RuntimeError("Product resolution failed: "+url)
