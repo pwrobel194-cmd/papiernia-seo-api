@@ -1,0 +1,29 @@
+name: Fortune cookie SEO targeted update
+on:
+  push:
+    paths:
+      - 'automation/fortune_cookie_meta.py'
+      - '.github/workflows/fortune-cookie-seo.yml'
+  workflow_dispatch:
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - name: Apply and verify three SEO metadata updates
+        env:
+          PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+        run: python automation/fortune_cookie_meta.py
+      - name: Save backup and verification artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fortune-cookie-seo-audit
+          path: reports/fortune-cookie-before-after.json
+          if-no-files-found: warn
