@@ -1,5 +1,7 @@
 # Papiernia — nowa partia produktów: plan SEO 25.10.2026
 
+**Obowiązujący szablon krótkiego opisu dla każdego nowego produktu:** `docs/standard-opisu-krotkiego-papiernia.md` oraz `docs/templates/opis_krotki.html`. Nie zastępować go listą `<ul>` ani lewostronnym opisem.
+
 Źródło: zrzut ekranu z 14 nazwami folderów. Bez wglądu w zdjęcia i zawartość ZIP-a. Poniżej proponowane intencje, nie gotowe metadane.
 
 ## Zasada
