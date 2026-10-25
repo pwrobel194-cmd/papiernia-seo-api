@@ -37,8 +37,8 @@ FOCUS_LEADS = {
 }
 P_TAG = '<p class="pn-seo-kontekst-20261025" style="text-align:center;line-height:1.6;">'
 LINK_TAG = '<p class="pn-seo-hub-20261025" style="text-align:center;line-height:1.6;margin:14px 0;">'
-IMG_RE = re.compile(r"<img\\b[^>]*>", re.I)
-HREF_HUB_RE = re.compile(r"href\\s*=\\s*['\\\"](?:https?://papiernia\\.net\\.pl)?/upominki-swiateczne(?:/?|[?#][^'\\\"]*)['\\\"]", re.I)
+IMG_RE = re.compile(r"<img\b[^>]*>", re.I)
+HREF_HUB_RE = re.compile(r"href\s*=\s*['\\"](?:https?://papiernia\.net\.pl)?/upominki-swiateczne(?:/?|[?#][^'\\"]*)['\\"]", re.I)
 
 report = {
     "createdUtc": datetime.now(timezone.utc).isoformat(),
@@ -68,7 +68,7 @@ def as_lc(obj):
 
 def has_hub_link(s):
     return bool(HREF_HUB_RE.search(s or "")) or bool(re.search(
-        r"href\\s*=\\s*['\\\"]https://papiernia\\.net\\.pl/upominki-swiateczne/?['\\\"]",
+        r"href\s*=\s*['\\"]https://papiernia\.net\.pl/upominki-swiateczne/?['\\"]",
         s or "", re.I
     ))
 
@@ -81,18 +81,18 @@ def new_full_description(slug, focus, meta_desc, original):
     if slug in FOCUS_LEADS and "pn-seo-kontekst-20261025" not in result and old.strip():
         content = P_TAG + "<strong>" + html.escape(focus) + ".</strong> " + html.escape(meta_desc) + "</p>"
         # Zachowaj pierwszy naglowek i kazdy dotychczasowy element HTML.
-        m = re.search(r"</h[1-6]\\s*>", result, re.I)
+        m = re.search(r"</h[1-6]\s*>", result, re.I)
         if m and m.start() < 1800:
-            result = result[:m.end()] + "\\n" + content + result[m.end():]
+            result = result[:m.end()] + "\n" + content + result[m.end():]
         else:
-            result = content + "\\n" + result
+            result = content + "\n" + result
         lead_added = True
     if not has_hub_link(result) and "pn-seo-hub-20261025" not in result:
         para = (LINK_TAG +
             "Szukasz innych wariantów? Przejrzyj także "
             '<a href="' + HUB + '" title="Upominki świąteczne dla klientów z logo">'
             "upominki świąteczne dla klientów i firm</a> w Papierni.</p>")
-        result = result.rstrip() + "\\n" + para
+        result = result.rstrip() + "\n" + para
         link_added = True
     if slug == "oplatek-swiateczny-z-personalizowana-etykieta-na-wigilie-firmowa":
         for old_string, new_string in [
