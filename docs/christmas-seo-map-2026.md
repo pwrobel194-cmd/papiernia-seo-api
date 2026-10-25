@@ -81,3 +81,28 @@ Cel: przypisać jedną dominującą intencję do każdego URL-a w klastrze `/upo
 ## Reguła dla Auto SEO
 
 Przed zmianą meta lub H2 produktu sprawdzić tę mapę. Nie rozszerzać produktu na frazę przypisaną kategorii, jeśli nie wynika to z danych GSC. Jeżeli dwa URL-e zaczynają zbierać te same zapytania, najpierw porównać kliknięcia, wyświetlenia, CTR, pozycję i sprzedaż organiczną; dopiero potem rozważać zmianę intencji lub 301.
+
+## Aktualizacja produkcyjna — 25.10.2026
+
+Wdrożenie zbiorcze: [GitHub Actions run #40220065506](https://github.com/pwrobel194-cmd/papiernia-seo-api/actions/runs/40220065506).
+
+- Zakres: 33 istniejące produkty w kategorii `/upominki-swiateczne`.
+- Status: 33 × APPLIED_VERIFIED, 0 błędów. Zmiana Meta Description dla 33 produktów, Meta Title dla 32, pełnego opisu dla 12.
+- Dla produktów o ogólnych tytułach dodano fragment z konkretną intencją produktową. Brakujące linki do głównej kategorii dodano tam, gdzie były potrzebne. Zachowano krótkie opisy, zdjęcia, URL-e, ceny oraz wszystkie tagi img.
+- **Name/H1 bez zmian**: zainstalowana wersja SEO API nie obsługuje modyfikacji nazwy produktu. Dotychczasowe H1 wymagają osobnego podejścia.
+- Pełna docelowa mapa meta title, description i tematu produktu: `automation/christmas_20261025_plan.json`.
+- Odczyty API potwierdziły zapis wszystkich zmian. Publikację i efekt SEO mierzymy osobno, w GSC z opóźnieniem.
+
+### Nowe produkty dopisane do mapy (po pierwotnych 26)
+
+| URL | Główna fraza / intencja |
+|---|---|
+| `/herbata-w-fiolce-z-etykieta-na-swieta-upominek-z-logo` | herbata w fiolce z etykietą świąteczną |
+| `/swieca-pienkowa-swiateczna-z-logo-firmy` | świeca pieńkowa świąteczna z personalizacją |
+| `/swieczka-swiateczna-w-pudelku-serce-z-logo-firmy-upominek-dla-klientow` | świeczka świąteczna w pudełku serce |
+| `/zlota-torebka-z-cukierkami-na-swieta-personalizowana-etykieta` | złota torebka z cukierkami i etykietą |
+| `/kolorowe-lizaki-swiateczne-z-personalizowana-etykieta` | kolorowe lizaki z etykietą świąteczną |
+| `/serwetki-swiateczne-z-logo-firmy-na-wigilie-firmowa` | serwetki na wigilię firmową z logo |
+| `/oplatek-swiateczny-z-personalizowana-etykieta-na-wigilie-firmowa` | opłatek z etykietą na wigilię firmową |
+
+Baza widoczności: arkusz GSC_DANE (ostatnia zapisana data w kontroli 25.10: 19.10.2026).
