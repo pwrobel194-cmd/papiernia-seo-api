@@ -1,0 +1,41 @@
+name: Christmas SEO full category rollout 2026-10-25
+on:
+  push:
+    branches: [main]
+    paths:
+      - "automation/christmas_20261025_plan.json"
+      - "automation/christmas_bulk_20261025.py"
+      - ".github/workflows/christmas-bulk-20261025.yml"
+  workflow_dispatch:
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: read
+    env:
+      PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install requests
+        run: pip install requests==2.32.5
+      - name: Compile and validate plan
+        run: |
+          python -m py_compile automation/christmas_bulk_20261025.py
+          python -c "import json;d=json.load(open('automation/christmas_20261025_plan.json'));assert len(d['products'])==33"
+      - name: Read, backup, deploy and verify 33 Christmas products
+        run: python automation/christmas_bulk_20261025.py
+      - name: Publish results and backups
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: papiernia-christmas-bulk-20261025
+          path: |
+            reports/christmas-bulk-20261025-result.json
+            backups/christmas-bulk-20261025/
+          if-no-files-found: warn
+          retention-days: 30
