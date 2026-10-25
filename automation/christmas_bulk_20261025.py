@@ -38,7 +38,7 @@ FOCUS_LEADS = {
 P_TAG = '<p class="pn-seo-kontekst-20261025" style="text-align:center;line-height:1.6;">'
 LINK_TAG = '<p class="pn-seo-hub-20261025" style="text-align:center;line-height:1.6;margin:14px 0;">'
 IMG_RE = re.compile(r"<img\b[^>]*>", re.I)
-HREF_HUB_RE = re.compile(r"href\s*=\s*['\\"](?:https?://papiernia\.net\.pl)?/upominki-swiateczne(?:/?|[?#][^'\\"]*)['\\"]", re.I)
+HREF_HUB_RE = re.compile(r'href\s*=\s*[^>]*?/upominki-swiateczne', re.I)
 
 report = {
     "createdUtc": datetime.now(timezone.utc).isoformat(),
@@ -67,10 +67,7 @@ def as_lc(obj):
     return {k[0].lower() + k[1:]: v for k, v in obj.items()}
 
 def has_hub_link(s):
-    return bool(HREF_HUB_RE.search(s or "")) or bool(re.search(
-        r"href\s*=\s*['\\"]https://papiernia\.net\.pl/upominki-swiateczne/?['\\"]",
-        s or "", re.I
-    ))
+    return bool(HREF_HUB_RE.search(s or ""))
 
 def new_full_description(slug, focus, meta_desc, original):
     old = original or ""
