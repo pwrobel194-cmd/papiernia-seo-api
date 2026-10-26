@@ -1,0 +1,38 @@
+name: Birthday SEO product descriptions 2026-10-26
+on:
+  push:
+    branches: [main]
+    paths:
+      - "automation/birthday_seo_20261026.py"
+      - ".github/workflows/birthday-seo-20261026.yml"
+  workflow_dispatch:
+
+jobs:
+  birthday:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    env:
+      PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install requests
+        run: pip install requests==2.32.5
+      - name: Syntax check
+        run: python -m py_compile automation/birthday_seo_20261026.py
+      - name: Read, backup, update and verify birthday product descriptions and safe ALT
+        run: python automation/birthday_seo_20261026.py
+      - name: Upload backup and verification report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: papiernia-birthday-seo-20261026
+          path: |
+            reports/urodziny-seo-20261026-result.json
+            backups/urodziny-20261026/
+          if-no-files-found: warn
+          retention-days: 30
