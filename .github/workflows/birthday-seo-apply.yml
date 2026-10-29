@@ -1,0 +1,27 @@
+name: Birthday SEO guarded deployment
+on:
+  push:
+    paths:
+      - automation/birthday_seo_apply.py
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - name: Apply guarded metadata updates and verify
+        env:
+          PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+        run: python automation/birthday_seo_apply.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: birthday-seo-deployment-report
+          path: birthday-seo-deployment/
+          retention-days: 14
