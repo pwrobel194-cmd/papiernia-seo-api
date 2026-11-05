@@ -212,6 +212,34 @@ Wpis służy wyłącznie do testu API 3.0.</p>
              "alt": val(p, "AltAttribute"), "title": val(p, "TitleAttribute")})
     else:
         record("No product pictures – picture test skipped", None)
+    # Public storefront verification: separate HTTP request without API key.
+    page_url = "https://papiernia.net.pl/" + NEW_SLUG
+    visible = requests.get(page_url, timeout=45, allow_redirects=True)
+    h1_match = re.search(r"<h1\b[^>]*>(.*?)</h1>", visible.text,
+                         flags=re.IGNORECASE | re.DOTALL)
+    title_match = re.search(r"<title\b[^>]*>(.*?)</title>", visible.text,
+                            flags=re.IGNORECASE | re.DOTALL)
+    h1_text = html.unescape(re.sub(r"<[^>]+>", "", h1_match.group(1))).strip() if h1_match else ""
+    title_text = html.unescape(title_match.group(1)).strip() if title_match else ""
+    record("Public storefront check", {
+        "url": visible.url, "statusCode": visible.status_code,
+        "h1": h1_text, "title": title_text,
+        "hasName": "Kot w butach" in h1_text,
+        "hasMetaTitle": "Kot w butach" in title_text
+    })
+    if visible.status_code != 200 or "Kot w butach" not in h1_text:
+        raise RuntimeError("PUBLIC storefront does not show the updated product H1")
+
+    previous = requests.get(PRODUCT_URL, timeout=45, allow_redirects=False)
+    record("Former SEO address check", {
+        "oldUrl": PRODUCT_URL, "statusCode": previous.status_code,
+        "location": previous.headers.get("Location", "")[:250],
+        "redirectExpected": True
+    })
+    if previous.status_code not in (301, 302, 307, 308):
+        report["warnings"] = ["Old product URL does not return an HTTP redirect; verify URL record behavior."]
+        save()
+
     report["status"] = "success"
     report["after"] = {"name": val(current, "Name"), "slug": val(current, "Slug"),
          "sku": val(current, "Sku"), "metaTitle": val(current, "MetaTitle"),
