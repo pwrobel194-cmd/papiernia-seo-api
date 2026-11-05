@@ -14,6 +14,11 @@ public class RouteProvider : IRouteProvider
             defaults: new { controller = "PapierniaSeoAdmin", action = "Configure", area = "Admin" });
 
         endpointRouteBuilder.MapControllerRoute(
+            name: "Plugin.Misc.PapierniaSeoApi.ApiV3",
+            pattern: "papiernia-seo-api/v3/{action}/{id?}",
+            defaults: new { controller = "PapierniaSeoApi" });
+
+        endpointRouteBuilder.MapControllerRoute(
             name: "Plugin.Misc.PapierniaSeoApi.Api",
             pattern: "papiernia-seo-api/v1/{action}/{id?}",
             defaults: new { controller = "PapierniaSeoApi" });
