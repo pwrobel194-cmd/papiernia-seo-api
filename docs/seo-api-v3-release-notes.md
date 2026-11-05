@@ -1,6 +1,6 @@
 # Papiernia SEO API 3.0 — release candidate (nopCommerce 4.50.3)
 
-**Status:** source prepared for CI compilation and testing. DO NOT deploy until GitHub Actions build succeeds and smoke tests pass. Existing production plugin has not been changed.
+**Status (2026-11-05):** plugin v3 installed by the shop owner; GitHub Actions compilation succeeded. On unpublished test product ID 4968, live API preview, commit and read-back succeeded for product name/H1, SKU, short/full HTML descriptions, meta fields and slug. The public page responded 404 because product Published=false. Image ALT/Title and category writes have **not** yet been live-tested. The PR remains draft, not merged; no further product modifications are authorized.
 
 ## Read-only endpoints
 All v1 endpoints remain available under /papiernia-seo-api/v1.
