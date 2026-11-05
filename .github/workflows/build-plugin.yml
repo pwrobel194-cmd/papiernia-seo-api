@@ -55,7 +55,14 @@ jobs:
         run: |
           mkdir -p dist
           cd nopcommerce/src/Presentation/Nop.Web/Plugins
-          zip -r "${{ github.workspace }}/dist/PapierniaSeoApi-nopCommerce-4.50.3-v3.0.zip" Misc.PapierniaSeoApi
+          # Plugin ZIP must not include host assemblies, debug PDBs, or refs/.
+          # Keep exact single-root directory layout required by nopCommerce 4.50 upload.
+          zip -9 "${{ github.workspace }}/dist/PapierniaSeoApi-nopCommerce-4.50.3-v3.0.zip" \
+            Misc.PapierniaSeoApi/plugin.json \
+            Misc.PapierniaSeoApi/Nop.Plugin.Misc.PapierniaSeoApi.dll \
+            Misc.PapierniaSeoApi/Nop.Plugin.Misc.PapierniaSeoApi.deps.json
+          unzip -l "${{ github.workspace }}/dist/PapierniaSeoApi-nopCommerce-4.50.3-v3.0.zip"
+          test $(unzip -Z1 "${{ github.workspace }}/dist/PapierniaSeoApi-nopCommerce-4.50.3-v3.0.zip" | wc -l) -eq 3
 
       - name: Upload installable ZIP
         uses: actions/upload-artifact@v4
