@@ -98,7 +98,7 @@ public partial class PapierniaSeoApiController
         var name = request.Name ?? product.Name;
         var sku = request.Sku ?? product.Sku;
         if (string.IsNullOrWhiteSpace(name) || name.Length > 400 ||
-            string.IsNullOrWhiteSpace(sku) || sku.Length > 400 ||
+            (request.Sku != null && string.IsNullOrWhiteSpace(sku)) || sku.Length > 400 ||
             !ValidField(request.ShortDescription) || !ValidField(request.FullDescription) ||
             !ValidField(request.MetaTitle) || !ValidField(request.MetaDescription) ||
             !ValidField(request.MetaKeywords))
@@ -117,6 +117,9 @@ public partial class PapierniaSeoApiController
             MetaKeywords = request.MetaKeywords ?? product.MetaKeywords,
             SeName = slug, product.UpdatedOnUtc
         };
+        if (!PreservesExistingImages(product.ShortDescription, after.ShortDescription) ||
+            !PreservesExistingImages(product.FullDescription, after.FullDescription))
+            return BadRequest(new { error = "existing_image_removed_or_reordered" });
         var settings = await _settingService.LoadSettingAsync<PapierniaSeoApiSettings>();
         var purpose = "product-seo";
         if (!commit)
@@ -191,6 +194,8 @@ public partial class PapierniaSeoApiController
             MetaKeywords = request.MetaKeywords ?? category.MetaKeywords,
             SeName = slug, category.UpdatedOnUtc
         };
+        if (!PreservesExistingImages(category.Description, after.Description))
+            return BadRequest(new { error = "existing_image_removed_or_reordered" });
         var settings = await _settingService.LoadSettingAsync<PapierniaSeoApiSettings>();
         var purpose = "category-seo";
         if (!commit)
@@ -338,6 +343,31 @@ public partial class PapierniaSeoApiController
         }
         return Json(new { ok = true, productId = id, images = list,
             editMethod = "PreviewProductSeo / CommitProductSeo with fullDescription; preserve all image tags" });
+    }
+
+    private static bool PreservesExistingImages(string? before, string? after)
+    {
+        // Existing image src values must still exist and retain their order.
+        // New image tags may be inserted anywhere; none of the originals may disappear.
+        static List<string> Sources(string? html)
+        {
+            var images = new List<string>();
+            foreach (Match tag in Regex.Matches(html ?? "", "<img\\b[^>]*>",
+                         RegexOptions.IgnoreCase, TimeSpan.FromSeconds(2)))
+            {
+                var src = Regex.Match(tag.Value, "\\bsrc\\s*=\\s*(?:\"(?<v>[^\"]*)\"|'(?<v>[^']*)')",
+                    RegexOptions.IgnoreCase, TimeSpan.FromSeconds(2));
+                images.Add(src.Success ? src.Groups["v"].Value : "<missing-src>");
+            }
+            return images;
+        }
+        var oldImages = Sources(before);
+        var newImages = Sources(after);
+        var j = 0;
+        foreach (var newImage in newImages)
+            if (j < oldImages.Count && string.Equals(oldImages[j], newImage, StringComparison.Ordinal))
+                j++;
+        return j == oldImages.Count;
     }
 
     private static bool HasChanges(params string?[] fields) => fields.Any(f => f != null);
