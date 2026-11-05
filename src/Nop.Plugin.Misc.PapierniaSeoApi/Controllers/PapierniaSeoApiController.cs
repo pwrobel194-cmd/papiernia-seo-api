@@ -11,7 +11,7 @@ using Nop.Web.Framework.Controllers;
 
 namespace Nop.Plugin.Misc.PapierniaSeoApi.Controllers;
 
-public class PapierniaSeoApiController : BasePluginController
+public partial class PapierniaSeoApiController : BasePluginController
 {
     private readonly IProductService _productService;
     private readonly ICategoryService _categoryService;
@@ -43,7 +43,7 @@ public class PapierniaSeoApiController : BasePluginController
         {
             ok = true,
             plugin = "Papiernia SEO API",
-            version = "0.3",
+            version = "3.0",
             nopCommerce = "4.50",
             utc = DateTime.UtcNow
         });

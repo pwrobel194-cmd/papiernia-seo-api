@@ -1,0 +1,32 @@
+name: Live isolated product test — SEO API v3 Kot w butach
+# One-off live test completed 2026-11-05. No further automatic product writes.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-owner-approved-test-product:
+    name: v3 SEO API live smoke test (test product only)
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependency
+        run: pip install requests==2.32.5
+      - name: Test v3 read, preview, write and post-write verification
+        env:
+          PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+        run: python automation/test_api_v3_kot_w_butach.py
+      - name: Upload test report including pre-test snapshot
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: papiernia-seo-api-v3-kot-w-butach-report
+          path: test-results/
+          if-no-files-found: warn
+          retention-days: 14

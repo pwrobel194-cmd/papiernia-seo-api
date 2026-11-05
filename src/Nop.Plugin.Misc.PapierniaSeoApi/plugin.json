@@ -2,10 +2,12 @@
   "Group": "Misc",
   "FriendlyName": "Papiernia SEO API",
   "SystemName": "Misc.PapierniaSeoApi",
-  "Version": "4.50.3",
-  "SupportedVersions": [ "4.50" ],
+  "Version": "4.50.3.3",
+  "SupportedVersions": [
+    "4.50"
+  ],
   "Author": "Papiernia.net.pl",
   "DisplayOrder": 1,
   "FileName": "Nop.Plugin.Misc.PapierniaSeoApi.dll",
-  "Description": "Bezpieczne API SEO: resolver URL, meta produktów/kategorii, odczyt zdjęć i zmiana wyłącznie ALT obrazów, dry-run oraz audyt. Brak usuwania/podmiany obrazów."
+  "Description": "Papiernia SEO API v3: odczyt produktów, kategorii i zdjęć; kontrolowane aktualizacje H1, SKU, meta, opisów, SEO URL, ALT i Title. Podgląd zmian, 15-minutowy token akceptacji, audyt. Zachowana zgodność z API v1. Bez usuwania i podmiany zdjęć."
 }
