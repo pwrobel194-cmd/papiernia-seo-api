@@ -1,11 +1,7 @@
 name: Live isolated product test — SEO API v3 Kot w butach
+# One-off live test completed 2026-11-05. No further automatic product writes.
 on:
-  push:
-    branches:
-      - feature/seo-api-v3-20261105
-    paths:
-      - "automation/test_api_v3_kot_w_butach.py"
-      - ".github/workflows/verify-live-seo-api-v3.yml"
+  workflow_dispatch:
 
 permissions:
   contents: read
