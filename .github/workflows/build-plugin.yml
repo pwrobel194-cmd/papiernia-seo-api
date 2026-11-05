@@ -2,6 +2,10 @@ name: Build nopCommerce plugin
 
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - "src/**"
+      - ".github/workflows/build-plugin.yml"
   push:
     branches: [ "main" ]
     paths:
@@ -51,12 +55,12 @@ jobs:
         run: |
           mkdir -p dist
           cd nopcommerce/src/Presentation/Nop.Web/Plugins
-          zip -r "${{ github.workspace }}/dist/PapierniaSeoApi-nopCommerce-4.50.3-v0.2.zip" Misc.PapierniaSeoApi
+          zip -r "${{ github.workspace }}/dist/PapierniaSeoApi-nopCommerce-4.50.3-v3.0.zip" Misc.PapierniaSeoApi
 
       - name: Upload installable ZIP
         uses: actions/upload-artifact@v4
         with:
-          name: PapierniaSeoApi-nopCommerce-4.50.3-v0.2
-          path: dist/PapierniaSeoApi-nopCommerce-4.50.3-v0.2.zip
+          name: PapierniaSeoApi-nopCommerce-4.50.3-v3.0
+          path: dist/PapierniaSeoApi-nopCommerce-4.50.3-v3.0.zip
           if-no-files-found: error
           retention-days: 14
