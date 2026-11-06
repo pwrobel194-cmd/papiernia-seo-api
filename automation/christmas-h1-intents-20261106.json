@@ -1,7 +1,7 @@
 {
   "date": "2026-11-06",
   "category": "https://papiernia.net.pl/upominki-swiateczne",
-  "workflow": "read_and_preview_only",
+  "workflow": "read_and_preview_only; 4 targeted H1 changes, other H1 preserved after live read",
   "rules": {
     "slug": "ABSOLUTELY_UNCHANGED",
     "categoryLayout": "H1 then products then original long SEO description",
@@ -43,20 +43,20 @@
     {
       "slug": "zyczenia-dla-klientow-prezenciki-upominek-swieta-bozego-narodzenia",
       "proposedName": "Świąteczne podziękowanie dla klientek – biała świeczka z logo",
-      "mode": "preview",
-      "notes": "Biała świeczka, oddzielnie od czerwonej"
+      "mode": "keep",
+      "notes": "Biała świeczka, oddzielnie od czerwonej | odczyt API 06.11: aktualny H1 konkretny, zachowujemy bez zmian"
     },
     {
       "slug": "prezenciki-dla-klientow-na-swieta-bozego-narodzenia",
       "proposedName": "Mały prezent dla klientów – ciasteczko z wróżbą w pudełeczku",
-      "mode": "preview",
-      "notes": "Ciasteczko w białym pudełeczku serce"
+      "mode": "keep",
+      "notes": "Ciasteczko w białym pudełeczku serce | odczyt API 06.11: aktualny H1 konkretny, zachowujemy bez zmian"
     },
     {
       "slug": "upominek-swiateczny-dla-klientow",
       "proposedName": "Firmowy drobiazg z życzeniami – czerwona świeczka serce",
-      "mode": "preview",
-      "notes": "Wariant czerwonej świeczki"
+      "mode": "keep",
+      "notes": "Wariant czerwonej świeczki | odczyt API 06.11: aktualny H1 konkretny, zachowujemy bez zmian"
     },
     {
       "slug": "oryginalny-prezent-dla-klientow-upominek-swiateczny",
@@ -74,7 +74,7 @@
       "slug": "upominki-firmowe-dla-klientow",
       "proposedName": "Nieszablonowy upominek dla kontrahentów – świeczka z logo",
       "mode": "preview",
-      "notes": "Przesunięcie z szerokiej frazy upominki firmowe"
+      "notes": "Przesunięcie z szerokiej frazy upominki firmowe | po odczycie API: H1 warto doprecyzować pod unikalną intencję"
     },
     {
       "slug": "ciasteczka-z-wrozba-na-swieta-bozego-narodzenia",
@@ -86,13 +86,13 @@
       "slug": "upominki-firmowe-na-swieta",
       "proposedName": "Mini prezent dla klientek salonu – świeczka z personalizacją",
       "mode": "preview",
-      "notes": "Rozdzielenie intencji z /upominki-firmowe-dla-klientow"
+      "notes": "Rozdzielenie intencji z /upominki-firmowe-dla-klientow | po odczycie API: H1 warto doprecyzować pod unikalną intencję"
     },
     {
       "slug": "upominki-firmowe-dla-pracownikow",
       "proposedName": "Mini prezent dla pracowników na święta – ciasteczko z wróżbą",
       "mode": "preview",
-      "notes": "Docelowy pracownik zamiast szerokiej frazy firmowej"
+      "notes": "Docelowy pracownik zamiast szerokiej frazy firmowej | po odczycie API: H1 warto doprecyzować pod unikalną intencję"
     },
     {
       "slug": "biale-pudeleczko-ze-swieczka-serce-i-czerwona-wstazka-na-swieta",
@@ -139,8 +139,8 @@
     {
       "slug": "upominki-firmowe-na-boze-narodzenie-herbata-z-logo",
       "proposedName": "Niedrogi prezent biznesowy z logo – herbata świąteczna",
-      "mode": "preview",
-      "notes": "Jednoznaczny rodzaj produktu, intencja biznesowa"
+      "mode": "keep",
+      "notes": "Jednoznaczny rodzaj produktu, intencja biznesowa | odczyt API 06.11: aktualny H1 konkretny, zachowujemy bez zmian"
     },
     {
       "slug": "mini-prezenciki-dla-klientek-herbatki-na-boze-narodzenie",
@@ -187,8 +187,8 @@
     {
       "slug": "slodkie-upominki-dla-klientow-na-swieta",
       "proposedName": "Słodki upominek reklamowy z logo – karmelki ICE",
-      "mode": "preview",
-      "notes": "Przesunięcie z szerokiej frazy na produkt"
+      "mode": "keep",
+      "notes": "Przesunięcie z szerokiej frazy na produkt | odczyt API 06.11: aktualny H1 konkretny, zachowujemy bez zmian"
     },
     {
       "slug": "perlowe-pudelko-prezentowe-z-etykieta-na-swieta",
@@ -206,7 +206,7 @@
       "slug": "tani-upominek-dla-klientow-na-swieta",
       "proposedName": "Tanie podziękowanie dla klientek na święta – ciasteczko z wróżbą",
       "mode": "preview",
-      "notes": "W GSC nakłada się na kategorię; monitorować"
+      "notes": "W GSC nakłada się na kategorię; monitorować | po odczycie API: H1 warto doprecyzować pod unikalną intencję"
     },
     {
       "slug": "torebka-papierowa-z-logo-firmy",
@@ -244,5 +244,6 @@
       "mode": "keep",
       "notes": "Odrębne zastosowanie B2B"
     }
-  ]
+  ],
+  "readbackReview": "38/38 product snapshots 2026-11-06; previous 9 previews reduced to 4 after current-H1 comparison; API HTTP 500 on herbata id 4913 - no changes and excluded from preview"
 }
