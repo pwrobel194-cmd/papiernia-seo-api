@@ -1,0 +1,40 @@
+name: SEO Swieta 2026 - 38 products safe H1 preview
+on:
+  push:
+    branches:
+      - 'seo/swieta-intencje-h1-bez-zmian-url-20261106'
+    paths:
+      - 'automation/christmas-h1-intents-20261106.json'
+      - 'automation/christmas_h1_preview_20261106.py'
+      - '.github/workflows/christmas-h1-preview-20261106.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  preview-only:
+    name: Read 38 live snapshots and preview 9 H1 names - no writes
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install bounded dependency
+        run: pip install requests==2.32.5
+      - name: Validate plan and compile script
+        run: |
+          python -m py_compile automation/christmas_h1_preview_20261106.py
+          python -c "import json; p=json.load(open('automation/christmas-h1-intents-20261106.json')); assert len(p['products'])==38"
+      - name: Fetch live state and PREVIEW changes only
+        env:
+          PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+        run: python automation/christmas_h1_preview_20261106.py
+      - name: Upload read-only before/after preview report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: papiernia-swieta-38-h1-preview-20261106
+          path: reports/christmas-h1-preview-20261106.json
+          if-no-files-found: warn
+          retention-days: 14
