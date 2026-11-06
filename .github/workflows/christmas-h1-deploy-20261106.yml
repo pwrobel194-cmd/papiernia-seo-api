@@ -1,0 +1,44 @@
+name: SEO Święta 2026 - ZATWIERDZONE 4 H1 (bez zmian URL)
+on:
+  push:
+    branches:
+      - 'seo/swieta-h1-deploy-20261106'
+    paths:
+      - '.github/workflows/christmas-h1-deploy-20261106.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: papiernia-christmas-h1-20261106
+  cancel-in-progress: false
+
+jobs:
+  approved-4-h1-only:
+    name: 4 H1 - snapshot, preview, commit, post-verify, backup
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install exact requests version
+        run: pip install requests==2.32.5
+      - name: Syntax check
+        run: python -m py_compile automation/christmas_h1_deploy_20261106.py
+      - name: Apply four owner-approved product H1 only (no slug)
+        env:
+          PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+        run: python automation/christmas_h1_deploy_20261106.py
+      - name: Persist old/new snapshots and audit status
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: papiernia-christmas-h1-deploy-20261106
+          path: |
+            reports/christmas-h1-deploy-20261106.json
+            backups/christmas-h1-deploy-20261106/
+          if-no-files-found: warn
+          retention-days: 30
