@@ -1,0 +1,46 @@
+name: Swieta - 4 opisy SEO (zachowaj wszystkie zdjecia)
+on:
+  push:
+    branches:
+      - 'seo/swieta-4-pelne-opisy-bez-zdjec-20261106'
+    paths:
+      - '.github/workflows/christmas-4-descriptions-deploy-20261106.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: papiernia-4-christmas-descriptions-20261106
+  cancel-in-progress: false
+
+jobs:
+  approved-four-descriptions:
+    name: Exact approved HTML - preserve 13 images and all slugs
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install requests
+        run: pip install requests==2.32.5
+      - name: Validate JSON plan and compile script
+        run: |
+          python -m py_compile automation/christmas_4_descriptions_deploy_20261106.py
+          python -c "import json; p=json.load(open('automation/christmas_4_descriptions_20261106.json')); assert len(p['products']) == 4"
+      - name: Apply approved FullDescription changes using API v3
+        env:
+          PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+        run: python automation/christmas_4_descriptions_deploy_20261106.py
+      - name: Upload backups and before-after verification
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: papiernia-4-opisy-zdjecia-zachowane-20261106
+          path: |
+            reports/christmas-4-descriptions-deploy-20261106.json
+            backups/christmas-4-descriptions-20261106/
+          if-no-files-found: warn
+          retention-days: 30
