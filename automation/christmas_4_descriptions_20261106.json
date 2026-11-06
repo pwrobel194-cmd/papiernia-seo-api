@@ -1,0 +1,87 @@
+{
+  "purpose": "Only owner-approved FullDescription extensions 2026-11-06; exact HTML from previously delivered ZIP; preserve all existing img and a tags and all product metadata",
+  "protected": [
+    "all slugs and URLs",
+    "product names/H1",
+    "SKU",
+    "MetaTitle",
+    "MetaDescription",
+    "MetaKeywords",
+    "ShortDescription",
+    "published/deleted",
+    "picture metadata",
+    "category IDs",
+    "all existing img tags byte-for-byte",
+    "all existing links"
+  ],
+  "products": [
+    {
+      "id": 4922,
+      "slug": "upominki-firmowe-dla-klientow",
+      "name": "Nieszablonowy upominek dla kontrahentów – świeczka z logo",
+      "old_sha": "123a202877327a12e7b4d4b375602477c4b508ca027427ef59d29d6513b37875",
+      "new_sha": "5f3675e31c2917bb720f77bcf3fe54718c9ac287c66c44562e99bff26be26eab",
+      "img": 3,
+      "links": 3,
+      "old_h2": "Upominki firmowe dla klientów – pudełeczko ze świeczką",
+      "new_h2": "Świeczka z logo – nieszablonowy drobiazg dla kontrahentów",
+      "second_old_h2": "Drobny prezent dla klientów i kontrahentów",
+      "second_new_h2": "Świeczka z logo na podziękowanie za współpracę",
+      "paras": [
+        "Gdy chcesz podziękować partnerom biznesowym za współpracę, mała świeczka w białym lub ekologicznym pudełeczku może być alternatywą dla standardowych długopisów i notesów reklamowych. Personalizowana etykieta pozwala dodać logo, podpis firmy oraz krótkie życzenia — bez tworzenia dużego zestawu prezentowego.",
+        "Ten wariant dobrze pasuje do świątecznej korespondencji z kontrahentami, spotkań z partnerami i drobnych upominków dołączanych do zamówień B2B. Przy planowaniu większej liczby prezentów pamiętaj o minimum 30 sztuk jednego modelu oraz o tym, że pudełeczka otrzymasz rozłożone, do samodzielnego złożenia."
+      ]
+    },
+    {
+      "id": 4924,
+      "slug": "upominki-firmowe-na-swieta",
+      "name": "Mini prezent dla klientek salonu – świeczka z personalizacją",
+      "old_sha": "ff05c23966109c40fac0844f0f8fa2ef076d26dc69950d1f16f5ecdca1a71208",
+      "new_sha": "c5e0d1f928c3ed96c63f00385f7f068def300ac6f1b582ce06310ad7f9b5453b",
+      "img": 3,
+      "links": 3,
+      "old_h2": "Mini upominki firmowe na Święta – różowe pudełeczko ze świeczką",
+      "new_h2": "Mini prezent dla klientek salonu – świeczka w ozdobnym pudełeczku",
+      "second_old_h2": "Ozdobny drobiazg zamiast dużego zestawu",
+      "second_new_h2": "Kiedy wręczyć mini prezent klientkom salonu?",
+      "paras": [
+        "W salonie kosmetycznym, fryzjerskim lub studiu stylizacji paznokci taki drobiazg można wręczyć klientce po grudniowej wizycie jako podziękowanie za zaufanie. Różowe pudełeczko w złote kropki ma dekoracyjny charakter, a etykieta z nazwą salonu lub logo pozwala zachować spójny wygląd całej serii prezentów.",
+        "To propozycja szczególnie dla firm usługowych, które chcą przygotować podobne mini prezenty dla większej liczby klientek, bez zamawiania rozbudowanych zestawów. Pudełeczka otrzymujesz rozłożone — przed sezonem warto zaplanować ich samodzielne złożenie i umieszczenie świeczek w środku."
+      ]
+    },
+    {
+      "id": 4925,
+      "slug": "upominki-firmowe-dla-pracownikow",
+      "name": "Mini prezent dla pracowników na święta – ciasteczko z wróżbą",
+      "old_sha": "44132a6ab194aa1f8798b2aee73991891608cfa0600b9b4dc01aa38db7d025ac",
+      "new_sha": "b4490d95fbaf340e05b320ee4fc54675b1edc7132f16560a15ee16036029bf56",
+      "img": 3,
+      "links": 3,
+      "old_h2": "Upominki dla pracowników z ciasteczkiem z wróżbą",
+      "new_h2": "Ciasteczko z wróżbą – mały świąteczny prezent dla zespołu",
+      "second_old_h2": "Drobny prezent na firmową Wigilię",
+      "second_new_h2": "Mini prezenty dla pracowników na wigilię firmową",
+      "paras": [
+        "Jeżeli organizujesz świąteczne spotkanie dla zespołu, ciasteczko z losową wróżbą może być lekkim, nieformalnym akcentem na zakończenie roku. Każda osoba otrzymuje własne ciasteczko, a etykieta na ozdobnym pudełeczku może zawierać wspólne podziękowanie od firmy lub życzenia dla pracowników.",
+        "Taki mini prezent jest przeznaczony na symboliczne podziękowanie, a nie jako zamiennik rozbudowanej paczki świątecznej. Przy zamówieniach dla większego zespołu uwzględnij minimum 30 sztuk jednego modelu i czas na samodzielne złożenie pudełeczek, które dostarczamy rozłożone."
+      ]
+    },
+    {
+      "id": 4946,
+      "slug": "tani-upominek-dla-klientow-na-swieta",
+      "name": "Tanie podziękowanie dla klientek na święta – ciasteczko z wróżbą",
+      "old_sha": "52d028bfe34e078b71d79384efc9da093007d71286b661a2f678cfff9f460cb8",
+      "new_sha": "097114307aa8e4ede6c5c08b2e4bc7ea512cedbac4b427d178514940e13b6ecc",
+      "img": 4,
+      "links": 3,
+      "old_h2": "Tani upominek świąteczny dla klientów do 5 zł",
+      "new_h2": "Tanie podziękowanie dla klientek – ciasteczko z wróżbą i etykietą",
+      "second_old_h2": "Budżetowy prezent dla 50, 100 lub 200 klientów",
+      "second_new_h2": "Budżetowe podziękowanie dla 50, 100 lub 200 klientek",
+      "paras": [
+        "Dla salonów kosmetycznych, fryzjerskich i gabinetów usługowych ciasteczko z wróżbą może być niedrogim podziękowaniem wręczanym po grudniowej wizycie. Klientka otrzymuje mały słodki gest z losową wróżbą, a na okrągłej etykiecie o średnicy 4 cm może znaleźć się logo salonu i krótkie życzenia.",
+        "To prostszy wariant bez dodatkowego pudełeczka, szczególnie przydatny przy przygotowywaniu większej liczby identycznych podziękowań. Etykiety są dostarczane na arkuszach i wymagają samodzielnego naklejenia; przy planowaniu akcji dla klientek warto uwzględnić ten etap przygotowania."
+      ]
+    }
+  ]
+}
