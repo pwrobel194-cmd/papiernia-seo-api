@@ -1,0 +1,248 @@
+{
+  "date": "2026-11-06",
+  "category": "https://papiernia.net.pl/upominki-swiateczne",
+  "workflow": "read_and_preview_only",
+  "rules": {
+    "slug": "ABSOLUTELY_UNCHANGED",
+    "categoryLayout": "H1 then products then original long SEO description",
+    "productName": "Only after v3 preview and explicit owner approval",
+    "images": "No image or embedded img changes",
+    "shortDescription": "UNCHANGED",
+    "prices": "UNCHANGED",
+    "meta": "UNCHANGED_AT_PREVIEW",
+    "gallery": "UNCHANGED",
+    "canonical": "UNCHANGED",
+    "publish": "UNCHANGED",
+    "fullDescription": "UNCHANGED_AT_PREVIEW"
+  },
+  "products": [
+    {
+      "slug": "koperty-swiateczne-czerwone-c6-z-personalizowana-etykieta-50-szt",
+      "proposedName": "Koperty świąteczne C6 z etykietą – 50 szt.",
+      "mode": "keep",
+      "notes": "Produkt opakowaniowy, nie ogólny upominek"
+    },
+    {
+      "slug": "herbata-w-fiolce-z-etykieta-na-swieta-upominek-z-logo",
+      "proposedName": "Herbata świąteczna w fiolce z logo firmy",
+      "mode": "keep",
+      "notes": "Format fiolki daje samodzielną intencję"
+    },
+    {
+      "slug": "swieca-pienkowa-swiateczna-z-logo-firmy",
+      "proposedName": "Świeca pieńkowa świąteczna z personalizacją",
+      "mode": "keep",
+      "notes": "Inny typ świeczki niż serce"
+    },
+    {
+      "slug": "notesy-swiateczne-upominki-swiateczne",
+      "proposedName": "Praktyczny drobiazg dla firm – notesik z ołówkiem i logo",
+      "mode": "review",
+      "notes": "Sprawdzić aktualne H1 i ruch przed zmianą"
+    },
+    {
+      "slug": "zyczenia-dla-klientow-prezenciki-upominek-swieta-bozego-narodzenia",
+      "proposedName": "Świąteczne podziękowanie dla klientek – biała świeczka z logo",
+      "mode": "preview",
+      "notes": "Biała świeczka, oddzielnie od czerwonej"
+    },
+    {
+      "slug": "prezenciki-dla-klientow-na-swieta-bozego-narodzenia",
+      "proposedName": "Mały prezent dla klientów – ciasteczko z wróżbą w pudełeczku",
+      "mode": "preview",
+      "notes": "Ciasteczko w białym pudełeczku serce"
+    },
+    {
+      "slug": "upominek-swiateczny-dla-klientow",
+      "proposedName": "Firmowy drobiazg z życzeniami – czerwona świeczka serce",
+      "mode": "preview",
+      "notes": "Wariant czerwonej świeczki"
+    },
+    {
+      "slug": "oryginalny-prezent-dla-klientow-upominek-swiateczny",
+      "proposedName": "Nieszablonowy prezent dla klientek – świeczka w ozdobnym pudełku",
+      "mode": "review",
+      "notes": "Potencjalny konflikt z różowym pudełkiem; najpierw porównać towary"
+    },
+    {
+      "slug": "kartki-swiateczne-z-logo-z-zyczeniami-dla-klientow",
+      "proposedName": "Firmowe podziękowanie ze zdrapką – kartka świąteczna z logo",
+      "mode": "review",
+      "notes": "Nie ruszać przed porównaniem dwóch kartek"
+    },
+    {
+      "slug": "upominki-firmowe-dla-klientow",
+      "proposedName": "Nieszablonowy upominek dla kontrahentów – świeczka z logo",
+      "mode": "preview",
+      "notes": "Przesunięcie z szerokiej frazy upominki firmowe"
+    },
+    {
+      "slug": "ciasteczka-z-wrozba-na-swieta-bozego-narodzenia",
+      "proposedName": "Słodki upominek na wigilię firmową – ciasteczko z wróżbą",
+      "mode": "review",
+      "notes": "Sprawdzić różnicę względem innych ciasteczek"
+    },
+    {
+      "slug": "upominki-firmowe-na-swieta",
+      "proposedName": "Mini prezent dla klientek salonu – świeczka z personalizacją",
+      "mode": "preview",
+      "notes": "Rozdzielenie intencji z /upominki-firmowe-dla-klientow"
+    },
+    {
+      "slug": "upominki-firmowe-dla-pracownikow",
+      "proposedName": "Mini prezent dla pracowników na święta – ciasteczko z wróżbą",
+      "mode": "preview",
+      "notes": "Docelowy pracownik zamiast szerokiej frazy firmowej"
+    },
+    {
+      "slug": "biale-pudeleczko-ze-swieczka-serce-i-czerwona-wstazka-na-swieta",
+      "proposedName": "Świeczka z kokardką jako mały prezent na firmowe święta",
+      "mode": "review",
+      "notes": "Wariant czerwonej wstążki; uważać na podobne świece"
+    },
+    {
+      "slug": "biale-pudeleczko-z-ciasteczkiem-z-wrozba-i-czerwona-wstazka",
+      "proposedName": "Ciasteczko z wróżbą w pudełeczku – firmowy prezencik z kokardką",
+      "mode": "review",
+      "notes": "Wyróżnik: czerwona wstążka"
+    },
+    {
+      "slug": "swieczka-swiateczna-w-pudelku-serce-z-logo-firmy-upominek-dla-klientow",
+      "proposedName": "Mały podarunek z logo dla firm – świeczka serce",
+      "mode": "review",
+      "notes": "Wyróżnić wariant kokardki w meta/opisie"
+    },
+    {
+      "slug": "kartki-swiateczne-dla-firm",
+      "proposedName": "Kartki świąteczne dla firm ze zdrapką i kopertą",
+      "mode": "keep",
+      "notes": "Osobna intencja kartki; sprawdzić GSC"
+    },
+    {
+      "slug": "ciasteczko-z-wrozba-w-zlotym-pudeleczku-na-boze-narodzenie",
+      "proposedName": "Elegancki drobiazg dla kontrahentów – ciasteczko w złotym pudełku",
+      "mode": "review",
+      "notes": "Wyróżnik: złote opakowanie"
+    },
+    {
+      "slug": "zlota-torebka-z-cukierkami-na-swieta-personalizowana-etykieta",
+      "proposedName": "Złota torebka z cukierkami na święta z etykietą",
+      "mode": "keep",
+      "notes": "Weryfikacja ceny osobnym działaniem"
+    },
+    {
+      "slug": "srebrna-torebka-z-cukierkami-ice-na-swieta-personalizowana-etykieta",
+      "proposedName": "Srebrna torebka z karmelkami ICE z logo",
+      "mode": "keep",
+      "notes": "Weryfikacja ceny osobnym działaniem"
+    },
+    {
+      "slug": "upominki-firmowe-na-boze-narodzenie-herbata-z-logo",
+      "proposedName": "Niedrogi prezent biznesowy z logo – herbata świąteczna",
+      "mode": "preview",
+      "notes": "Jednoznaczny rodzaj produktu, intencja biznesowa"
+    },
+    {
+      "slug": "mini-prezenciki-dla-klientek-herbatki-na-boze-narodzenie",
+      "proposedName": "Mini prezent dla klientek gabinetu – herbatka z życzeniami",
+      "mode": "review",
+      "notes": "Wyróżnić wobec innej herbatki"
+    },
+    {
+      "slug": "lizaki-reklamowe-z-nadrukiem-logo-upominek-na-swieta",
+      "proposedName": "Lizak reklamowy z logo dla klientek salonu",
+      "mode": "review",
+      "notes": "Uważać na wspólne zapytania z /lizaki-swiateczne"
+    },
+    {
+      "slug": "swieczki-dla-pracownikow-upominek-swiateczny-dla-firm",
+      "proposedName": "Świąteczne podziękowanie dla pracowników – świeczka z logo",
+      "mode": "review",
+      "notes": "Dopasować do właściwego wariantu EKO"
+    },
+    {
+      "slug": "lizaki-swiateczne",
+      "proposedName": "Lizaki świąteczne z personalizowaną etykietą",
+      "mode": "keep",
+      "notes": "Chronić obecnie rozwijaną kartę"
+    },
+    {
+      "slug": "swiateczne-ciasteczka-z-wrozba",
+      "proposedName": "Ciasteczko z wróżbą na święta z bilecikiem",
+      "mode": "keep",
+      "notes": "Oddzielnie od ciasteczek w pudełkach"
+    },
+    {
+      "slug": "czekoladki-z-logo",
+      "proposedName": "Czekoladki z logo jako świąteczny upominek reklamowy",
+      "mode": "keep",
+      "notes": "Silna konkretna fraza produktowa"
+    },
+    {
+      "slug": "slodkie-upominki-dla-pracownikow-na-swieta",
+      "proposedName": "Słodkie podziękowanie dla zespołu – karmelki z logo",
+      "mode": "review",
+      "notes": "Nie zmieniać jeśli już ma trafny H1"
+    },
+    {
+      "slug": "slodkie-upominki-dla-klientow-na-swieta",
+      "proposedName": "Słodki upominek reklamowy z logo – karmelki ICE",
+      "mode": "preview",
+      "notes": "Przesunięcie z szerokiej frazy na produkt"
+    },
+    {
+      "slug": "perlowe-pudelko-prezentowe-z-etykieta-na-swieta",
+      "proposedName": "Perłowe pudełko prezentowe na Boże Narodzenie z etykietą",
+      "mode": "keep",
+      "notes": "Opakowanie bez deklaracji zawartości"
+    },
+    {
+      "slug": "kolorowe-lizaki-swiateczne-z-personalizowana-etykieta",
+      "proposedName": "Kolorowe lizaki świąteczne z etykietą firmową",
+      "mode": "keep",
+      "notes": "Istotny wyróżnik kolorowych lizaków"
+    },
+    {
+      "slug": "tani-upominek-dla-klientow-na-swieta",
+      "proposedName": "Tanie podziękowanie dla klientek na święta – ciasteczko z wróżbą",
+      "mode": "preview",
+      "notes": "W GSC nakłada się na kategorię; monitorować"
+    },
+    {
+      "slug": "torebka-papierowa-z-logo-firmy",
+      "proposedName": "Torebka papierowa z logo jako opakowanie na prezent",
+      "mode": "keep",
+      "notes": "Nie sugerować zawartości torebki"
+    },
+    {
+      "slug": "zlote-pudeleczko-swiateczne-z-personalizowana-etykieta",
+      "proposedName": "Złote pudełeczko na upominki z personalizowaną etykietą",
+      "mode": "keep",
+      "notes": "Opakowanie, nie gotowy prezent"
+    },
+    {
+      "slug": "magnes-drobiazg-na-swieta-dla-klientow",
+      "proposedName": "Tani gadżet reklamowy z logo – magnes świąteczny",
+      "mode": "review",
+      "notes": "Prawie identyczny z /magnesy-swiateczne; ostrożnie"
+    },
+    {
+      "slug": "magnesy-swiateczne",
+      "proposedName": "Magnesy świąteczne z logo firmy",
+      "mode": "keep",
+      "notes": "Ma widoczność GSC; chronić"
+    },
+    {
+      "slug": "serwetki-swiateczne-z-logo-firmy-na-wigilie-firmowa",
+      "proposedName": "Serwetki świąteczne z logo na wigilię firmową",
+      "mode": "keep",
+      "notes": "Odrębne zastosowanie B2B"
+    },
+    {
+      "slug": "oplatek-swiateczny-z-personalizowana-etykieta-na-wigilie-firmowa",
+      "proposedName": "Opłatek z etykietą na firmowe spotkanie wigilijne",
+      "mode": "keep",
+      "notes": "Odrębne zastosowanie B2B"
+    }
+  ]
+}
