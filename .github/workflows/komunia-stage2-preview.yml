@@ -1,0 +1,29 @@
+name: Komunia SEO Stage 2 - Guarded Previews
+on:
+  push:
+    branches: [seo/komunia-20261108-stage2]
+    paths: [automation/komunia_stage2_changes.py, .github/workflows/komunia-stage2-preview.yml]
+permissions:
+  contents: read
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+      SEO_MODE: preview
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests==2.32.5
+      - name: Guard before states and preview all edits
+        run: python automation/komunia_stage2_changes.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: komunias2-preview-diffs
+          path: audit/komunia-20261108-stage2/preview-stage2.json
+          if-no-files-found: warn
+          retention-days: 14
