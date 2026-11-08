@@ -1,0 +1,30 @@
+name: Chrzest - read only API and public SEO audit
+on:
+  push:
+    branches: [audit/chrzest-20261108]
+    paths:
+      - automation/chrzest_seo_readonly.py
+      - .github/workflows/chrzest-seo-audit.yml
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests==2.32.5 beautifulsoup4==4.14.2
+      - name: Snapshot of Chrzest category and two products (GET ONLY)
+        run: python automation/chrzest_seo_readonly.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: chrzest-seo-live-audit-20261108
+          path: audit/chrzest-20261108/live-audit.json
+          if-no-files-found: warn
+          retention-days: 14

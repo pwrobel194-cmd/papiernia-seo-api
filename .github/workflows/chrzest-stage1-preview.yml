@@ -1,0 +1,29 @@
+name: Chrzest SEO stage 1 - Preview only
+on:
+  push:
+    branches: [seo/chrzest-20261108-stage1]
+    paths: [automation/chrzest_seo_stage1.py, .github/workflows/chrzest-stage1-preview.yml]
+permissions:
+  contents: read
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+      SEO_MODE: preview
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests==2.32.5
+      - name: Guarded previews only - no production writes
+        run: python automation/chrzest_seo_stage1.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: chrzest-seo-stage1-preview
+          path: audit/chrzest-stage1/preview.json
+          if-no-files-found: warn
+          retention-days: 14
