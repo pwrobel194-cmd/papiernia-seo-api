@@ -1,0 +1,28 @@
+name: Komunia SEO Stage 2 - Read Only Snapshots
+on:
+  push:
+    branches: [seo/komunia-20261108-stage2]
+    paths: [automation/komunia_stage2_snapshot.py, .github/workflows/komunia-stage2-snapshot.yml]
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests==2.32.5
+      - name: Capture live product snapshots without writes
+        run: python automation/komunia_stage2_snapshot.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: komunias2-snapshot-20261108
+          path: audit/komunia-20261108-stage2/snapshot.json
+          if-no-files-found: warn
+          retention-days: 14

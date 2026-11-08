@@ -1,0 +1,29 @@
+name: Komunia SEO Stage 2 - Guarded Production Deployment
+on:
+  push:
+    branches: [seo/komunia-20261108-stage2]
+    paths: [.github/workflows/komunia-stage2-deploy.yml]
+permissions:
+  contents: read
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+      SEO_MODE: apply
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests==2.32.5
+      - name: Preflight all snapshots, preview then commit and verify
+        run: python automation/komunia_stage2_changes.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: komunias2-deployment-verification
+          path: audit/komunia-20261108-stage2/deployment-stage2.json
+          if-no-files-found: warn
+          retention-days: 30
