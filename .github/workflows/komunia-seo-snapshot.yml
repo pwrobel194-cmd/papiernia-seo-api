@@ -1,0 +1,32 @@
+name: Komunia SEO - read-only API v3 snapshot
+on:
+  push:
+    branches:
+      - seo/komunia-20261108-stage1
+    paths:
+      - automation/komunia_20261108_snapshot.py
+      - .github/workflows/komunia-seo-snapshot.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests==2.32.5
+      - name: API v3 read-only snapshot (no writes)
+        run: python automation/komunia_20261108_snapshot.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: komuniasnapshot-20261108
+          path: audit/komunia-20261108/readonly-snapshots.json
+          if-no-files-found: warn
+          retention-days: 7
