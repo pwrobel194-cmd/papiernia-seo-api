@@ -1,0 +1,36 @@
+name: Audyt SEO Święta - linki, schema i indeksacja (TYLKO ODCZYT)
+on:
+  push:
+    branches:
+      - 'audit/swieta-linki-kanibalizacja-schema-20261108'
+    paths:
+      - '.github/workflows/audit-christmas-links-schema-20261108.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit-38:
+    name: Read-only audit all 38 products and Christmas category
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Python libraries
+        run: pip install requests==2.32.5 beautifulsoup4==4.12.3
+      - name: Syntax check
+        run: python -m py_compile automation/audit_christmas_links_schema_20261108.py
+      - name: Audit read-only API and public HTML
+        env:
+          PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+        run: python automation/audit_christmas_links_schema_20261108.py
+      - name: Export audit results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: papiernia-audyt-swieta-linki-schema-20261108
+          path: reports/christmas-links-schema-audit-20261108.json
+          if-no-files-found: warn
+          retention-days: 30
