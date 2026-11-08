@@ -34,6 +34,9 @@ def get_api(url,params=None):
     r.raise_for_status()
     return r.json()
 
+def field(o,name,default=None):
+    return o.get(name,o.get(name[:1].lower()+name[1:],default))
+
 def text_content(s):
     return BeautifulSoup(s or "","html.parser").get_text(" ",strip=True)
 
@@ -126,10 +129,10 @@ def main():
             data=get_api(API+f"/ProductSnapshot/{pid}")
             if data.get("slug")!=slug:raise RuntimeError("Slug differs")
             product["id"]=pid
-            product["name"]=data.get("name")
+            product["name"]=field(data,"Name")
             product["published"]=data.get("Published",data.get("published"))
-            product["full_description_len"]=len(data.get("FullDescription") or "")
-            product["short_description_len"]=len(data.get("ShortDescription") or "")
+            product["full_description_len"]=len(field(data,"FullDescription") or "")
+            product["short_description_len"]=len(field(data,"ShortDescription") or "")
             links=doc_links((data.get("FullDescription") or "")+" "+(data.get("ShortDescription") or ""))
             product["description_links"]=links
             product["category_description_links"]=[x for x in links if urlparse(x["href"]).path.rstrip("/")=="/upominki-swiateczne"]
