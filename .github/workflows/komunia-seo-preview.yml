@@ -1,0 +1,31 @@
+name: Komunia SEO v3 - Preview only (no commit)
+on:
+  push:
+    branches: [seo/komunia-20261108-stage1]
+    paths:
+      - automation/komunia_20261108_preview.py
+      - .github/workflows/komunia-seo-preview.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PAPIERNIA_SEO_API_KEY: {{ secrets.PAPIERNIA_SEO_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests==2.32.5
+      - name: Validate source and run read-only API previews
+        run: python automation/komunia_20261108_preview.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: komuniastege1-preview-20261108
+          path: audit/komunia-20261108/preview-report.json
+          if-no-files-found: warn
+          retention-days: 7
