@@ -1,0 +1,30 @@
+name: Komunia SEO stage 1 - Guarded deploy
+on:
+  push:
+    branches: [seo/komunia-20261108-stage1]
+    paths:
+      - automation/komunia_20261108_deploy.py
+      - .github/workflows/komunia-seo-deploy.yml
+permissions:
+  contents: read
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests==2.32.5
+      - name: Preflight, preview, guarded commit and read-back verification
+        run: python automation/komunia_20261108_deploy.py
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: komuniastege1-deployment-verification
+          path: audit/komunia-20261108/deploy/verification.json
+          if-no-files-found: warn
+          retention-days: 30
