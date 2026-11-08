@@ -56,6 +56,19 @@ def paragraph_after(s,heading,index,text):
  return s[:at+len(heading)]+new_rem
 def anchor_hrefs(s):
  return re.findall(r"<a\b[^>]*\bhref=[\"']([^\"']+)[\"']",s,re.I)
+URLS={4907:"https://papiernia.net.pl/czekoladki-komunijne-slodkie-podziekowanie",
+      4893:"https://papiernia.net.pl/czekoladki-na-komunie-upominki-dla-gosci",
+      4909:"https://papiernia.net.pl/ciasteczka-z-wrozba-dla-gosci-na-komunie"}
+def verify_public_url(id):
+ url=URLS[id]
+ root=BASE.rsplit("/v3",1)[0]
+ response=S.get(root+"/v1/Resolve",params={"url":url},timeout=35)
+ response.raise_for_status()
+ result=response.json()
+ actual=field(result,"id")
+ if str(actual)!=str(id) or str(field(result,"entity")).lower()!="product":
+  raise RuntimeError(f"Public URL mapping changed for {id}")
+
 def prepare(id,cur):
  e=EXPECTED[id]
  for k,api in (("full","fullDescription"),("name","name"),("title","metaTitle"),("desc","metaDescription"),("short","shortDescription")):
@@ -125,7 +138,7 @@ def prepare(id,cur):
  # Pre-existing anchor hrefs in same order and unchanged, new internal links may be inserted.
  original=anchor_hrefs(old);updated=anchor_hrefs(html);cursor=iter(updated)
  if not all(any(x==wanted for x in cursor) for wanted in original):raise RuntimeError("Old links altered or reordered")
- if field(cur,"seName") is None:raise RuntimeError("Cannot confirm current slug")
+ verify_public_url(id) # public URL maps to target despite v3 snapshot omitting seName
  return payload,old,original
 
 def main():
@@ -168,6 +181,7 @@ def main():
     if field(new,k)!=field(current,k):raise RuntimeError(f"Protected field changed: {id}, {k}")
    if "shortDescription" not in payload and field(new,"shortDescription")!=field(current,"shortDescription"):
     raise RuntimeError(f"Short desc changed unexpectedly for {id}")
+   verify_public_url(id)
    if re.findall(r"<img\b[^>]*>",old,re.I)!=re.findall(r"<img\b[^>]*>",field(new,"fullDescription") or "",re.I):
     raise RuntimeError("Image tag integrity failed")
    row.update({"status":"APPLIED_VERIFIED",
