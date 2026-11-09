@@ -1,0 +1,29 @@
+name: Verify installed media API
+on:
+  push:
+    branches: [feature/product-creator-v04]
+    paths: [.github/workflows/verify-media-api.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    env:
+      PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+    steps:
+      - name: Verify unpublished test product gallery
+        shell: bash
+        run: |
+          python - <<'PY'
+          import os, json, urllib.request
+          url="https://papiernia.net.pl/papiernia-seo-api/v1/DraftPictures/4968"
+          req=urllib.request.Request(url,headers={"X-Papiernia-SEO-Key":os.environ["PAPIERNIA_SEO_API_KEY"]})
+          with urllib.request.urlopen(req,timeout=20) as response:
+              data=json.load(response)
+          print("Product:",data.get("productId"))
+          print("Published:",data.get("published"))
+          print("Picture count:",len(data.get("pictures",[])))
+          if data.get("published") is not False:
+              raise RuntimeError("Refusing media changes to published product")
+          PY

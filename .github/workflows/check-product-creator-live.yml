@@ -1,0 +1,46 @@
+name: Check Product Creator live (read-only + dryRun)
+on:
+  push:
+    branches: [ "feature/product-creator-v04" ]
+    paths: [ ".github/workflows/check-product-creator-live.yml" ]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    env:
+      PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+    steps:
+      - name: Verify installed version and test no-write endpoints
+        shell: bash
+        run: |
+          python - <<'PY'
+          import os,json,urllib.request,urllib.error
+          base='https://papiernia.net.pl/papiernia-seo-api/v1'
+          key=os.environ.get('PAPIERNIA_SEO_API_KEY','')
+          if not key:
+              raise SystemExit('Missing PAPIERNIA_SEO_API_KEY secret; no writes performed.')
+          def req(path,method='GET',payload=None):
+              b=json.dumps(payload,ensure_ascii=False).encode('utf-8') if payload is not None else None
+              h={'X-Papiernia-SEO-Key':key}
+              if b is not None:h['Content-Type']='application/json'
+              r=urllib.request.Request(base+'/'+path,data=b,headers=h,method=method)
+              try:
+                  with urllib.request.urlopen(r,timeout=25) as response:
+                      return response.status,json.loads(response.read())
+              except urllib.error.HTTPError as e:
+                  return e.code,{'error':e.read().decode('utf-8','replace')[:600]}
+          status, health=req('Health')
+          print('Health status:',status,'version:',health.get('version'),'ok:',health.get('ok'))
+          status, category=req('Resolve?url=https%3A%2F%2Fpapiernia.net.pl%2Fupominki-swiateczne')
+          print('Category resolve:',status,'entity:',category.get('entity'),'id:',category.get('id'))
+          if status != 200 or category.get('entity') != 'Category':
+              raise SystemExit('Category could not be resolved. No writes performed.')
+          draft={'name':'TEST - Świece pieńkowe z etykietą na Święta','price':4.50,'categoryId':category['id'],'minimumQuantity':30,'requestId':'papiernia-test-swiece-pienkowe-2026-10-20','reason':'test integration no publication','shortDescription':'TEST - Świece pieńkowe. Produkt do samodzielnego złożenia.','fullDescription':'<p>TEST - Świece pieńkowe z personalizowaną etykietą. Produkt do samodzielnego złożenia.</p>','metaTitle':'TEST - Świece pieńkowe z etykietą na Święta','metaDescription':'Testowy, nieopublikowany produkt Papiernia.'}
+          status,result=req('CreateDraft?dryRun=true','POST',draft)
+          print('CreateDraft dryRun status:',status,'ok:',result.get('ok'),'dryRun:',result.get('dryRun'),'error:',result.get('error'))
+          if status != 200 or result.get('dryRun') is not True:
+              raise SystemExit('Dry-run failed. No writes performed.')
+          print('LIVE PROBE PASSED - ZERO WRITES')
+          PY
