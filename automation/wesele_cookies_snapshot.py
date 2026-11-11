@@ -48,3 +48,31 @@ out=pathlib.Path("reports/wesele-cookies-snapshot.json")
 out.parent.mkdir(parents=True,exist_ok=True)
 out.write_text(json.dumps(record,ensure_ascii=False,indent=2),encoding="utf-8")
 print("SUMMARY",json.dumps({k:{"id":v.get("resolve",{}).get("id"),"error":v.get("error")} for k,v in record["items"].items()},ensure_ascii=False))
+
+from html import unescape
+expected={
+ "category":"Ciasteczka z wróżbą na wesele – podziękowania dla gości",
+ "winietka":"Ciasteczko z wróżbą i winietką 2w1 na wesele",
+ "torebka":"Ciasteczko z wróżbą w torebce na wesele",
+ "biale":"Ciasteczko z wróżbą w białym pudełeczku na wesele",
+ "eko":"Ciasteczko z wróżbą w pudełeczku EKO na wesele",
+ "rozowe":"Ciasteczko z wróżbą w różowym pudełeczku na wesele",
+ "bilecik":"Ciasteczko z wróżbą ze złotym bilecikiem na ślub"
+}
+public={}
+for label,slug in URLS.items():
+  try:
+    response=requests.get(BASE+slug,params={"seo_check":"202611111653"},headers={"Cache-Control":"no-cache","Pragma":"no-cache","User-Agent":"Mozilla/5.0 (compatible; PapierniaSeoAudit/1.0)"},timeout=35)
+    match=re.search(r'<h1[^>]*>(.*?)</h1\s*>',response.text,flags=re.I|re.S)
+    h1=unescape(re.sub(r'<[^>]+>'," ",match.group(1)).strip()) if match else None
+    h1=re.sub(r"\s+"," ",h1).strip() if h1 else None
+    title_match=re.search(r'<title[^>]*>(.*?)</title\s*>',response.text,flags=re.I|re.S)
+    title=unescape(re.sub(r'<[^>]+>'," ",title_match.group(1)).strip()) if title_match else None
+    has_new_h2=bool(re.search(r'Ciasteczka z wróżbą na wesele – oryginalne podziękowania',response.text))
+    public[label]={"http":response.status_code,"h1":h1,"expected":expected[label],"h1Matches":h1==expected[label],"title":title,"newCategoryCopySeen":has_new_h2 if label=="category" else None}
+    print("PUBLIC",label,"http",response.status_code,"H1_OK",h1==expected[label],"H1",str(h1)[:140],"TITLE",str(title)[:140], "CATEGORY_COPY",has_new_h2 if label=="category" else "-",flush=True)
+  except Exception as e:
+    public[label]={"error":str(e)}
+    print("PUBLIC_ERROR",label,str(e)[:180],flush=True)
+record["public"]=public
+out.write_text(json.dumps(record,ensure_ascii=False,indent=2),encoding="utf-8")
