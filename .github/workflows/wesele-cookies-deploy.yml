@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 12
     env:
-      SEO_ACTION: preview
+      SEO_ACTION: apply
       PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
     steps:
       - uses: actions/checkout@v4
@@ -21,7 +21,7 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install requests==2.32.5
-      - name: Make authenticated previews with signed API v3 tokens
+      - name: Apply owner-approved SEO changes via signed preview and commit, then verify
         run: python automation/wesele_cookies_deploy.py
       - name: Store before-state and SEO differences
         if: always()
