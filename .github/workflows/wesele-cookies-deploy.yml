@@ -1,0 +1,32 @@
+name: Wedding fortune cookies - controlled SEO changes
+on:
+  push:
+    branches: [seo/wesele-ciasteczka-audyt-20261111]
+    paths:
+      - 'automation/wesele_cookies_deploy.py'
+      - '.github/workflows/wesele-cookies-deploy.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  guarded-seo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      SEO_ACTION: preview
+      PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests==2.32.5
+      - name: Make authenticated previews with signed API v3 tokens
+        run: python automation/wesele_cookies_deploy.py
+      - name: Store before-state and SEO differences
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wesele-cookies-v3-preview
+          path: reports/wesele-cookies-deployment/
+          retention-days: 30
