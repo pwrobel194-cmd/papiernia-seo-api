@@ -1,0 +1,31 @@
+name: Wedding fortune cookies - read only snapshot
+on:
+  push:
+    branches: [seo/wesele-ciasteczka-audyt-20261111]
+    paths:
+      - '.github/workflows/wesele-cookies-snapshot.yml'
+      - 'automation/wesele_cookies_snapshot.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests==2.32.5
+      - name: Read production data without modifying store
+        env:
+          PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+        run: python automation/wesele_cookies_snapshot.py
+      - name: Upload before-state backup
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wesele-cookies-readonly-backup
+          path: reports/wesele-cookies-snapshot.json
+          retention-days: 30
