@@ -19,11 +19,11 @@ for k,v in data["categories"].items():
  marker='data-papiernia-wesele-seo="2026-11-11"'
  hasmarker=marker in r.text
  needles={"main":"Wybierz podziękowania dla gości weselnych według rodzaju upominku","candles":"Mini świeczki i podziękowania dla gości weselnych","chocolates":"Czekoladki ślubne dla gości – dostępne warianty","magnets":"Wybierz magnesy jako podziękowania na wesele","sweets":"Słodkie upominki weselne – wybierz rodzaj słodyczy","funny":"Śmieszne podziękowania – produkty i wzory z humorem","scratch":"Zdrapki weselne – prezent i zabawa na przyjęciu","placecards":"Winietki i podziękowanie dla gości w jednym","tea":"Herbatka dla gości na wesele – personalizowany upominek"}
-    newtext=needles.get(k,"") in doc.get_text(" ",strip=True) if k!="cookies" else None
-    api_text=v["snapshot"]["Description"] or ""
-    api_marker=marker in api_text
-    result={"key":k,"url":url,"http":r.status_code,"h1":h1,"title":title,"canonical":canonical,"newSeoSectionSeen":hasmarker,"newSectionTextVisible":newtext,"apiHasMarker":api_marker}
-    print("DIAGNOSTIC",k,"api",api_marker,"public_text",newtext,"public_marker",hasmarker,flush=True)
+ newtext=needles.get(k,"") in doc.get_text(" ",strip=True) if k!="cookies" else None
+ api_text=v["snapshot"]["Description"] or ""
+ api_marker=marker in api_text
+ result={"key":k,"url":url,"http":r.status_code,"h1":h1,"title":title,"canonical":canonical,"newSeoSectionSeen":hasmarker,"newSectionTextVisible":newtext,"apiHasMarker":api_marker}
+ print("DIAGNOSTIC",k,"api",api_marker,"public_text",newtext,"public_marker",hasmarker,flush=True)
  records["categoryPages"].append(result)
  if r.status_code!=200 or canonical!=url or (k!="cookies" and not hasmarker):fail.append("category "+k)
  print("PUBLIC_CATEGORY",k,r.status_code,"MARKER",hasmarker,"H1",h1,"CANONICAL",canonical,flush=True)
