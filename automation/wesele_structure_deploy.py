@@ -193,6 +193,9 @@ for slug,v in PROD.items():
  x=v["snapshot"];eid=x["id"]
  if not x["Published"] or x["Deleted"]:continue
  if eid not in PRODUCT_ANCHORS:continue
+ if eid == 4905:
+  print("SKIP_PRODUCT_4905", "API preview returned HTTP 500 on previous read-only dry run; do not attempt write",flush=True)
+  continue
  key,anchor=PRODUCT_ANCHORS[eid]
  assert CAT[key]["id"] in x["categoryIds"], f"Product {eid} not in {key}"
  old=x.get("FullDescription") or ""
