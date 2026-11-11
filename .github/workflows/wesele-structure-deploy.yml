@@ -1,0 +1,34 @@
+name: Wedding SEO architecture - controlled deployment
+on:
+  push:
+    branches: [seo/wesele-struktura-20261111]
+    paths:
+      - '.github/workflows/wesele-structure-deploy.yml'
+      - 'automation/wesele_structure_deploy.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  wedding-seo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+      SEO_ACTION: preview
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests==2.32.5 beautifulsoup4==4.12.3
+      - name: Refresh backup and verify product assignments
+        run: python automation/wesele_structure_snapshot.py
+      - name: Preview guarded changes without writes
+        run: python automation/wesele_structure_deploy.py
+      - name: Archive complete before-state and change report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wesele-seo-architecture
+          path: reports/wesele-structure/
+          retention-days: 30
