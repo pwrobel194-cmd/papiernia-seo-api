@@ -1,0 +1,32 @@
+name: Wedding fortune cookies - picture ALT and Title
+on:
+  push:
+    branches: [seo/wesele-ciasteczka-audyt-20261111]
+    paths:
+      - 'automation/wesele_cookies_pictures.py'
+      - '.github/workflows/wesele-cookies-pictures.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  picture-alt:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      SEO_ACTION: preview
+      PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests==2.32.5
+      - name: Preview guarded picture metadata updates
+        run: python automation/wesele_cookies_pictures.py
+      - name: Store ALT report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: wesele-cookies-pictures-report
+          path: reports/wesele-cookies-picture-alt/
+          retention-days: 30
