@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     env:
-      SEO_ACTION: preview
+      SEO_ACTION: apply
       PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
     steps:
       - uses: actions/checkout@v4
@@ -21,7 +21,7 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install requests==2.32.5
-      - name: Preview guarded picture metadata updates
+      - name: Apply and verify main photo ALT and Title via API v3
         run: python automation/wesele_cookies_pictures.py
       - name: Store ALT report
         if: always()
