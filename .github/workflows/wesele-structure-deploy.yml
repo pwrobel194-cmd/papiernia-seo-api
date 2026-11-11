@@ -14,7 +14,7 @@ jobs:
     timeout-minutes: 20
     env:
       PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
-      SEO_ACTION: preview
+      SEO_ACTION: apply
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -23,7 +23,7 @@ jobs:
       - run: pip install requests==2.32.5 beautifulsoup4==4.12.3
       - name: Refresh backup and verify product assignments
         run: python automation/wesele_structure_snapshot.py
-      - name: Preview guarded changes without writes
+      - name: Apply approved changes by guarded API v3 commits and verify
         run: python automation/wesele_structure_deploy.py
       - name: Archive complete before-state and change report
         if: always()
