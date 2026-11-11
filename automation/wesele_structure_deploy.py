@@ -233,7 +233,11 @@ for kind,eid,payload,key,orig in TASKS:
   REPORT["categoryChanges" if kind=="Category" else "productChanges"].append(entry)
   print("RESULT",kind,key,eid,entry["verification"],",".join(payload),flush=True);log()
  except Exception as e:
-  REPORT["errors"].append({"kind":kind,"id":eid,"key":key,"error":str(e)});log();raise
+  REPORT["errors"].append({"kind":kind,"id":eid,"key":key,"error":str(e)});log()
+  if kind=="Product" and str(e).startswith(f"POST /PreviewProductSeo/{eid}: HTTP 500"):
+   print("SKIP_PREVIEW_SERVER_ERROR",eid,"Product left unchanged; continue with remaining items",flush=True)
+   continue
+  raise
 
 # Główne zdjęcia kategorii: bez edycji plików i kolejności obrazów.
 for key,p in SETTINGS.items():
