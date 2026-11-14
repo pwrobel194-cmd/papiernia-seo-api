@@ -1,15 +1,12 @@
 name: Christmas SEO 2026 — five products controlled rollout
+# One-off production rollout completed and verified 2026-11-14.
+# Manual re-run only; no automatic re-deploy on future commits.
 on:
-  push:
-    branches: [main]
-    paths:
-      - automation/seo_swieta_five_20261114.py
-      - .github/workflows/seo-swieta-five-20261114.yml
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
-  inspect-and-verify:
+  guarded-deployment:
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
@@ -19,15 +16,15 @@ jobs:
           python-version: '3.12'
       - name: Install dependency
         run: pip install requests==2.32.5
-      - name: Read current SEO API v3 state (no writes)
+      - name: Guarded API v3 preview, owner-approved metadata commit and verification
         env:
           PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
         run: python automation/seo_swieta_five_20261114.py
-      - name: Upload pre-deployment snapshots
+      - name: Upload deployment report and protected pre-change snapshots
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: papiernia-seo-swieta-five-before-20261114
+          name: papiernia-seo-swieta-five-20261114
           path: reports/christmas-five-20261114/
           if-no-files-found: warn
           retention-days: 14
