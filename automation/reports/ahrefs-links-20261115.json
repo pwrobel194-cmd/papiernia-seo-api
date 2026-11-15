@@ -5,5 +5,14 @@
   "links": [],
   "poradnik": "Nie zmieniono: brak endpointu Topic w SEO API v3",
   "product_id": 4970,
-  "error": "Nie potwierdzono dokladnie 3 bezpiecznych linkow. Wykryte: [], kandydaci: []"
+  "error": "Nie potwierdzono dokladnie 3 bezpiecznych linkow. Wykryte: [], kandydaci: []",
+  "live_page_placeholders": [],
+  "live_page_placeholder_count": 0,
+  "live_page_example_context": [],
+  "api_snapshot_fields_with_placeholders": [
+    {
+      "field": "root.FullDescription",
+      "count": 0
+    }
+  ]
 }
