@@ -5,6 +5,7 @@ on:
     branches: ["main"]
     paths:
       - ".github/workflows/repair-ahrefs-20261115.yml"
+      - "automation/repair_ahrefs_links_20261115.py"
   workflow_dispatch:
 
 permissions:
