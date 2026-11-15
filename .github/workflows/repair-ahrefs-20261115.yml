@@ -45,9 +45,9 @@ jobs:
               with urllib.request.urlopen(req,timeout=35) as resp: return resp.read().decode('utf-8','replace')
           try:
               source=get(url)
-              data['live_page_placeholders']=sorted(set(re.findall(r'URL_ZDJECIA[123]',source,re.I)))
-              data['live_page_placeholder_count']=len(re.findall(r'URL_ZDJECIA[123]',source,re.I))
-              data['live_page_example_context']=[source[max(0,m.start()-95):m.end()+95] for m in list(re.finditer(r'URL_ZDJECIA[123]',source,re.I))[:3]]
+              data['live_page_placeholders']=sorted(set(re.findall(r'URL_ZDJECIA',source,re.I)))
+              data['live_page_placeholder_count']=len(re.findall(r'URL_ZDJECIA',source,re.I))
+              data['live_page_example_context']=[source[max(0,m.start()-95):m.end()+95] for m in list(re.finditer(r'URL_ZDJECIA',source,re.I))[:3]]
           except Exception as exc: data['live_page_error']=str(exc)[:300]
           try:
               source=get('https://papiernia.net.pl/papiernia-seo-api/v3/ProductSnapshot/4970',True)
@@ -59,7 +59,7 @@ jobs:
                   elif isinstance(obj,list):
                       for i,v in enumerate(obj): scan(v,path+'['+str(i)+']')
                   elif isinstance(obj,str) and 'URL_ZDJECIA' in obj:
-                      paths.append({'field':path,'count':len(re.findall(r'URL_ZDJECIA[123]',obj,re.I))})
+                      paths.append({'field':path,'count':len(re.findall(r'URL_ZDJECIA',obj,re.I)),'examples':[obj[m.start():m.start()+80] for m in list(re.finditer(r'URL_ZDJECIA',obj,re.I))[:8]]})
               scan(snapshot)
               data['api_snapshot_fields_with_placeholders']=paths
           except Exception as exc: data['api_snapshot_error']=str(exc)[:300]
