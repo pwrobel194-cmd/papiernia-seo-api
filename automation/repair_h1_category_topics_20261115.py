@@ -14,7 +14,7 @@ PHRASE="Personalizowane podziękowania dla gości i upominki na każdą okazję"
 TOPICS=[
  "poradnik",
  "ile-podziekowan-dla-gosci-zamowic",
- "co-napisać-na-podziekowaniu-dla-gosci",
+ "co-napisac-na-podziekowaniu-dla-gosci",
  "podziekowania-dla-gosci-do-5-zl",
  "jak-wybrac-upominki-dla-gosci-na-chrzest",
  "jak-wybrac-podziekowania-dla-gosci-na-komunie",
