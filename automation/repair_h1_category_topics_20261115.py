@@ -47,9 +47,16 @@ def h1s(markup):
         result.append(" ".join(s.split()))
     return result
 def pick(obj,key):
-    if not isinstance(obj,dict): return None
-    for k,v in obj.items():
-        if k.casefold()==key.casefold(): return v
+    if isinstance(obj,dict):
+        for k,v in obj.items():
+            if k.casefold()==key.casefold(): return v
+        for v in obj.values():
+            found=pick(v,key)
+            if found is not None:return found
+    if isinstance(obj,list):
+        for v in obj:
+            found=pick(v,key)
+            if found is not None:return found
     return None
 def resolve_category():
     params=urllib.parse.urlencode({"url": BASE+"/kategorie"})
@@ -109,10 +116,21 @@ def run_category():
     id=resolve_category()
     status["category_id"]=id
     snapshot=request("GET",f"/papiernia-seo-api/v3/CategorySnapshot/{id}")
+    status["snapshot_top_keys"]=list(snapshot.keys()) if isinstance(snapshot,dict) else ["not_dict"]
     slug=pick(snapshot,"seName")
+    snapshot_name=pick(snapshot,"name")
+    snapshot_id=pick(snapshot,"id")
+    if slug is not None and str(slug).strip().lower()!="kategorie":
+        raise RuntimeError("Wrong category slug in snapshot: "+str(slug))
+    # Resolve already confirmed entity=Category, slug=kategorie, id=335.
+    # If this API snapshot does not expose SeName, require matching category Name and ID instead.
+    resolved=status.get("resolve_shape",{})
     if slug is None:
-        raise RuntimeError("Snapshot did not include SeName. Refuse category write without ID verification.")
-    if str(slug).strip().lower()!="kategorie":raise RuntimeError("Wrong category slug in snapshot: "+str(slug))
+        if not (resolved.get("entity")=="Category" and resolved.get("slug")=="kategorie"
+                and resolved.get("id")==id and snapshot_name=="Podziękowania dla Gości"):
+            raise RuntimeError("Cannot verify the category identity from Resolve and snapshot Name")
+    if snapshot_id is not None and snapshot_id!=id:
+        raise RuntimeError("Snapshot ID and Resolve ID differ, abort write")
     desc=pick(snapshot,"description")
     if not isinstance(desc,str) or not desc:raise RuntimeError("Category snapshot missing full Description")
     rewritten=safely_rewrite(desc)
