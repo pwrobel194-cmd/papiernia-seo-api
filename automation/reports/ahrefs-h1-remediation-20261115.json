@@ -1,10 +1,10 @@
 {
-  "timestamp_utc": "2026-11-15T18:06:50.097359+00:00",
+  "timestamp_utc": "2026-11-15T18:07:58.751500+00:00",
   "scope": "/kategorie and 9 informational topics",
   "product_changes": 0,
   "topic_changes": 0,
   "category": {
-    "status": "failed_or_unverified",
+    "status": "verified_saved",
     "public_h1_before": [
       "Podziękowania dla Gości",
       "Personalizowane podziękowania dla gości i upominki na każdą okazję"
@@ -20,7 +20,29 @@
       "Deleted": false
     },
     "category_id": 335,
-    "error": "Snapshot did not include SeName. Refuse category write without ID verification."
+    "snapshot_top_keys": [
+      "ok",
+      "apiVersion",
+      "kind",
+      "id",
+      "name",
+      "Description",
+      "MetaTitle",
+      "MetaDescription",
+      "MetaKeywords",
+      "slug",
+      "ParentCategoryId",
+      "PictureId",
+      "Published",
+      "Deleted",
+      "DisplayOrder",
+      "UpdatedOnUtc",
+      "picture"
+    ],
+    "public_h1_after": [
+      "Podziękowania dla Gości"
+    ],
+    "only_change": "h1 to h2 in category.Description"
   },
   "topics": [
     {
