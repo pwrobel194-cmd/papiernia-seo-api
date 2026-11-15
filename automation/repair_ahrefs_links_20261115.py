@@ -48,7 +48,7 @@ def find_field(obj, target):
             if found is not None: return found
     return None
 
-ANCHOR = re.compile(r'(?P<before><a\b[^>]*?\bhref\s*=\s*(?P<quote>["\']))(?P<old>(?:https?://papiernia\.net\.pl)?/?URL_ZDJECIA[123])(?P=quote)(?P<attrs>[^>]*>)(?P<inner>.*?)(?P<end></a\s*>)', re.I | re.S)
+ANCHOR = re.compile(r'(?P<before><a\b[^>]*?\bhref\s*=\s*(?P<quote>["\']))(?P<old>(?:https?://papiernia\.net\.pl)?/?URL_ZDJECIA_[123])(?P=quote)(?P<attrs>[^>]*>)(?P<inner>.*?)(?P<end></a\s*>)', re.I | re.S)
 IMAGE = re.compile(r'<img\b[^>]*?\bsrc\s*=\s*(["\'])(.*?)\1', re.I | re.S)
 
 def repaired_html(html):
@@ -67,11 +67,11 @@ def repaired_html(html):
         return (match.group('before') + new + match.group('quote') +
                 match.group('attrs') + match.group('inner') + match.group('end'))
     updated = ANCHOR.sub(fix, html)
-    names = sorted(re.findall(r'URL_ZDJECIA[123]', html, re.I))
-    changed = sorted(re.findall(r'URL_ZDJECIA[123]', '\n'.join(x['from'] for x in edits), re.I))
-    if names != ['URL_ZDJECIA1', 'URL_ZDJECIA2', 'URL_ZDJECIA3'] or changed != names:
+    names = sorted(re.findall(r'URL_ZDJECIA_[123]', '\n'.join(m.group('old') for m in ANCHOR.finditer(html)), re.I))
+    changed = sorted(re.findall(r'URL_ZDJECIA_[123]', '\n'.join(x['from'] for x in edits), re.I))
+    if names != ['URL_ZDJECIA_1', 'URL_ZDJECIA_2', 'URL_ZDJECIA_3'] or changed != names:
         raise RuntimeError('Nie potwierdzono dokladnie 3 bezpiecznych linkow. Wykryte: %s, kandydaci: %s' % (names, changed))
-    if any(x in updated for x in ('URL_ZDJECIA1', 'URL_ZDJECIA2', 'URL_ZDJECIA3')):
+    if any('URL_ZDJECIA_' in m.group('old') for m in ANCHOR.finditer(updated)):
         raise RuntimeError('W opisie pozostaly placeholdery')
     return updated, edits
 
