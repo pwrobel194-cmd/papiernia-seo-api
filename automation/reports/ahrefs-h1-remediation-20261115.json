@@ -1,0 +1,112 @@
+{
+  "timestamp_utc": "2026-11-15T18:06:50.097359+00:00",
+  "scope": "/kategorie and 9 informational topics",
+  "product_changes": 0,
+  "topic_changes": 0,
+  "category": {
+    "status": "failed_or_unverified",
+    "public_h1_before": [
+      "Podziękowania dla Gości",
+      "Personalizowane podziękowania dla gości i upominki na każdą okazję"
+    ],
+    "resolve_shape": {
+      "ok": true,
+      "url": "https://papiernia.net.pl/kategorie",
+      "slug": "kategorie",
+      "entity": "Category",
+      "id": 335,
+      "Name": "Podziękowania dla Gości",
+      "Published": true,
+      "Deleted": false
+    },
+    "category_id": 335,
+    "error": "Snapshot did not include SeName. Refuse category write without ID verification."
+  },
+  "topics": [
+    {
+      "url": "https://papiernia.net.pl/poradnik",
+      "status": "not_modified_no_topic_endpoint",
+      "h1_now": [
+        "Poradnik",
+        "Pomysły, które pomagają wybrać dobrze."
+      ],
+      "h1_count": 2,
+      "recommended": "retain first, change H1 tags to H2 only for second H1 in topic body"
+    },
+    {
+      "url": "https://papiernia.net.pl/ile-podziekowan-dla-gosci-zamowic",
+      "status": "not_modified_no_topic_endpoint",
+      "h1_now": [
+        "Ile podziękowań dla gości zamówić? Prosty sposób",
+        "Ile podziękowań dla gości zamówić?"
+      ],
+      "h1_count": 2,
+      "recommended": "retain first, change H1 tags to H2 only for second H1 in topic body"
+    },
+    {
+      "url": "https://papiernia.net.pl/co-napisa%C4%87-na-podziekowaniu-dla-gosci",
+      "status": "not_modified_no_topic_endpoint",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "url": "https://papiernia.net.pl/podziekowania-dla-gosci-do-5-zl",
+      "status": "not_modified_no_topic_endpoint",
+      "h1_now": [
+        "Podziękowania dla gości do 5 zł – jak wybrać?",
+        "Podziękowania dla gości do 5 zł – jak wybierać?"
+      ],
+      "h1_count": 2,
+      "recommended": "retain first, change H1 tags to H2 only for second H1 in topic body"
+    },
+    {
+      "url": "https://papiernia.net.pl/jak-wybrac-upominki-dla-gosci-na-chrzest",
+      "status": "not_modified_no_topic_endpoint",
+      "h1_now": [
+        "Jak wybrać upominki dla gości na chrzest?",
+        "Jak wybrać upominki dla gości na chrzest?"
+      ],
+      "h1_count": 2,
+      "recommended": "retain first, change H1 tags to H2 only for second H1 in topic body"
+    },
+    {
+      "url": "https://papiernia.net.pl/jak-wybrac-podziekowania-dla-gosci-na-komunie",
+      "status": "not_modified_no_topic_endpoint",
+      "h1_now": [
+        "Jak wybrać podziękowania dla gości na Komunię?",
+        "Jak wybrać podziękowania dla gości na Komunię?"
+      ],
+      "h1_count": 2,
+      "recommended": "retain first, change H1 tags to H2 only for second H1 in topic body"
+    },
+    {
+      "url": "https://papiernia.net.pl/jak-zaplanowac-podziekowania-na-urodziny",
+      "status": "not_modified_no_topic_endpoint",
+      "h1_now": [
+        "Jak zaplanować podziękowania na urodziny? Pomysły",
+        "Jak zaplanować podziękowania na urodziny?"
+      ],
+      "h1_count": 2,
+      "recommended": "retain first, change H1 tags to H2 only for second H1 in topic body"
+    },
+    {
+      "url": "https://papiernia.net.pl/jak-wybrac-upominki-dla-klientow-firmowych",
+      "status": "not_modified_no_topic_endpoint",
+      "h1_now": [
+        "Jak wybrać upominki dla klientów firmy? Poradnik",
+        "Jak wybrać upominki dla klientów firmy?"
+      ],
+      "h1_count": 2,
+      "recommended": "retain first, change H1 tags to H2 only for second H1 in topic body"
+    },
+    {
+      "url": "https://papiernia.net.pl/jakie-podziekowania-dla-gosci-weselnych-wybrac",
+      "status": "not_modified_no_topic_endpoint",
+      "h1_now": [
+        "Jakie podziękowania dla gości weselnych wybrać?",
+        "Jakie podziękowania dla gości weselnych wybrać?"
+      ],
+      "h1_count": 2,
+      "recommended": "retain first, change H1 tags to H2 only for second H1 in topic body"
+    }
+  ]
+}
