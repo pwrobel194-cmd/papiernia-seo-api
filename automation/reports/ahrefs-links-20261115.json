@@ -6,13 +6,27 @@
   "poradnik": "Nie zmieniono: brak endpointu Topic w SEO API v3",
   "product_id": 4970,
   "error": "Nie potwierdzono dokladnie 3 bezpiecznych linkow. Wykryte: [], kandydaci: []",
-  "live_page_placeholders": [],
-  "live_page_placeholder_count": 0,
-  "live_page_example_context": [],
+  "live_page_placeholders": [
+    "URL_ZDJECIA"
+  ],
+  "live_page_placeholder_count": 3,
+  "live_page_example_context": [
+    "zeniami, nazwą firmy lub logo.</ul><p>&nbsp;<p style=\"text-align:center;margin:22px 0\"><a href=URL_ZDJECIA_1 target=_blank rel=noopener><img style=max-width:100%;width:100%;height:100%;border-radius:10",
+    "mowe życzenia na Boże Narodzenie i Nowy Rok.<p style=\"text-align:center;margin:22px 0\"><a href=URL_ZDJECIA_2 target=_blank rel=noopener><img style=max-width:100%;width:100%;height:100%;border-radius:10",
+    "tanowią one gotowych personalizacji klienta.<p style=\"text-align:center;margin:22px 0\"><a href=URL_ZDJECIA_3 target=_blank rel=noopener><img style=max-width:100%;width:100%;height:100%;border-radius:10"
+  ],
   "api_snapshot_fields_with_placeholders": [
     {
       "field": "root.FullDescription",
-      "count": 0
+      "count": 6,
+      "examples": [
+        "URL_ZDJECIA_1 na rzeczywisty adres WebP -->\r\n<p style=\"text-align: center; margi",
+        "URL_ZDJECIA_1\" target=\"_blank\" rel=\"noopener\"><img style=\"max-width: 100%; width",
+        "URL_ZDJECIA_2 -->\r\n<p style=\"text-align: center; margin: 22px 0;\"><a href=\"URL_Z",
+        "URL_ZDJECIA_2\" target=\"_blank\" rel=\"noopener\"><img style=\"max-width: 100%; width",
+        "URL_ZDJECIA_3 -->\r\n<p style=\"text-align: center; margin: 22px 0;\"><a href=\"URL_Z",
+        "URL_ZDJECIA_3\" target=\"_blank\" rel=\"noopener\"><img style=\"max-width: 100%; width"
+      ]
     }
   ]
 }
