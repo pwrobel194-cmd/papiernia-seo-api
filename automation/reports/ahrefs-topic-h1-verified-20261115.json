@@ -1,0 +1,184 @@
+{
+  "mode": "read_only",
+  "checked_at_utc": "2026-11-15T18:15:26.546233+00:00",
+  "pages": [
+    {
+      "url": "https://papiernia.net.pl/poradnik",
+      "http_status": 200,
+      "h1": [
+        "Poradnik"
+      ],
+      "h1_count": 1,
+      "h2": [
+        "Pomysły, które pomagają wybrać dobrze.",
+        "Wybierz temat, który jest Ci teraz potrzebny.",
+        "Jakie podziękowania dla gości weselnych wybrać?",
+        "Ile podziękowań dla gości zamówić?",
+        "Podziękowania dla gości do 5 zł",
+        "Co napisać na podziękowaniu?",
+        "Podziękowania dla gości na Komunię",
+        "Upominki dla gości na chrzest",
+        "Podziękowania na urodziny",
+        "Upominki dla klientów firmy"
+      ],
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/ile-podziekowan-dla-gosci-zamowic",
+      "http_status": 200,
+      "h1": [
+        "Ile podziękowań dla gości zamówić? Prosty sposób"
+      ],
+      "h1_count": 1,
+      "h2": [
+        "Ile podziękowań dla gości zamówić?",
+        "Zasada podstawowa: liczba gości + niewielki zapas",
+        "Przykładowe liczby",
+        "Kiedy nie trzeba kupować po jednym na osobę?",
+        "Pamiętaj o minimalnym zamówieniu produktu",
+        "Jak ograniczyć ryzyko, że zabraknie upominków?",
+        "Wybierz rodzaj podziękowania"
+      ],
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/co-napisac-na-podziekowaniu-dla-gosci",
+      "http_status": 200,
+      "h1": [
+        "Co napisać na podziękowaniu dla gości? Przykłady"
+      ],
+      "h1_count": 1,
+      "h2": [
+        "Co napisać na podziękowaniu dla gości?",
+        "Dobra zasada: jedno zdanie + imiona + data",
+        "Teksty na podziękowania weselne",
+        "Teksty na Pierwszą Komunię Świętą",
+        "Teksty na chrzest",
+        "Teksty na urodziny",
+        "Czego lepiej unikać?",
+        "Czy tekst musi być formalny?",
+        "Wybierz upominek i dopasuj tekst"
+      ],
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/podziekowania-dla-gosci-do-5-zl",
+      "http_status": 200,
+      "h1": [
+        "Podziękowania dla gości do 5 zł – jak wybrać?"
+      ],
+      "h1_count": 1,
+      "h2": [
+        "Podziękowania dla gości do 5 zł – jak wybierać?",
+        "Najpierw policz budżet całego zamówienia",
+        "Co zwykle najlepiej sprawdza się przy mniejszym budżecie?",
+        "Na czym warto oszczędzać, a na czym nie?",
+        "Przelicz budżet przed wyborem produktu",
+        "Nie przywiązuj się do ceny zapisanej w poradniku",
+        "Porównaj dostępne upominki weselne"
+      ],
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/jak-wybrac-upominki-dla-gosci-na-chrzest",
+      "http_status": 200,
+      "h1": [
+        "Jak wybrać upominki dla gości na chrzest?"
+      ],
+      "h1_count": 1,
+      "h2": [
+        "Jak wybrać upominki dla gości na chrzest?",
+        "Mały upominek wystarczy",
+        "Wzór dla dziewczynki i chłopca? Niekoniecznie",
+        "Jakie rodzaje upominków sprawdzają się na chrzest?",
+        "Co napisać?",
+        "Chrzest połączony z roczkiem",
+        "Ile sztuk i kiedy zamówić?",
+        "Zobacz upominki na chrzest"
+      ],
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/jak-wybrac-podziekowania-dla-gosci-na-komunie",
+      "http_status": 200,
+      "h1": [
+        "Jak wybrać podziękowania dla gości na Komunię?"
+      ],
+      "h1_count": 1,
+      "h2": [
+        "Jak wybrać podziękowania dla gości na Komunię?",
+        "Dopasuj upominek do charakteru przyjęcia",
+        "Co można wybrać?",
+        "Jak dobrać grafikę?",
+        "Jaki tekst wybrać?",
+        "Ile sztuk zamówić?",
+        "Kiedy zamówić?",
+        "Zobacz ofertę komunijną"
+      ],
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/jak-zaplanowac-podziekowania-na-urodziny",
+      "http_status": 200,
+      "h1": [
+        "Jak zaplanować podziękowania na urodziny? Pomysły"
+      ],
+      "h1_count": 1,
+      "h2": [
+        "Jak zaplanować podziękowania na urodziny?",
+        "Zacznij od stylu imprezy, nie od wieku",
+        "Co można podarować gościom?",
+        "18., 30., 40., 50. czy 60. urodziny – co zmienić w projekcie?",
+        "Przykładowe teksty",
+        "Humor? Tak, ale taki, który pasuje do jubilata",
+        "Ile upominków przygotować?",
+        "Zobacz upominki urodzinowe"
+      ],
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/jak-wybrac-upominki-dla-klientow-firmowych",
+      "http_status": 200,
+      "h1": [
+        "Jak wybrać upominki dla klientów firmy? Poradnik"
+      ],
+      "h1_count": 1,
+      "h2": [
+        "Jak wybrać upominki dla klientów firmy?",
+        "Najpierw ustal, po co wręczasz upominek",
+        "Logo nie musi być największym elementem projektu",
+        "Co można zamówić?",
+        "Jak przygotować plik z logo?",
+        "Duży nakład? Zacznij od terminu",
+        "Święta firmowe – osobny przypadek",
+        "Krótka checklista przed zamówieniem",
+        "Zobacz ofertę dla firm"
+      ],
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/jakie-podziekowania-dla-gosci-weselnych-wybrac",
+      "http_status": 200,
+      "h1": [
+        "Jakie podziękowania dla gości weselnych wybrać?"
+      ],
+      "h1_count": 1,
+      "h2": [
+        "Jakie podziękowania dla gości weselnych wybrać?",
+        "Najpierw zdecyduj, jaką rolę ma pełnić upominek",
+        "Ciasteczka z wróżbą – kiedy warto je wybrać?",
+        "Czekoladki – prosty i bezpieczny wybór",
+        "Świeczki – gdy zależy Ci na bardziej „prezentowym” efekcie",
+        "Magnesy, herbatki i zdrapki – trzy różne pomysły",
+        "A może podziękowanie 2w1?",
+        "Jak podjąć decyzję w 3 minuty?",
+        "Zobacz całą kategorię weselną"
+      ],
+      "ok": true
+    }
+  ],
+  "total": 9,
+  "single_h1": 9,
+  "still_multiple_h1": [],
+  "http_errors": []
+}
