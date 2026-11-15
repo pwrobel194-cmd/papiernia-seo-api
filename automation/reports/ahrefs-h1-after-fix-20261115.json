@@ -1,0 +1,250 @@
+{
+  "checked_at_utc": "2026-11-15T18:02:26.425032+00:00",
+  "mode": "read_only",
+  "count": 27,
+  "results": [
+    {
+      "url": "https://papiernia.net.pl/cukierki-dla-gosci-weselnych",
+      "status": 200,
+      "h1": [
+        "Cukierki dla gości weselnych | Podziękowania na ślub"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 4
+    },
+    {
+      "url": "https://papiernia.net.pl/mini-prezenciki-dla-klientek-herbatki-na-boze-narodzenie",
+      "status": 200,
+      "h1": [
+        "Herbatka świąteczna z logo – mini prezencik dla klientek salonu"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 2
+    },
+    {
+      "url": "https://papiernia.net.pl/magnesy-dla-gosci-na-wesele",
+      "status": 200,
+      "h1": [
+        "Magnesy dla gości na wesele"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 4
+    },
+    {
+      "url": "https://papiernia.net.pl/swieczki-prezent-dla-gosci-weselnych",
+      "status": 200,
+      "h1": [
+        "Świeczki prezent dla gości weselnych"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 5
+    },
+    {
+      "url": "https://papiernia.net.pl/ciasteczka-z-wrozba-wesele",
+      "status": 200,
+      "h1": [
+        "Ciasteczko z wróżbą w różowym pudełeczku na wesele"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 4
+    },
+    {
+      "url": "https://papiernia.net.pl/swieczki-dla-gosci-weselnych-podziekowanie-na-slub",
+      "status": 200,
+      "h1": [
+        "Świeczki dla gości weselnych | podziękowanie na ślub"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 4
+    },
+    {
+      "url": "https://papiernia.net.pl/tani-upominek-dla-klientow-na-swieta",
+      "status": 200,
+      "h1": [
+        "Tanie podziękowanie dla klientek na święta – ciasteczko z wróżbą"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 2
+    },
+    {
+      "url": "https://papiernia.net.pl/upominek-swiateczny-dla-klientow",
+      "status": 200,
+      "h1": [
+        "Białe pudełeczko z czerwoną świeczką – upominek dla klientów na Święta"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 2
+    },
+    {
+      "url": "https://papiernia.net.pl/prezenciki-dla-klientow-na-swieta-bozego-narodzenia",
+      "status": 200,
+      "h1": [
+        "Białe pudełeczko z ciasteczkiem z wróżbą – prezent na Święta"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 2
+    },
+    {
+      "url": "https://papiernia.net.pl/kartki-swiateczne-dla-firm",
+      "status": 200,
+      "h1": [
+        "Kartki świąteczne ze zdrapką dla firm – z logo i kopertą"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 2
+    },
+    {
+      "url": "https://papiernia.net.pl/magnes-drobiazg-na-swieta-dla-klientow",
+      "status": 200,
+      "h1": [
+        "Magnes świąteczny z logo – tani upominek dla klientek salonu"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 2
+    },
+    {
+      "url": "https://papiernia.net.pl/lizaki-reklamowe-z-nadrukiem-logo-upominek-na-swieta",
+      "status": 200,
+      "h1": [
+        "Lizak świąteczny z logo – upominek dla klientek salonu"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 2
+    },
+    {
+      "url": "https://papiernia.net.pl/zyczenia-dla-klientow-prezenciki-upominek-swieta-bozego-narodzenia",
+      "status": 200,
+      "h1": [
+        "Białe pudełeczko ze świeczką serce – upominek świąteczny dla klientów"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 2
+    },
+    {
+      "url": "https://papiernia.net.pl/kartki-swiateczne-z-logo-z-zyczeniami-dla-klientow",
+      "status": 200,
+      "h1": [
+        "Kartki świąteczne ze zdrapką i logo – życzenia dla klientów"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 2
+    },
+    {
+      "url": "https://papiernia.net.pl/oryginalny-prezent-dla-klientow-upominek-swiateczny",
+      "status": 200,
+      "h1": [
+        "Różowe pudełeczko ze świeczką serce – prezent świąteczny dla klientek"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 2
+    },
+    {
+      "url": "https://papiernia.net.pl/ciasteczka-z-wrozba-na-podziekowania",
+      "status": 200,
+      "h1": [
+        "Ciasteczko z wróżbą w białym pudełeczku na wesele"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 4
+    },
+    {
+      "url": "https://papiernia.net.pl/podziekowania-dla-gosci-ciasteczko-z-wrozba",
+      "status": 200,
+      "h1": [
+        "Ciasteczko z wróżbą w pudełeczku EKO na wesele"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 6
+    },
+    {
+      "url": "https://papiernia.net.pl/magnesy-na-weselne",
+      "status": 200,
+      "h1": [
+        "Magnesy na wesele - wzory kwiatowe"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 4
+    },
+    {
+      "url": "https://papiernia.net.pl/czekoladki-na-wesele",
+      "status": 200,
+      "h1": [
+        "Czekoladki na wesele | Upominek personalizowany"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 4
+    },
+    {
+      "url": "https://papiernia.net.pl/czekoladki-slubne-dla-gosci",
+      "status": 200,
+      "h1": [
+        "Czekoladki dla gości weselnych"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 4
+    },
+    {
+      "url": "https://papiernia.net.pl/podziekowania-dla-gosci-z-winietka",
+      "status": 200,
+      "h1": [
+        "Ciasteczko z wróżbą i winietką 2w1 na wesele"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 4
+    },
+    {
+      "url": "https://papiernia.net.pl/ciasteczka-z-wrozba-slub",
+      "status": 200,
+      "h1": [
+        "Ciasteczko z wróżbą ze złotym bilecikiem na ślub"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 4
+    },
+    {
+      "url": "https://papiernia.net.pl/zdrapki-dla-gosci-weselnych",
+      "status": 200,
+      "h1": [
+        "Podziękowania dla gości zdrapki"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 6
+    },
+    {
+      "url": "https://papiernia.net.pl/swieczki-na-prezent-dla-gosci-weselnych",
+      "status": 200,
+      "h1": [
+        "Personalizowane mini świeczki dla gości weselnych"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 4
+    },
+    {
+      "url": "https://papiernia.net.pl/czekoladka-dla-gosci-weselnych",
+      "status": 200,
+      "h1": [
+        "Czekoladka dla gości weselnych | Upominki kartki"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 4
+    },
+    {
+      "url": "https://papiernia.net.pl/herbata-upominek-dla-gosci-na-wesele",
+      "status": 200,
+      "h1": [
+        "Herbata upominek dla gości na wesele"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 4
+    },
+    {
+      "url": "https://papiernia.net.pl/podziekowanie-na-slub-torebka-z-ciasteczkiem-z-wrozba",
+      "status": 200,
+      "h1": [
+        "Ciasteczko z wróżbą w torebce na wesele"
+      ],
+      "h2_personalizowane": true,
+      "raw_personalizowane": 5
+    }
+  ]
+}
