@@ -2,7 +2,7 @@ name: Guarded one-time category H1 fix and topic audit
 on:
   push:
     branches: ["main"]
-    paths: [".github/workflows/fix-category-h1-20261115.yml"]
+    paths: [".github/workflows/fix-category-h1-20261115.yml", "automation/repair_h1_category_topics_20261115.py"]
   workflow_dispatch:
 permissions:
   contents: write
