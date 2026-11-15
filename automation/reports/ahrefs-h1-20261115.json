@@ -1,0 +1,562 @@
+{
+  "mode": "READ_ONLY",
+  "products": 27,
+  "topics": 10,
+  "results": [
+    {
+      "url": "https://papiernia.net.pl/cukierki-dla-gosci-weselnych",
+      "kind": "product",
+      "public_h1": [
+        "Cukierki dla gości weselnych | Podziękowania na ślub",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4891,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": false,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/mini-prezenciki-dla-klientek-herbatki-na-boze-narodzenie",
+      "kind": "product",
+      "public_h1": [
+        "Herbatka świąteczna z logo – mini prezencik dla klientek salonu",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4951,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": false,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/magnesy-dla-gosci-na-wesele",
+      "kind": "product",
+      "public_h1": [
+        "Magnesy dla gości na wesele",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4889,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": false,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/swieczki-prezent-dla-gosci-weselnych",
+      "kind": "product",
+      "public_h1": [
+        "Świeczki prezent dla gości weselnych",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4902,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": false,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/ciasteczka-z-wrozba-wesele",
+      "kind": "product",
+      "public_h1": [
+        "Ciasteczko z wróżbą w różowym pudełeczku na wesele",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4888,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": false,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/swieczki-dla-gosci-weselnych-podziekowanie-na-slub",
+      "kind": "product",
+      "public_h1": [
+        "Świeczki dla gości weselnych | podziękowanie na ślub",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4885,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": false,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/tani-upominek-dla-klientow-na-swieta",
+      "kind": "product",
+      "public_h1": [
+        "Tanie podziękowanie dla klientek na święta – ciasteczko z wróżbą",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4946,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": false,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/upominek-swiateczny-dla-klientow",
+      "kind": "product",
+      "public_h1": [
+        "Białe pudełeczko z czerwoną świeczką – upominek dla klientów na Święta",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4948,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": false,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/prezenciki-dla-klientow-na-swieta-bozego-narodzenia",
+      "kind": "product",
+      "public_h1": [
+        "Białe pudełeczko z ciasteczkiem z wróżbą – prezent na Święta",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4945,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": false,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/kartki-swiateczne-dla-firm",
+      "kind": "product",
+      "public_h1": [
+        "Kartki świąteczne ze zdrapką dla firm – z logo i kopertą",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4947,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": false,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/magnes-drobiazg-na-swieta-dla-klientow",
+      "kind": "product",
+      "public_h1": [
+        "Magnes świąteczny z logo – tani upominek dla klientek salonu",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4953,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": false,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/lizaki-reklamowe-z-nadrukiem-logo-upominek-na-swieta",
+      "kind": "product",
+      "public_h1": [
+        "Lizak świąteczny z logo – upominek dla klientek salonu",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4952,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": false,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/zyczenia-dla-klientow-prezenciki-upominek-swieta-bozego-narodzenia",
+      "kind": "product",
+      "public_h1": [
+        "Białe pudełeczko ze świeczką serce – upominek świąteczny dla klientów",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4944,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": false,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/kartki-swiateczne-z-logo-z-zyczeniami-dla-klientow",
+      "kind": "product",
+      "public_h1": [
+        "Kartki świąteczne ze zdrapką i logo – życzenia dla klientów",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4950,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": false,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/oryginalny-prezent-dla-klientow-upominek-swiateczny",
+      "kind": "product",
+      "public_h1": [
+        "Różowe pudełeczko ze świeczką serce – prezent świąteczny dla klientek",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4949,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": false,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/ciasteczka-z-wrozba-na-podziekowania",
+      "kind": "product",
+      "public_h1": [
+        "Ciasteczko z wróżbą w białym pudełeczku na wesele",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4898,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": false,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/podziekowania-dla-gosci-ciasteczko-z-wrozba",
+      "kind": "product",
+      "public_h1": [
+        "Ciasteczko z wróżbą w pudełeczku EKO na wesele",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4899,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": true,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/magnesy-na-weselne",
+      "kind": "product",
+      "public_h1": [
+        "Magnesy na wesele - wzory kwiatowe",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4901,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": false,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/czekoladki-na-wesele",
+      "kind": "product",
+      "public_h1": [
+        "Czekoladki na wesele | Upominek personalizowany",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4890,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": false,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/czekoladki-slubne-dla-gosci",
+      "kind": "product",
+      "public_h1": [
+        "Czekoladki dla gości weselnych",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4887,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": false,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/podziekowania-dla-gosci-z-winietka",
+      "kind": "product",
+      "public_h1": [
+        "Ciasteczko z wróżbą i winietką 2w1 na wesele",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4904,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": false,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/ciasteczka-z-wrozba-slub",
+      "kind": "product",
+      "public_h1": [
+        "Ciasteczko z wróżbą ze złotym bilecikiem na ślub",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4900,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": false,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/zdrapki-dla-gosci-weselnych",
+      "kind": "product",
+      "public_h1": [
+        "Podziękowania dla gości zdrapki",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4895,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": true,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/swieczki-na-prezent-dla-gosci-weselnych",
+      "kind": "product",
+      "public_h1": [
+        "Personalizowane mini świeczki dla gości weselnych",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4886,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": false,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/czekoladka-dla-gosci-weselnych",
+      "kind": "product",
+      "public_h1": [
+        "Czekoladka dla gości weselnych | Upominki kartki",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4905,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": false,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/herbata-upominek-dla-gosci-na-wesele",
+      "kind": "product",
+      "public_h1": [
+        "Herbata upominek dla gości na wesele",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4892,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": false,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/podziekowanie-na-slub-torebka-z-ciasteczkiem-z-wrozba",
+      "kind": "product",
+      "public_h1": [
+        "Ciasteczko z wróżbą w torebce na wesele",
+        "Personalizowane upominki"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "id": 4884,
+      "full_description_h1": [],
+      "short_description_h1": [],
+      "full_description_has_personalizowane_upominki": false,
+      "short_description_has_personalizowane_upominki": false,
+      "full_description_h1_tags_count": 0,
+      "short_description_h1_tags_count": 0,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/kategorie",
+      "kind": "topic",
+      "public_h1": [
+        "Podziękowania dla Gości",
+        "Personalizowane podziękowania dla gości i upominki na każdą okazję"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/poradnik",
+      "kind": "topic",
+      "public_h1": [
+        "Poradnik",
+        "Pomysły, które pomagają wybrać dobrze."
+      ],
+      "public_has_personalizowane_upominki": false,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/ile-podziekowan-dla-gosci-zamowic",
+      "kind": "topic",
+      "public_h1": [
+        "Ile podziękowań dla gości zamówić? Prosty sposób",
+        "Ile podziękowań dla gości zamówić?"
+      ],
+      "public_has_personalizowane_upominki": false,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/co-napisać-na-podziekowaniu-dla-gosci",
+      "kind": "topic",
+      "ok": false,
+      "error": "'ascii' codec can't encode character '\\u0107' in position 14: ordinal not in range(128)"
+    },
+    {
+      "url": "https://papiernia.net.pl/podziekowania-dla-gosci-do-5-zl",
+      "kind": "topic",
+      "public_h1": [
+        "Podziękowania dla gości do 5 zł – jak wybrać?",
+        "Podziękowania dla gości do 5 zł – jak wybierać?"
+      ],
+      "public_has_personalizowane_upominki": false,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/jak-wybrac-upominki-dla-gosci-na-chrzest",
+      "kind": "topic",
+      "public_h1": [
+        "Jak wybrać upominki dla gości na chrzest?",
+        "Jak wybrać upominki dla gości na chrzest?"
+      ],
+      "public_has_personalizowane_upominki": false,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/jak-wybrac-podziekowania-dla-gosci-na-komunie",
+      "kind": "topic",
+      "public_h1": [
+        "Jak wybrać podziękowania dla gości na Komunię?",
+        "Jak wybrać podziękowania dla gości na Komunię?"
+      ],
+      "public_has_personalizowane_upominki": false,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/jak-zaplanowac-podziekowania-na-urodziny",
+      "kind": "topic",
+      "public_h1": [
+        "Jak zaplanować podziękowania na urodziny? Pomysły",
+        "Jak zaplanować podziękowania na urodziny?"
+      ],
+      "public_has_personalizowane_upominki": false,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/jak-wybrac-upominki-dla-klientow-firmowych",
+      "kind": "topic",
+      "public_h1": [
+        "Jak wybrać upominki dla klientów firmy? Poradnik",
+        "Jak wybrać upominki dla klientów firmy?"
+      ],
+      "public_has_personalizowane_upominki": true,
+      "ok": true
+    },
+    {
+      "url": "https://papiernia.net.pl/jakie-podziekowania-dla-gosci-weselnych-wybrac",
+      "kind": "topic",
+      "public_h1": [
+        "Jakie podziękowania dla gości weselnych wybrać?",
+        "Jakie podziękowania dla gości weselnych wybrać?"
+      ],
+      "public_has_personalizowane_upominki": false,
+      "ok": true
+    }
+  ]
+}
