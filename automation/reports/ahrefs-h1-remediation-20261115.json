@@ -1,48 +1,13 @@
 {
-  "timestamp_utc": "2026-11-15T18:07:58.751500+00:00",
+  "timestamp_utc": "2026-11-15T18:09:16.143823+00:00",
   "scope": "/kategorie and 9 informational topics",
   "product_changes": 0,
   "topic_changes": 0,
   "category": {
-    "status": "verified_saved",
+    "status": "already_fixed",
     "public_h1_before": [
-      "Podziękowania dla Gości",
-      "Personalizowane podziękowania dla gości i upominki na każdą okazję"
-    ],
-    "resolve_shape": {
-      "ok": true,
-      "url": "https://papiernia.net.pl/kategorie",
-      "slug": "kategorie",
-      "entity": "Category",
-      "id": 335,
-      "Name": "Podziękowania dla Gości",
-      "Published": true,
-      "Deleted": false
-    },
-    "category_id": 335,
-    "snapshot_top_keys": [
-      "ok",
-      "apiVersion",
-      "kind",
-      "id",
-      "name",
-      "Description",
-      "MetaTitle",
-      "MetaDescription",
-      "MetaKeywords",
-      "slug",
-      "ParentCategoryId",
-      "PictureId",
-      "Published",
-      "Deleted",
-      "DisplayOrder",
-      "UpdatedOnUtc",
-      "picture"
-    ],
-    "public_h1_after": [
       "Podziękowania dla Gości"
-    ],
-    "only_change": "h1 to h2 in category.Description"
+    ]
   },
   "topics": [
     {
@@ -66,9 +31,14 @@
       "recommended": "retain first, change H1 tags to H2 only for second H1 in topic body"
     },
     {
-      "url": "https://papiernia.net.pl/co-napisa%C4%87-na-podziekowaniu-dla-gosci",
+      "url": "https://papiernia.net.pl/co-napisac-na-podziekowaniu-dla-gosci",
       "status": "not_modified_no_topic_endpoint",
-      "error": "HTTP Error 404: Not Found"
+      "h1_now": [
+        "Co napisać na podziękowaniu dla gości? Przykłady",
+        "Co napisać na podziękowaniu dla gości?"
+      ],
+      "h1_count": 2,
+      "recommended": "retain first, change H1 tags to H2 only for second H1 in topic body"
     },
     {
       "url": "https://papiernia.net.pl/podziekowania-dla-gosci-do-5-zl",
