@@ -1,0 +1,57 @@
+name: Validate Product Creator v0.4
+
+on:
+  push:
+    branches: [ "feature/product-creator-v04" ]
+    paths:
+      - "src/**"
+      - "automation/**"
+      - ".github/workflows/upload-product-media.yml"
+      - ".github/workflows/validate-product-creator.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test ambiguous WebP upload handling
+        run: python -m unittest discover -s automation -p 'test_*.py' -v
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Checkout nopCommerce 4.50.3
+        uses: actions/checkout@v4
+        with:
+          repository: nopSolutions/nopCommerce
+          ref: release-4.50.3
+          path: nopcommerce
+          fetch-depth: 1
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "6.0.x"
+      - name: Copy plugin
+        run: |
+          rm -rf nopcommerce/src/Plugins/Nop.Plugin.Misc.PapierniaSeoApi
+          cp -R src/Nop.Plugin.Misc.PapierniaSeoApi nopcommerce/src/Plugins/Nop.Plugin.Misc.PapierniaSeoApi
+      - name: Compile against nopCommerce 4.50.3
+        run: dotnet build nopcommerce/src/Plugins/Nop.Plugin.Misc.PapierniaSeoApi/Nop.Plugin.Misc.PapierniaSeoApi.csproj -c Release --nologo
+      - name: Package plugin for manual staging review
+        run: |
+          mkdir -p dist
+          cd nopcommerce/src/Presentation/Nop.Web/Plugins
+          zip -r "${{ github.workspace }}/dist/PapierniaSeoApi-v0.4-DEV.zip" Misc.PapierniaSeoApi
+      - name: Upload development ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: PapierniaSeoApi-v0.4-DEV
+          path: dist/PapierniaSeoApi-v0.4-DEV.zip
+          retention-days: 14

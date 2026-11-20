@@ -1,0 +1,49 @@
+name: Papiernia private media inbox
+on:
+  workflow_dispatch:
+    inputs:
+      product_id:
+        description: "Optional unpublished product ID (blank = all ZIPs in private Drive inbox)"
+        type: string
+        required: false
+  schedule:
+    # Runs only after this workflow is merged into the repository default branch.
+    - cron: "15 * * * *"
+permissions:
+  contents: read
+concurrency:
+  group: papiernia-drive-media-inbox
+  cancel-in-progress: false
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PAPIERNIA_SEO_API_KEY: ${{ secrets.PAPIERNIA_SEO_API_KEY }}
+      PAPIERNIA_DRIVE_SERVICE_ACCOUNT_JSON: ${{ secrets.PAPIERNIA_DRIVE_SERVICE_ACCOUNT_JSON }}
+      PAPIERNIA_MEDIA_INBOX_ID: "1O1yRs2uD9ENMQhHLX5Ac7rH8FZM5jZwd"
+      PAPIERNIA_MEDIA_DONE_ID: "1eDt9fjQdJWwKdwX01PKd21Gl6weKFucC"
+      REQUESTED_PRODUCT_ID: ${{ inputs.product_id }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install minimal Google Drive client
+        run: python -m pip install --disable-pip-version-check google-api-python-client==2.149.0 google-auth==2.35.0
+      - name: Pull ZIP privately, use installed API and verify gallery
+        shell: bash
+        run: |
+          if [ -z "${PAPIERNIA_DRIVE_SERVICE_ACCOUNT_JSON}" ]; then
+            echo "::error::Configure PAPIERNIA_DRIVE_SERVICE_ACCOUNT_JSON in GitHub Actions secrets"
+            exit 1
+          fi
+          if [ -n "${REQUESTED_PRODUCT_ID}" ]; then
+            if ! [[ "${REQUESTED_PRODUCT_ID}" =~ ^[1-9][0-9]{0,8}$ ]]; then
+              echo "::error::product_id must be a positive integer"
+              exit 1
+            fi
+            python automation/drive_media_inbox.py --product-id "${REQUESTED_PRODUCT_ID}"
+          else
+            python automation/drive_media_inbox.py
+          fi
